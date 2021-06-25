@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
 export const LogoContainer = styled.div`
-    position: absolute;
     width: 102px;
     height: 43px;
     left: 165px;
@@ -9,7 +8,6 @@ export const LogoContainer = styled.div`
 `
 
 export const HeaderContainer = styled.div`
-    position: absolute;
     width: 1440px;
     height: 80px;
     left: 0px;
@@ -17,7 +15,6 @@ export const HeaderContainer = styled.div`
 `;
 
 export const LeftNav = styled.div`
-    position: absolute;
     width: 456px;
     height: 32px;
     left: 300px;
@@ -25,7 +22,6 @@ export const LeftNav = styled.div`
 `
 
 export const OptionsContainer = styled.div`
-    position: absolute;
     width: 456px;
     height: 20px;
     left: 0px;
@@ -35,7 +31,6 @@ export const OptionsContainer = styled.div`
 `;
 
 export const Line = styled.div`
-    position: absolute;
     width: 1640px;
     height: 1px;
     left: 0px;
@@ -50,7 +45,6 @@ export const ButtonsContainer = styled.div`
     align-items: flex-start;
     padding: 0px;
 
-    position: absolute;
     width: 214px;
     height: 40px;
     right: 165px;
@@ -61,7 +55,6 @@ export const ButtonsContainer = styled.div`
 `;
 
 export const MenuItem = styled.div`
-    position: static;
     left: 0%;
     right: 0%;
     top: 0%;
@@ -79,8 +72,9 @@ export const MenuItem = styled.div`
 
     flex: none;
     order: 0;
-    flex-grow: 0;
-    margin: 0px 10px;
+    flex-basis: auto;
+    margin: -12px 20px;
+    text-align: center;
 `;
 
 export const LoginButton = styled.button`
@@ -89,8 +83,6 @@ export const LoginButton = styled.button`
     left: 0px;
     top: 0px;
 
-
-    position: static;
     left: 0%;
     right: 53.27%;
     top: 0%;
@@ -111,13 +103,12 @@ export const SignUpButton = styled.button`
     width: 100px;
     left: 114px;
     top: 0px;
-
-    position: static;
     left: 53.27%;
     right: 0%;
     top: 0%;
     bottom: 0%;
 
+    border: 1px solid #2E1AAD;
     background: #2E1AAD;
     border-radius: 8px;
 

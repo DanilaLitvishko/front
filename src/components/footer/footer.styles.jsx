@@ -1,22 +1,18 @@
 import styled from 'styled-components';
    
 export const Box = styled.div`
-  flex: 0 0 auto;
-  padding: 80px 60px;
-  background:  #0B0D17;
-  position: relative;
-  bottom: 0;
-  width: 100%;
-  height: 300px;
+  width: 1440px;
+  height: 360px;
+
+  background: #0B0D17;
 `;
 
 export const CompanyInfo = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding: 0px;
+  margin-right: 125px;
 
-  position: absolute;
   width: 350px;
   height: 133px;
   left: 165px;
@@ -24,7 +20,6 @@ export const CompanyInfo = styled.div`
 `
 
 export const CompanyName = styled.div`
-  position: static;
   width: 109px;
   height: 37px;
   left: 0px;
@@ -46,7 +41,6 @@ export const CompanyName = styled.div`
 `
 
 export const Copyright = styled.div`
-  position: static;
   left: 0%;
   right: 0%;
   top: 0%;
@@ -69,7 +63,6 @@ export const Copyright = styled.div`
 `
 
 export const Heading = styled.div`
-  position: static;
   width: 160px;
   height: 30px;
   left: 0px;
@@ -92,7 +85,6 @@ export const Heading = styled.div`
 `
 
 export const String = styled.div`
-  position: static;
   width: 200px;
   height: 26px;
   left: 0px;
@@ -105,6 +97,7 @@ export const String = styled.div`
   line-height: 26px;
 
   font-feature-settings: 'liga' off;
+  padding: 6px;
 
   color: #D9DBE1;
 `
@@ -116,29 +109,21 @@ export const Links = styled.div`
   align-items: flex-start;
   padding: 0px;
 
-  position: absolute;
   width: 375px;
   height: 232px;
-  left: 640px;
-  top: 64px;
 `
    
 export const CompanyColumn = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding: 0px;
+  padding-left: 0px;
 
-  position: static;
   width: 300px;
   height: 232px;
-  left: 0px;
-  top: 0px;
 
-  flex: none;
   order: 0;
-  flex-grow: 0;
-  margin: 0px 30px;
+  margin-right: 10px;
 `
 
 export const JobsColumn = styled.div`
@@ -146,15 +131,8 @@ export const JobsColumn = styled.div`
   flex-direction: column;
   align-items: flex-start;
   padding: 0px;
-
-  position: static;
   width: 160px;
   height: 156px;
-  left: 215px;
-  top: 0px;
 
-  flex: none;
   order: 1;
-  flex-grow: 0;
-  margin: 0px 30px;
 `

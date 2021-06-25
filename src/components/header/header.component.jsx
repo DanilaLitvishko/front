@@ -18,20 +18,20 @@ import {
 const Header = () => {
     return(
     <div>
-        <LogoContainer>
-            <Logo/>
-        </LogoContainer>
         <HeaderContainer>
+            <LogoContainer>
+                <Logo/>
+            </LogoContainer>
             <LeftNav>
                 <OptionsContainer>
                     <MenuItem>
-                        HOME
+                        Home
                     </MenuItem>
                     <MenuItem>
-                        NEWS
+                        News
                     </MenuItem>
                     <MenuItem>
-                        ABOUT
+                        About
                     </MenuItem>
                 </OptionsContainer>
             </LeftNav>
