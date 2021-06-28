@@ -1,4 +1,3 @@
-import Grid from '@material-ui/core/Grid';
 import React from "react";
 import {
   Box,
@@ -14,55 +13,50 @@ import {
   
 const Footer = () => {
   return (
-    <Grid
-      container
-      direction="row"
-    >
-      <Box>
-        <Grid
+      <Box
+        container
+        direction="row"
+      >
+        <CompanyInfo
           container
+          item
           direction="column"
           justify="flex-start"
           alignItems="center"
         >
-          <CompanyInfo>
-            <CompanyName>I-TAPP</CompanyName>
-            <Copyright>Copyright © 2021 I-TAPP</Copyright>
-            <Copyright>All rights reserved</Copyright>
-          </CompanyInfo>
-        </Grid>
+          <CompanyName item>I-TAPP</CompanyName>
+          <Copyright item>Copyright © 2021 I-TAPP</Copyright>
+          <Copyright item>All rights reserved</Copyright>
+        </CompanyInfo>
         <Links>
-        <Grid
-          container
-          direction="column"
-          justify="center"
-          alignItems="center"
-        >
-          <CompanyColumn>
-            <Heading>Company</Heading>
-            <String>Home</String>
-            <String>About I-TAPP</String>
-            <String>News</String>
-            <String>Terms and Conditions</String>
-            <String>Privacy Policy</String>
+          <CompanyColumn
+            container
+            item
+            direction="column"
+            justify="center"
+            alignItems="center"
+          >
+            <Heading item>Company</Heading>
+            <String item>Home</String>
+            <String item>About I-TAPP</String>
+            <String item>News</String>
+            <String item>Terms and Conditions</String>
+            <String item>Privacy Policy</String>
           </CompanyColumn>
-        </Grid>
-        <Grid
-          container
-          direction="column"
-          justify="flex-end"
-          alignItems="center"
-        >
-          <JobsColumn>
-            <Heading>Jobs</Heading>
-            <String>For Candidates</String>
-            <String>For Employers</String>
-            <String>For Headhunters</String>
+          <JobsColumn
+            container
+            item
+            direction="column"
+            justify="flex-end"
+            alignItems="center"
+          >
+            <Heading item>Jobs</Heading>
+            <String item>For Candidates</String>
+            <String item>For Employers</String>
+            <String item>For Headhunters</String>
           </JobsColumn>
-        </Grid>
         </Links>
       </Box>
-    </Grid>
   );
 };
 export default Footer;

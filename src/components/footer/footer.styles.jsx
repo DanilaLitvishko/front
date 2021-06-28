@@ -1,29 +1,23 @@
 import styled from 'styled-components';
+import Grid from '@material-ui/core/Grid';
    
-export const Box = styled.div`
+export const Box = styled(Grid)`
   width: 100%;
   height: 360px;
 
   background: #0B0D17;
 `;
 
-export const CompanyInfo = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+export const CompanyInfo = styled(Grid)`
   margin-right: 125px;
 
   width: 350px;
   height: 133px;
-  left: 165px;
-  top: 64px;
 `
 
-export const CompanyName = styled.div`
+export const CompanyName = styled(Grid)`
   width: 109px;
   height: 37px;
-  left: 0px;
-  top: 0px;
 
   font-family: Montserrat;
   font-style: normal;
@@ -34,18 +28,9 @@ export const CompanyName = styled.div`
   text-transform: uppercase;
 
   color: #999999;
-  flex: none;
-  order: 0;
-  flex-grow: 0;
-  margin: 40px 0px;
 `
 
-export const Copyright = styled.div`
-  left: 0%;
-  right: 0%;
-  top: 0%;
-  bottom: 57.14%;
-
+export const Copyright = styled(Grid)`
   font-family: Manrope;
   font-style: normal;
   font-weight: normal;
@@ -55,18 +40,11 @@ export const Copyright = styled.div`
   font-feature-settings: 'liga' off;
 
   color: #D9DBE1;
-
-  flex: none;
-  order: 0;
-  flex-grow: 0;
-  margin: 8px 0px;
 `
 
-export const Heading = styled.div`
+export const Heading = styled(Grid)`
   width: 160px;
   height: 30px;
-  left: 0px;
-  top: 0px;
 
   font-family: Manrope;
   font-style: normal;
@@ -77,18 +55,11 @@ export const Heading = styled.div`
   font-feature-settings: 'liga' off;
 
   color: #FFFFFF;
-
-  flex: none;
-  order: 0;
-  flex-grow: 0;
-  margin: 24px 0px;
 `
 
-export const String = styled.div`
+export const String = styled(Grid)`
   width: 200px;
   height: 26px;
-  left: 0px;
-  top: 0px;
 
   font-family: Manrope;
   font-style: normal;
@@ -103,36 +74,19 @@ export const String = styled.div`
 `
 
    
-export const Links = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  padding: 0px;
-
+export const Links = styled(Grid)`
   width: 375px;
   height: 232px;
 `
    
-export const CompanyColumn = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding-left: 0px;
-
+export const CompanyColumn = styled(Grid)`
   width: 300px;
   height: 232px;
 
-  order: 0;
-  margin-right: 10px;
 `
 
-export const JobsColumn = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding: 0px;
+export const JobsColumn = styled(Grid)`
   width: 160px;
   height: 156px;
 
-  order: 1;
 `

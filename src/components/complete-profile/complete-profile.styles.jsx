@@ -21,8 +21,8 @@ export const UpdateText = styled.div`
 `
 
 export const Input = styled(TextField)`
-    width: 454px;
-    height: 47px;
+    height: 52px;
+    width: 400px;
 
     background: #FFFFFF;
     border: 1px solid #DDDDDD;
