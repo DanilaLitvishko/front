@@ -1,12 +1,15 @@
+import { Container } from '@material-ui/core'
 import React from 'react'
 import Footer from '../footer/footer.component'
 import Header from '../header/header.component'
 
 const Layout = (props) => {
     return (
-        <div>
+        <div style={{width: '100%'}}>
             <Header/>
-            {props.children}
+                <Container>
+                    {props.children}
+                </Container>
             <Footer/>
         </div>
     )

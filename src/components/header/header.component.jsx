@@ -1,47 +1,52 @@
 import React from 'react';
 import { ReactComponent as Logo } from '../../assets/logo.svg'
+import { makeStyles } from "@material-ui/core/styles";
 
 import {
     HeaderContainer,  
-    OptionsContainer, 
     MenuItem, 
-    ButtonsContainer,
     Line,
     LoginButton,
     Login,
     SignUpButton,
     SignUp,
     LogoContainer,
-    LeftNav,
 } from './header.styles'
+import { Grid } from '@material-ui/core';
 
+const useStyles = makeStyles((theme) => ({
+    textAlign: {
+        textAlign: 'left',
+    },
+}))
+  
 const Header = () => {
+    const classes = useStyles();
     return(
-    <div>
-        <HeaderContainer>
-            <LogoContainer>
-                <Logo/>
-            </LogoContainer>
-            <LeftNav>
-                <OptionsContainer>
-                    <MenuItem>
-                        Home
-                    </MenuItem>
-                    <MenuItem>
-                        News
-                    </MenuItem>
-                    <MenuItem>
-                        About
-                    </MenuItem>
-                </OptionsContainer>
-            </LeftNav>
-            <ButtonsContainer>
-                <LoginButton><Login>Login</Login></LoginButton>
-                <SignUpButton><SignUp>Sign up</SignUp></SignUpButton>
-            </ButtonsContainer>
-        </HeaderContainer>
-        <Line/>
-    </div>
+            <HeaderContainer
+                container
+                direction="row"
+                alignItems="center"
+            >
+                <LogoContainer item >
+                    <Logo/>
+                </LogoContainer>
+                <MenuItem item >
+                    Home
+                </MenuItem>
+                <MenuItem item>
+                    News
+                </MenuItem>
+                <MenuItem item >
+                    About
+                </MenuItem>
+                <Grid item >
+                    <LoginButton><Login>Login</Login></LoginButton>
+                </Grid>
+                <Grid item >
+                    <SignUpButton><SignUp>Sign up</SignUp></SignUpButton>
+                </Grid>
+            </HeaderContainer>
 )}
 
 export default Header;

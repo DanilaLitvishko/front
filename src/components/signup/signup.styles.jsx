@@ -57,7 +57,7 @@ export const ToggleLogin = styled.div`
     background: #DDDDDD;
 `
 
-export const EmailLabel = styled.label`
+export const Label = styled.label`
 
     font-family: Manrope;
     font-style: normal;
@@ -70,55 +70,7 @@ export const EmailLabel = styled.label`
     color: #999999;
 `
 
-export const EmailInput = styled(TextField)`
-
-    & .MuiOutlinedInput-root{
-        border-radius: 8px;
-    }
-
-    background: #FFFFFF;
-`
-
-export const PasswordLabel = styled.label`
-
-    font-family: Manrope;
-    font-style: normal;
-    font-weight: 800;
-    font-size: 12px;
-    line-height: 22px;
-
-    font-feature-settings: 'liga' off;
-
-    color: #999999;
-`
-
-export const PasswordInput = styled(TextField)`
-    height: 52px;
-    width: 400px;
-    border-radius: 8px;
-
-
-    background: #FFFFFF;
-
-    & .MuiOutlinedInput-root{
-        border-radius: 8px;
-    }
-`
-
-export const ConfrirmPasswordLabel = styled.label`
-
-    font-family: Manrope;
-    font-style: normal;
-    font-weight: 800;
-    font-size: 12px;
-    line-height: 22px;
-
-    font-feature-settings: 'liga' off;
-
-    color: #999999;
-`
-
-export const ConfirmPasswordInput = styled(TextField)`
+export const Input = styled(TextField)`
     height: 52px;
     width: 400px;
     border-radius: 8px;
@@ -129,6 +81,7 @@ export const ConfirmPasswordInput = styled(TextField)`
         border-radius: 8px;
     }
 `
+
 
 export const SignUpButton = styled.button`
 
