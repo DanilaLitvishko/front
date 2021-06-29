@@ -4,19 +4,11 @@ import styled from "styled-components";
 export const Window = styled.div`
     width: 496px;
     height: 684px;
-    left: 471px;
-    top: 158px;
-
     background: #F5F7FA;
     border-radius: 8px;
 `
 
 export const SignUpText = styled.div`
-    flex: 1 0 auto;
-    left: 315px;
-    right: 115px;
-    bottom: 626px;
-    top: 32px;
 
     font-family: Manrope;
     font-style: normal;
@@ -30,10 +22,6 @@ export const SignUpText = styled.div`
 `
 
 export const LoginText = styled.div`
-    left: 125px;
-    right: 322px;
-    bottom: 626px;
-    top: 32px;
 
     font-family: Manrope;
     font-style: normal;
@@ -45,16 +33,6 @@ export const LoginText = styled.div`
     margin-right: 71px;
 
     color: #999999;
-`
-
-export const ToggleSignUp = styled.div`
-
-    background: #2E1AAD;
-`
-
-export const ToggleLogin = styled.div`
-
-    background: #DDDDDD;
 `
 
 export const Label = styled.label`
@@ -97,8 +75,6 @@ export const SignUpButton = styled.button`
 export const SignUpTextInButton = styled.div`
     width: 58px;
     height: 20px;
-    left: calc(50% - 58px/2 - 1px);
-    top: calc(50% - 20px/2);
 
     font-family: Manrope;
     font-style: normal;

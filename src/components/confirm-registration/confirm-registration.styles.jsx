@@ -1,6 +1,8 @@
 import styled from 'styled-components'
 
 export const Window = styled.div`
+    flex-direction: column;
+    justify-content: center;
     background: #F5F7FA;
     border-radius: 8px;
     width: 496px;

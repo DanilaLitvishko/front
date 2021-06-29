@@ -1,22 +1,28 @@
 import Grid from '@material-ui/core/Grid';
+import Tabs from '@material-ui/core/Tabs';
+import Tab from '@material-ui/core/Tab';
 import { useFormik } from 'formik'
-import React from 'react'
+import React, {useState} from 'react'
 import { 
-    LoginText, 
     Input, 
     Label, 
     SignUpButton, 
-    SignUpText, 
     SignUpTextInButton, 
-    ToggleLogin, 
-    ToggleSignUp, 
     Window,
     Text,
     Square
 } from './signup.styles'
 import SignUpSchema from './signup.validation-schema'
 
+
+
 const SignUp = () => {
+    const [value, setValue] = useState(1);
+
+    const handleChange = (event, newValue) => {
+      setValue(newValue);
+    };
+  
     const formik = useFormik({
         initialValues:{
             email: '',
@@ -29,69 +35,63 @@ const SignUp = () => {
         validationSchema: SignUpSchema,
     })
     return (
-        <Grid
-            container
-            direction="column"
-            spacing={12}
-        >
         <Window>
-            <Grid
-                container
-                direction="row"
+            <Tabs
+                value={value}
+                onChange={handleChange}
+                indicatorColor="primary"
+                textColor="primary"
+                centered
             >
-                <LoginText>Login</LoginText>
-                <SignUpText>SignUp</SignUpText>
-            </Grid>
-            <Grid
-                container
-                direction="row"
-            >
-                <ToggleLogin/>
-                <ToggleSignUp/>
-            </Grid>
-                <form onSubmit={formik.handleSubmit}>
-                    <Label>Email</Label>
-                    <Input
-                        id="email"
-                        name="email"
-                        type="text"
-                        onChange={formik.handleChange}
-                        value={formik.values.email}
-                        placeholder="email"
-                        {...formik.getFieldProps('email')}
-                        variant="outlined"
-                        error={Boolean(formik.errors.email)}
-                    />
-                    <Label>Password</Label>
-                    <Input
-                        id="password"
-                        name="password"
-                        type="password"
-                        onChange={formik.handleChange}
-                        value={formik.values.password}
-                        {...formik.getFieldProps('password')}
-                        placeholder="password"
-                        variant="outlined"
-                        error={Boolean(formik.errors.password)}
-                    />
-                    <Label>Confirm Password</Label>
-                    <Input
-                        id="confirmPassword"
-                        name="confirmPassword"
-                        type="password"
-                        onChange={formik.handleChange}
-                        value={formik.values.confirmPassword}
-                        {...formik.getFieldProps('confirmPassword')}
-                        placeholder="Confirm password"
-                        variant="outlined"
-                        error={Boolean(formik.errors.confirmPassword)}
-                    />
-                    <Grid
-                        spacing={12}
-                        container
-                        direction="row"
-                    >
-                        <Square></Square>
+                <Tab label="Login"/>
+                <Tab label="SignUp" />
+            </Tabs>
+            <form onSubmit={formik.handleSubmit}>
+                <Grid container direction="column" alignItems="center" spacing={1}>
+                    <Grid item justify="flex-start"><Label>Email</Label></Grid>
+                        <Grid item>
+                            <Input
+                                id="email"
+                                name="email"
+                                type="text"
+                                onChange={formik.handleChange}
+                                value={formik.values.email}
+                                placeholder="email"
+                                {...formik.getFieldProps('email')}
+                                variant="outlined"
+                                error={Boolean(formik.errors.email)}
+                            />
+                        </Grid>
+                    <Grid item><Label>Password</Label></Grid>
+                    <Grid item>
+                        <Input
+                            id="password"
+                            name="password"
+                            type="password"
+                            onChange={formik.handleChange}
+                            value={formik.values.password}
+                            {...formik.getFieldProps('password')}
+                            placeholder="password"
+                            variant="outlined"
+                            error={Boolean(formik.errors.password)}
+                        />
+                    </Grid>
+                    <Grid item><Label>Confirm Password</Label></Grid>
+                    <Grid item>
+                        <Input
+                            id="confirmPassword"
+                            name="confirmPassword"
+                            type="password"
+                            onChange={formik.handleChange}
+                            value={formik.values.confirmPassword}
+                            {...formik.getFieldProps('confirmPassword')}
+                            placeholder="Confirm password"
+                            variant="outlined"
+                            error={Boolean(formik.errors.confirmPassword)}
+                        />
+                    </Grid>
+                    <Grid item>
+                        <Square/>
                         <Text>
                             By creating an account you agree to the terms and conditions applicable to our service and acknowledge 
                             that your personal data will be used in accordance with our privacy policy and 
@@ -99,9 +99,9 @@ const SignUp = () => {
                         </Text>
                     </Grid>
                     <SignUpButton type="submit"><SignUpTextInButton>Sign up</SignUpTextInButton></SignUpButton>
-                </form>
+                </Grid>
+            </form>
         </Window>
-        </Grid>
     )
 }
 

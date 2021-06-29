@@ -1,16 +1,11 @@
-import { Grid } from '@material-ui/core';
 import styled from 'styled-components'
 
-export const LogoContainer = styled(Grid)`
+export const LogoContainer = styled.div`
     width: 102px;
     height: 43px;
-    border-bottom: 1px;
 `
 
-export const HeaderContainer = styled(Grid)`
-`;
-
-export const LeftNav = styled(Grid)`
+export const LeftNav = styled.div`
     width: 456px;
     height: 32px;
 `
@@ -24,7 +19,7 @@ export const Line = styled.div`
     background: #EBEBEB;
 `
 
-export const ButtonsContainer = styled(Grid)`
+export const ButtonsContainer = styled.div`
     padding: 0px;
 
     width: 214px;
@@ -34,7 +29,7 @@ export const ButtonsContainer = styled(Grid)`
     }
 `;
 
-export const MenuItem = styled(Grid)`
+export const MenuItem = styled.div`
     font-family: Manrope;
     font-style: normal;
     font-weight: bold;
@@ -44,12 +39,6 @@ export const MenuItem = styled(Grid)`
     font-feature-settings: 'liga' off;
 
     color: #999999;
-
-    flex: none;
-    order: 0;
-    flex-basis: auto;
-    margin: -12px 20px;
-    text-align: center;
 `;
 
 export const LoginButton = styled.button`

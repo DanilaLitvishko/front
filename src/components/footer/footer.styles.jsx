@@ -1,21 +1,21 @@
 import styled from 'styled-components';
 import Grid from '@material-ui/core/Grid';
    
-export const Box = styled(Grid)`
+export const Box = styled.div`
   width: 100%;
   height: 360px;
 
   background: #0B0D17;
 `;
 
-export const CompanyInfo = styled(Grid)`
+export const CompanyInfo = styled.div`
   margin-right: 125px;
 
   width: 350px;
   height: 133px;
 `
 
-export const CompanyName = styled(Grid)`
+export const CompanyName = styled.div`
   width: 109px;
   height: 37px;
 
@@ -30,7 +30,7 @@ export const CompanyName = styled(Grid)`
   color: #999999;
 `
 
-export const Copyright = styled(Grid)`
+export const Copyright = styled.div`
   font-family: Manrope;
   font-style: normal;
   font-weight: normal;
@@ -42,7 +42,7 @@ export const Copyright = styled(Grid)`
   color: #D9DBE1;
 `
 
-export const Heading = styled(Grid)`
+export const Heading = styled.div`
   width: 160px;
   height: 30px;
 
@@ -57,7 +57,7 @@ export const Heading = styled(Grid)`
   color: #FFFFFF;
 `
 
-export const String = styled(Grid)`
+export const String = styled.div`
   width: 200px;
   height: 26px;
 
@@ -72,16 +72,10 @@ export const String = styled(Grid)`
 
   color: #D9DBE1;
 `
-
    
-export const Links = styled(Grid)`
-  width: 375px;
-  height: 232px;
-`
-   
-export const CompanyColumn = styled(Grid)`
+export const CompanyColumn = styled.div`
   width: 300px;
-  height: 232px;
+  height: 280px;
 
 `
 
