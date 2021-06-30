@@ -13,7 +13,7 @@ import {
     Square
 } from './signup.styles'
 import SignUpSchema from './signup.validation-schema'
-
+import axios from 'axios';
 
 
 const SignUp = () => {
@@ -29,11 +29,17 @@ const SignUp = () => {
             password: '',
             confirmPassword: ''
         },
-        onSubmit: values => {
-            console.log(values)
+        onSubmit: async ({email, password}) => {
+            try{
+                const username = email;
+                await axios.post('http://localhost:3001/auth/signup', {username, password})
+            }catch(err){
+                console.log(err)
+            }
         },
         validationSchema: SignUpSchema,
     })
+
     return (
         <Window>
             <Tabs
@@ -48,7 +54,7 @@ const SignUp = () => {
             </Tabs>
             <form onSubmit={formik.handleSubmit}>
                 <Grid container direction="column" alignItems="center" spacing={1}>
-                    <Grid item justify="flex-start"><Label>Email</Label></Grid>
+                    <Grid item><Label>Email</Label></Grid>
                         <Grid item>
                             <Input
                                 id="email"
