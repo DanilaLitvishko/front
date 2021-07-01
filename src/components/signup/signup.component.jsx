@@ -64,6 +64,7 @@ const SignUp = () => {
                                 variant="outlined"
                                 error={Boolean(formik.errors.email)}
                             />
+                            
                         </Grid>
                     <Grid item><Label>Password</Label></Grid>
                     <Grid item>

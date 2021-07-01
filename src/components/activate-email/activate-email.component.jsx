@@ -6,11 +6,14 @@ import { confirmEmail } from '../../redux/user/user.actions'
 import { useDispatch } from 'react-redux'
 
 export const ActivateEmail = () => {
+
     const dispatch = useDispatch()
+
     const params = useParams();
+
     useEffect(() => {
         dispatch(confirmEmail(params.confirmationCode));
-    }, [])
+    }, [dispatch, params.confirmationCode])
     return (
         <Window>
             <Thanks>You confirmed your email</Thanks>

@@ -66,7 +66,6 @@ export const AddPosition = styled.div`
 `
 
 export const SaveButton = styled.button`
-
     height: 47px;
     width: 120px;
 
