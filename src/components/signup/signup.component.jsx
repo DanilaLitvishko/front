@@ -3,6 +3,7 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import { useFormik } from 'formik'
 import React, {useState} from 'react'
+import { useDispatch } from 'react-redux'
 import { 
     Input, 
     Label, 
@@ -13,29 +14,25 @@ import {
     Square
 } from './signup.styles'
 import SignUpSchema from './signup.validation-schema'
-import axios from 'axios';
+import { signUpStart } from '../../redux/user/user.actions';
 
 
 const SignUp = () => {
     const [value, setValue] = useState(1);
 
+    const dispatch = useDispatch()
+
     const handleChange = (event, newValue) => {
-      setValue(newValue);
+        setValue(newValue);
     };
-  
     const formik = useFormik({
         initialValues:{
             email: '',
             password: '',
             confirmPassword: ''
         },
-        onSubmit: async ({email, password}) => {
-            try{
-                const username = email;
-                await axios.post('http://localhost:3001/auth/signup', {username, password})
-            }catch(err){
-                console.log(err)
-            }
+        onSubmit: async values => {
+            dispatch(signUpStart(values));
         },
         validationSchema: SignUpSchema,
     })
