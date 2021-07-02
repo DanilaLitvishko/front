@@ -1,5 +1,5 @@
 import {takeLatest, put, all, call, takeEvery} from 'redux-saga/effects'
-import axios, { AxiosResponse } from 'axios'
+import axios from 'axios'
 
 import UserActionTypes from './user.types'
 
@@ -29,6 +29,12 @@ export function* confirmEmail({type, payload}:{type: typeof UserActionTypes.CONF
     }
 }
 
+export function* resendEmail({type, payload}:{type: typeof UserActionTypes.CONFIRM_EMAIL, payload:ConfirmEmail}){
+    try{
+        yield axios.get(`http://localhost:3001/confirm-registration/resend-email/${payload}`)
+    }catch(error){}
+}
+
 export function* onSingUpStart(){
     yield takeLatest(UserActionTypes.SIGN_UP_START, singUp)
 }
@@ -37,9 +43,14 @@ export function* onConfirmEmail(){
     yield takeEvery(UserActionTypes.CONFIRM_EMAIL, confirmEmail)
 }
 
+export function* onResendEmail(){
+    yield takeLatest(UserActionTypes.RESEND_EMAIL, resendEmail)
+}
+
 export function* userSagas(){
     yield all([
         call(onSingUpStart),
         call(onConfirmEmail),
+        call(onResendEmail)
     ])
 }

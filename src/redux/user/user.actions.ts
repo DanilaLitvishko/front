@@ -30,3 +30,8 @@ export const confirmEmailFailure = (error:any) => ({
     type: UserActionTypes.SIGN_UP_FAILURE,
     payload: error
 })
+
+export const resendEmail = (email:string) => ({
+    type: UserActionTypes.RESEND_EMAIL,
+    payload: email,
+})

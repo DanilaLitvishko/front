@@ -15,12 +15,13 @@ import {
 } from './signup.styles'
 import SignUpSchema from './signup.validation-schema'
 import { signUpStart } from '../../redux/user/user.actions';
-
+import {Redirect} from 'react-router-dom'
 
 const SignUp = () => {
     const [value, setValue] = useState(1);
+    const [signUp, setSignUp] = useState(false);
 
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
 
     const handleChange = (event, newValue) => {
         setValue(newValue);
@@ -33,6 +34,7 @@ const SignUp = () => {
         },
         onSubmit: async values => {
             dispatch(signUpStart(values));
+            setSignUp(true)
         },
         validationSchema: SignUpSchema,
     })
@@ -102,7 +104,18 @@ const SignUp = () => {
                             you will receive emails and communications about jobs, industry news, new products and related topics.
                         </Text>
                     </Grid>
-                    <SignUpButton type="submit"><SignUpTextInButton>Sign up</SignUpTextInButton></SignUpButton>
+                    <SignUpButton type="submit">
+                        <SignUpTextInButton>
+                            Sign up
+                        </SignUpTextInButton>
+                    </SignUpButton>
+                    {
+                        signUp?<Redirect to={{
+                            pathname:"/resendEmail",
+                            state:{email: formik.values.email}
+                        }}/>
+                        :null
+                    }
                 </Grid>
             </form>
         </Window>
