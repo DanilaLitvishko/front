@@ -12,7 +12,8 @@ import {
     SignUpTextInButton, 
     Window,
     Text,
-    Square
+    SignUpButton,
+    SignUpTextInButton
 } from './signup.styles'
 import SignUpSchema from './signup.validation-schema'
 import { signUpStart } from '../../redux/user/user.actions';
@@ -101,8 +102,8 @@ const SignUp = () => {
                             value={formik.values.password}
                             placeholder="password"
                             variant="outlined"
-                            error={Boolean(formik.errors.password)}
-                        />
+                            error={Boolean(formik.errors.email)}
+                        />                    
                     </Grid>
                     <Grid item><Label>Confirm Password</Label></Grid>
                     <Grid item>

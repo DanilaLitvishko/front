@@ -1,37 +1,10 @@
 import { TextField } from "@material-ui/core";
 import styled from "styled-components";
 
-export const Window = styled.div`
-    width: 496px;
-    height: 684px;
-    background: ${props => props.theme.color.blueWhite};
-    border-radius: 8px;
-`
+export const Label = styled.label`
 
-export const SignUpText = styled.div`
-    font-family: ${props => props.theme.fontFamily};
-    font-style: ${props => props.theme.fontStyle};
-    font-weight: bold;
-    font-size: 18px;
-    line-height: 26px;
-    font-feature-settings: 'liga' off;
-    color: ${props => props.theme.color.blue};
-`
-
-export const LoginText = styled.div`
-    font-family: ${props => props.theme.fontFamily};
-    font-style: ${props => props.theme.fontStyle};
-    font-weight: bold;
-    font-size: 18px;
-    line-height: 26px;
-    font-feature-settings: 'liga' off;
-    margin-right: 71px;
-    color: ${props => props.theme.color.gray};
-`
-
-export const Label = styled.div`    
-    font-family: ${props => props.theme.fontFamily};
-    font-style: ${props => props.theme.fontStyle};
+    font-family: Manrope;
+    font-style: normal;
     font-weight: 800;
     font-size: 12px;
     line-height: 22px;
@@ -48,7 +21,6 @@ export const Input = styled(TextField)`
         border-radius: 8px;
     }
 `
-
 
 export const SignUpButton = styled.button`
     height: 52px;

@@ -45,3 +45,17 @@ export const resendEmailFailure = (error:string) => ({
     type: UserActionTypes.RESEND_EMAIL_FAILURE,
     payload: error
 })
+export const login = (userCredentials:UserCredentials) => ({
+    type: UserActionTypes.LOGIN,
+    payload: userCredentials
+})
+
+export const loginSuccess = (user:any) => ({
+    type: UserActionTypes.LOGIN_SUCCESS,
+    payload: user
+})
+
+export const loginFailure = (error:any) => ({
+    type: UserActionTypes.LOGIN_FAILURE,
+    payload: error
+})
