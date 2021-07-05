@@ -1,7 +1,10 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import { AddPosition, Input, Label, SaveButton, SaveTextInButton, UpdateText, Window } from './complete-profile.styles'
 import { useFormik } from 'formik'
 import CompleteProfileSchema from './complete-profile.validation-schema';
+import Fab from '@material-ui/core/Fab';
+import AddIcon from '@material-ui/icons/Add';
+import axios from 'axios';
 
 const CompleteProfile = () => {
     const {handleSubmit, handleChange, values:{name, companyName, phoneNumber, industrie}, errors, getFieldProps} = useFormik({
@@ -57,7 +60,12 @@ const CompleteProfile = () => {
                     helperText={errors.companyName}
                 />
                 <Label>Specialities</Label>
-                <AddPosition>+ Add position</AddPosition>
+                <AddPosition>
+                    <Fab color="inherit" aria-label="add" variant="extended">
+                        <AddIcon />
+                        Add position
+                    </Fab>
+                </AddPosition>
                 <Label>Industries</Label>
                 <Input
                     placeholder="Start typing..."

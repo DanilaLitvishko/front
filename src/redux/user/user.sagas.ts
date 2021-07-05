@@ -85,6 +85,6 @@ export function* userSagas(){
         call(onSingUpStart),
         call(onConfirmEmail),
         call(onResendEmail),
-        call(onLogin)
+        call(onLogin),
     ])
 }

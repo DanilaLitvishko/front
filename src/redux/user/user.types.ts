@@ -11,7 +11,7 @@ const UserActionTypes = {
     ADD_USER_INFO: '@@user/ADD_USER_INFO',
     LOGIN:'@@user/LOGIN',
     LOGIN_SUCCESS:'@@user/LOGIN_SUCCESS',
-    LOGIN_FAILURE:'@@user/LOGIN_FAILURE'
+    LOGIN_FAILURE:'@@user/LOGIN_FAILURE',
 }
 
 export default UserActionTypes;
