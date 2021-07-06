@@ -8,6 +8,7 @@ import {store, persistor} from './redux/store';
 import {PersistGate} from 'redux-persist/integration/react';
 
 ReactDOM.render(
+<<<<<<< HEAD
     <Provider store={store}>
       <BrowserRouter>
         <PersistGate persistor={persistor}>
@@ -15,6 +16,17 @@ ReactDOM.render(
         </PersistGate>
       </BrowserRouter>
     </Provider>,
+=======
+  <React.StrictMode>
+      <Provider store={store}>
+        <BrowserRouter>
+          <PersistGate persistor={persistor}>
+            <App />
+          </PersistGate>
+        </BrowserRouter>
+      </Provider>
+  </React.StrictMode>,
+>>>>>>> added popup and autocomplete
   document.getElementById('root')
 );
 

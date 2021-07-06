@@ -1,20 +1,31 @@
-import React, {useEffect} from 'react'
-import { AddPosition, Input, Label, SaveButton, SaveTextInButton, UpdateText, Window } from './complete-profile.styles'
+import React, { useState } from 'react'
+import Autocomplete from '@material-ui/lab/Autocomplete';
 import { useFormik } from 'formik'
-import CompleteProfileSchema from './complete-profile.validation-schema';
-import Fab from '@material-ui/core/Fab';
-import AddIcon from '@material-ui/icons/Add';
-import axios from 'axios';
+import Typography from '@material-ui/core/Typography';
+import Button from '@material-ui/core/Button';
 
-const CompleteProfile = () => {
-    let specialities;
-    let industries;
-    useEffect(async () => {
-        specialities = await axios.get('http://localhost:3001/specialities')
-        industries = await axios.get('http://localhost:3001/industries')
-        console.log(specialities.data)
-        console.log(industries.data)
-    }, [specialities, industries])
+import { AddPosition, Input, Label, SaveButton, SaveTextInButton, UpdateText, Window } from './complete-profile.styles'
+import CompleteProfileSchema from './complete-profile.validation-schema';
+import DialogPopup from './dialog.component'
+
+const CompleteProfile = (props) => {
+
+    const [open, setOpen] = useState(false);
+    const [selectedValue, setSelectedValue] = useState(null);
+    const [userSpecialities, setUserSpecialities] = useState([])
+  
+    const handleClickOpen = () => {
+      setOpen(true);
+    };
+  
+    const handleClose = (value) => {
+      setOpen(false);
+      setUserSpecialities(value);
+      console.log(userSpecialities)
+    };
+
+    const {industries, specialities} = props;
+
     const formik = useFormik({
         initialValues:{
             name: '',
@@ -69,25 +80,33 @@ const CompleteProfile = () => {
                     helperText={formik.errors.companyName}
                 />
                 <Label>Specialities</Label>
-                <AddPosition>
-                    <Fab color="inherit" aria-label="add" variant="extended">
-                        <AddIcon />
-                        Add position
-                    </Fab>
+                <AddPosition style={{cursor: "pointer"}} onClick={handleClickOpen}>
+                    + Add position
                 </AddPosition>
                 <Label>Industries</Label>
-                <Input
-                    placeholder="Start typing..."
-                    id="industrie"
-                    name="industrie"
-                    type="text"
-                    onChange={handleChange}
-                    value={industrie}
-                    {...formik.getFieldProps('industrie')}
-                    variant="outlined"
-                    error={Boolean(formik.errors.industrie)}
-                    helperText={formik.errors.companyName}
-                />
+{                    industries.length &&
+                    <Autocomplete
+                        freeSolo
+                        id="autocompleteIndustries"
+                        disableClearable
+                        options={industries.map(industrie => industrie.name)}
+                        renderInput={(params) => 
+                            <Input
+                                {...params}
+                                placeholder="Start typing..."
+                                id="industrie"
+                                name="industrie"
+                                onChange={handleChange}
+                                value={industrie}
+                                {...formik.getFieldProps('industrie')}
+                                variant="outlined"
+                                error={Boolean(formik.errors.industrie)}
+                                helperText={formik.errors.companyName}
+                                InputProps={{ ...params.InputProps, type: 'text' }}
+                            />
+                        }
+                    />}
+                <DialogPopup selectedValue={selectedValue} open={open} onClose={handleClose} specialities={specialities}/>
                 <SaveButton type="submit"><SaveTextInButton>Save</SaveTextInButton></SaveButton>
             </form>
         </Window>
