@@ -4,7 +4,7 @@ import { useFormik } from 'formik'
 import CompleteProfileSchema from './complete-profile.validation-schema';
 
 const CompleteProfile = () => {
-    const formik = useFormik({
+    const {handleSubmit, handleChange, values:{name, companyName, phoneNumber, industrie}, errors, getFieldProps} = useFormik({
         initialValues:{
             name: '',
             companyName: '',
@@ -16,7 +16,6 @@ const CompleteProfile = () => {
         },
         validationSchema: CompleteProfileSchema,
     })
-    const {handleSubmit, handleChange, values:{name, companyName, phoneNumber, industrie}} = formik;
     return (
         <Window>
             <form onSubmit={handleSubmit}>
@@ -28,10 +27,10 @@ const CompleteProfile = () => {
                     onChange={handleChange}
                     value={name}
                     placeholder="Your name"
-                    {...formik.getFieldProps('name')}
+                    {...getFieldProps('name')}
                     variant="outlined"
-                    error={Boolean(formik.errors.name)}
-                    helperText={formik.errors.name}
+                    error={Boolean(errors.name)}
+                    helperText={errors.name}
                 />
                 <Input
                     id="companyName"
@@ -40,10 +39,10 @@ const CompleteProfile = () => {
                     onChange={handleChange}
                     value={companyName}
                     placeholder="Company name"
-                    {...formik.getFieldProps('companyName')}
+                    {...getFieldProps('companyName')}
                     variant="outlined"
-                    error={Boolean(formik.errors.companyName)}
-                    helperText={formik.errors.companyName}
+                    error={Boolean(errors.companyName)}
+                    helperText={errors.companyName}
                 />
                 <Input
                     id="phoneNumber"
@@ -52,10 +51,10 @@ const CompleteProfile = () => {
                     onChange={handleChange}
                     value={phoneNumber}
                     placeholder="Phone number"
-                    {...formik.getFieldProps('phoneNumber')}
+                    {...getFieldProps('phoneNumber')}
                     variant="outlined"
-                    error={Boolean(formik.errors.phoneNumber)}
-                    helperText={formik.errors.companyName}
+                    error={Boolean(errors.phoneNumber)}
+                    helperText={errors.companyName}
                 />
                 <Label>Specialities</Label>
                 <AddPosition>+ Add position</AddPosition>
@@ -67,10 +66,10 @@ const CompleteProfile = () => {
                     type="text"
                     onChange={handleChange}
                     value={industrie}
-                    {...formik.getFieldProps('industrie')}
+                    {...getFieldProps('industrie')}
                     variant="outlined"
-                    error={Boolean(formik.errors.industrie)}
-                    helperText={formik.errors.companyName}
+                    error={Boolean(errors.industrie)}
+                    helperText={errors.companyName}
                 />
                 <SaveButton type="submit"><SaveTextInButton>Save</SaveTextInButton></SaveButton>
             </form>
