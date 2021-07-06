@@ -1,10 +1,30 @@
-import React, {useEffect} from 'react'
-import { AddPosition, Input, Label, SaveButton, SaveTextInButton, UpdateText, Window } from './complete-profile.styles'
+import React, { useState } from 'react'
+import Autocomplete from '@material-ui/lab/Autocomplete';
 import { useFormik } from 'formik'
+import Typography from '@material-ui/core/Typography';
+import Button from '@material-ui/core/Button';
+
+import { AddPosition, Input, Label, SaveButton, SaveTextInButton, UpdateText, Window } from './complete-profile.styles'
 import CompleteProfileSchema from './complete-profile.validation-schema';
-import Fab from '@material-ui/core/Fab';
-import AddIcon from '@material-ui/icons/Add';
-import axios from 'axios';
+import DialogPopup from './dialog.component'
+
+const CompleteProfile = (props) => {
+
+    const [open, setOpen] = useState(false);
+    const [selectedValue, setSelectedValue] = useState(null);
+    const [userSpecialities, setUserSpecialities] = useState([])
+  
+    const handleClickOpen = () => {
+      setOpen(true);
+    };
+  
+    const handleClose = (value) => {
+      setOpen(false);
+      setUserSpecialities(value);
+      console.log(userSpecialities)
+    };
+
+    const {industries, specialities} = props;
 
 const CompleteProfile = () => {
     const {handleSubmit, handleChange, values:{name, companyName, phoneNumber, industrie}, errors, getFieldProps} = useFormik({
@@ -60,11 +80,8 @@ const CompleteProfile = () => {
                     helperText={errors.companyName}
                 />
                 <Label>Specialities</Label>
-                <AddPosition>
-                    <Fab color="inherit" aria-label="add" variant="extended">
-                        <AddIcon />
-                        Add position
-                    </Fab>
+                <AddPosition style={{cursor: "pointer"}} onClick={handleClickOpen}>
+                    + Add position
                 </AddPosition>
                 <Label>Industries</Label>
                 <Input
