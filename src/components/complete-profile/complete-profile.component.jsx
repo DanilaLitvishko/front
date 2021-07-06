@@ -12,16 +12,18 @@ const CompleteProfile = (props) => {
 
     const [open, setOpen] = useState(false);
     const [selectedValue, setSelectedValue] = useState(null);
-    const [userSpecialities, setUserSpecialities] = useState([])
+    const [userSpecialities, setUserSpecialities] = useState([]);
   
     const handleClickOpen = () => {
-      setOpen(true);
+        setOpen(true);
     };
   
     const handleClose = (value) => {
-      setOpen(false);
-      setUserSpecialities(value);
-      console.log(userSpecialities)
+        setOpen(false);
+        if(value){
+            setUserSpecialities([...userSpecialities, value])
+            console.log(userSpecialities)
+        }
     };
 
     const {industries, specialities} = props;
