@@ -4,27 +4,29 @@ import { useFormik } from 'formik'
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 
-import { AddPosition, Input, Label, SaveButton, SaveTextInButton, UpdateText, Window } from './complete-profile.styles'
+import { AddPosition, Input, Label, SaveButton, SaveTextInButton, UpdateText, Window, Industrie } from './complete-profile.styles'
 import CompleteProfileSchema from './complete-profile.validation-schema';
 import DialogPopup from './dialog.component'
 
 const CompleteProfile = (props) => {
 
+    const {industries, specialities} = props;
+
     const [open, setOpen] = useState(false);
     const [selectedValue, setSelectedValue] = useState(null);
-    const [userSpecialities, setUserSpecialities] = useState([])
+    const [userSpecialities, setUserSpecialities] = useState([]);
+    const [userIndustries, setUserIndustries] = useState([]);
   
     const handleClickOpen = () => {
       setOpen(true);
     };
   
     const handleClose = (value) => {
-      setOpen(false);
-      setUserSpecialities(value);
-      console.log(userSpecialities)
+        setOpen(false);
+        if(value){
+            setUserSpecialities([...userSpecialities, value])
+        }
     };
-
-    const {industries, specialities} = props;
 
     const formik = useFormik({
         initialValues:{
@@ -38,10 +40,15 @@ const CompleteProfile = (props) => {
         },
         validationSchema: CompleteProfileSchema,
     })
+
+    const handleClearClick = (id) =>{
+        console.log(id)
+    }
+
     const {handleSubmit, handleChange, values:{name, companyName, phoneNumber, industrie}} = formik;
     return (
         <Window>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} style={{padding:'20px', margin:'10px'}}>
                 <UpdateText>Update  your profile</UpdateText>
                 <Input
                     id="name"
@@ -80,32 +87,51 @@ const CompleteProfile = (props) => {
                     helperText={formik.errors.companyName}
                 />
                 <Label>Specialities</Label>
+                {
+                    userSpecialities.map(specialitiy=> (
+                        <Input
+                            key={specialitiy.id}
+                            type="text"
+                            variant="outlined"
+                            defaultValue={specialitiy.name}
+                            InputProps={{
+                                readOnly: true,
+                            }}
+                        />
+                    ))
+                }
                 <AddPosition style={{cursor: "pointer"}} onClick={handleClickOpen}>
                     + Add position
                 </AddPosition>
                 <Label>Industries</Label>
-{                    industries.length &&
-                    <Autocomplete
-                        freeSolo
-                        id="autocompleteIndustries"
-                        disableClearable
-                        options={industries.map(industrie => industrie.name)}
-                        renderInput={(params) => 
-                            <Input
-                                {...params}
-                                placeholder="Start typing..."
-                                id="industrie"
-                                name="industrie"
-                                onChange={handleChange}
-                                value={industrie}
-                                {...formik.getFieldProps('industrie')}
-                                variant="outlined"
-                                error={Boolean(formik.errors.industrie)}
-                                helperText={formik.errors.companyName}
-                                InputProps={{ ...params.InputProps, type: 'text' }}
-                            />
+                    {                    
+                        industries.length &&
+                        <Autocomplete
+                            freeSolo
+                            id="autocompleteIndustries"
+                            disableClearable
+                            options={industries.map(industrie => industrie.name)}
+                            onChange={(event, newValue) => { 
+                                const value = industries.find((industrie) => {return industrie.name===newValue})
+                                setUserIndustries([...userIndustries, value])
+                            }}
+                            renderInput={(params) => 
+                                <Input
+                                    {...params}
+                                    placeholder="Start typing..."
+                                    variant="outlined"
+                                    InputProps={{ ...params.InputProps, type: 'text' }}
+                                />
+                            }
+                        />
+                    }
+                    <div>
+                        {
+                            userIndustries.map(item => 
+                                <Industrie key={item.id}>{item.name} &#10005;</Industrie>
+                            )
                         }
-                    />}
+                    </div>
                 <DialogPopup selectedValue={selectedValue} open={open} onClose={handleClose} specialities={specialities}/>
                 <SaveButton type="submit"><SaveTextInButton>Save</SaveTextInButton></SaveButton>
             </form>
