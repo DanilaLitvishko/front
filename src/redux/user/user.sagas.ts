@@ -8,7 +8,7 @@ import {UserPayload} from '../../interfaces/user-payload.interface'
 import { UserResponse } from '../../interfaces/user-response.interface'
 import { ConfirmEmail } from '../../interfaces/confirm-email.interface'
 
-export function* singUp({type, payload}:{type: typeof UserActionTypes.SIGN_UP_START, payload:UserPayload}){
+export function* singUp({type, payload}:{type: string, payload:UserPayload}){
     try{
         const {email, password} = yield payload;
         const username:string = yield email;
@@ -19,7 +19,7 @@ export function* singUp({type, payload}:{type: typeof UserActionTypes.SIGN_UP_ST
     }
 }
 
-export function* confirmEmail({type, payload}:{type: typeof UserActionTypes.CONFIRM_EMAIL, payload:ConfirmEmail}){
+export function* confirmEmail({type, payload}:{type: string, payload:ConfirmEmail}){
     try{
         const {confirmationCode}:{confirmationCode:string} = yield payload;
         const {user}:{user:UserResponse} = yield axios.get(`http://localhost:3001/confirm-registration/${confirmationCode}`)
@@ -29,7 +29,7 @@ export function* confirmEmail({type, payload}:{type: typeof UserActionTypes.CONF
     }
 }
 
-export function* resendEmail({type, payload}:{type: typeof UserActionTypes.CONFIRM_EMAIL, payload:ConfirmEmail}){
+export function* resendEmail({type, payload}:{type: string, payload:ConfirmEmail}){
     try{
         yield axios.get(`http://localhost:3001/confirm-registration/resend-email/${payload}`)
     }catch(error){}

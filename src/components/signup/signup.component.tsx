@@ -23,7 +23,7 @@ const SignUp = () => {
 
     const dispatch = useDispatch();
 
-    const handleChange = (event, newValue) => {
+    const handleChange = (event:React.ChangeEvent<{}>, newValue:number) => {
         setValue(newValue);
     };
     const formik = useFormik({

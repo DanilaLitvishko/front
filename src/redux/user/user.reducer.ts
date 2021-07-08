@@ -1,8 +1,8 @@
 import { Action } from '../../interfaces/action.interface'
 import UserActionTypes from './user.types'
 
-const INITIAL_STATE = {
-    currentUser:  null,
+const INITIAL_STATE:{currentUser:string | null, error: string | null} = {
+    currentUser: null,
     error: null
 }
 
