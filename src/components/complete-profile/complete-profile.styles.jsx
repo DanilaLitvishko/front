@@ -95,18 +95,3 @@ export const Industrie = styled.div`
     color: ${props => props.theme.color.white};
     color: #FFFFFF;
 `
-
-export const Industrie = styled.div`
-    font-family: Manrope;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 22px;
-    border-bottom: 1px solid #999999;
-    padding: 7px;
-    margin: 7px;
-    width: 400px;
-    &:last-child {
-        border-bottom: none;
-    }
-`

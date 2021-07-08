@@ -1,14 +1,19 @@
 import React, { useState } from 'react'
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import { useFormik } from 'formik'
-import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
+import {useSelector} from 'react-redux'
 
-import { AddPosition, Input, Label, SaveButton, SaveTextInButton, UpdateText, Window, Industrie } from './complete-profile.styles'
+import IndustrieItem from '../industrie-item/industrie-item.component'
+import { AddPosition, Input, Label, SaveButton, SaveTextInButton, UpdateText, Window } from './complete-profile.styles'
 import CompleteProfileSchema from './complete-profile.validation-schema';
-import DialogPopup from './dialog.component'
+import DialogPopup from '../dialog/dialog.component'
+import { selectCurrentUser } from '../../redux/user/user.selectors';
 
 const CompleteProfile = (props) => {
+
+    const currentUser = useSelector(selectCurrentUser);
+
+    console.log(currentUser)
 
     const {industries, specialities} = props;
 
@@ -27,25 +32,33 @@ const CompleteProfile = (props) => {
             setUserSpecialities([...userSpecialities, value])
         }
     };
+    
+    const handleClearClick = (value) =>{
+        const arr = userIndustries.filter(item => item.id !== value.id)
+        setUserIndustries(arr);
+    }
 
     const formik = useFormik({
         initialValues:{
             name: '',
             companyName: '',
             phoneNumber: '',
-            industrie:''
         },
-        onSubmit: values => {
-            console.log(values)
+        onSubmit: ({name, companyName, phoneNumber}) => {
+            const obj = {
+                name,
+                companyName,
+                phoneNumber,
+                userIndustries,
+                userSpecialities,
+            }
+            console.log(obj)
         },
         validationSchema: CompleteProfileSchema,
     })
 
-    const handleClearClick = (id) =>{
-        console.log(id)
-    }
+    const {handleSubmit, handleChange, values:{name, companyName, phoneNumber}} = formik;
 
-    const {handleSubmit, handleChange, values:{name, companyName, phoneNumber, industrie}} = formik;
     return (
         <Window>
             <form onSubmit={handleSubmit} style={{padding:'20px', margin:'10px'}}>
@@ -84,7 +97,7 @@ const CompleteProfile = (props) => {
                     {...formik.getFieldProps('phoneNumber')}
                     variant="outlined"
                     error={Boolean(formik.errors.phoneNumber)}
-                    helperText={formik.errors.companyName}
+                    helperText={formik.errors.phoneNumber}
                 />
                 <Label>Specialities</Label>
                 {
@@ -128,12 +141,12 @@ const CompleteProfile = (props) => {
                     <div>
                         {
                             userIndustries.map(item => 
-                                <Industrie key={item.id}>{item.name} &#10005;</Industrie>
+                                <IndustrieItem key={item.id} industrie={item} onDelete={handleClearClick}/>
                             )
                         }
                     </div>
                 <DialogPopup selectedValue={selectedValue} open={open} onClose={handleClose} specialities={specialities}/>
-                <SaveButton type="submit"><SaveTextInButton>Save</SaveTextInButton></SaveButton>
+                <SaveButton type="submit" disabled={formik.isSubmitting}><SaveTextInButton>Save</SaveTextInButton></SaveButton>
             </form>
         </Window>
     )
