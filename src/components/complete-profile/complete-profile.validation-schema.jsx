@@ -12,10 +12,6 @@ const CompleteProfileSchema = Yup.object().shape({
     phoneNumber: Yup.string()
     .min(8, 'Too Short!')
     .required('Required'),
-    industrie: Yup.string()
-    .min(9, 'Too Short!')
-    .required('Required'),
-    
 })
 
 export default CompleteProfileSchema

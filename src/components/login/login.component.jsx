@@ -1,7 +1,8 @@
-import React from 'react'
+import React, {useState} from 'react'
 import Grid from '@material-ui/core/Grid';
 import { useFormik } from 'formik'
 import { useDispatch } from 'react-redux'
+import {Redirect} from 'react-router-dom'
 
 import {
     Input,
@@ -15,7 +16,6 @@ import {login} from '../../redux/user/user.actions'
 const Login = () => {
 
     const dispatch = useDispatch();
-
     const formik = useFormik({
         initialValues:{
             email: '',
@@ -23,9 +23,12 @@ const Login = () => {
         },
         onSubmit: async values => {
             dispatch(login(values))
+            setLogin1(true)
         },
         validationSchema: LoginSchema,
     })
+    const [login1, setLogin1] = useState(false);
+
     return (
         <form onSubmit={formik.handleSubmit}>
             <Grid container direction="column" alignItems="center" spacing={1}>
@@ -63,6 +66,13 @@ const Login = () => {
                     </SignUpTextInButton>
                 </SignUpButton>
             </Grid>
+            {
+                login1?<Redirect to={{
+                    pathname:"/completeProfile",
+                    state:{email: formik.values.email}
+                }}/>
+                :null
+            }
         </form>
     )
 }

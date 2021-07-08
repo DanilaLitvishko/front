@@ -89,4 +89,6 @@ export const Industrie = styled.div`
     &:last-child {
         border-bottom: none;
     }
+
+    color: ${props => props.theme.color.white};
 `

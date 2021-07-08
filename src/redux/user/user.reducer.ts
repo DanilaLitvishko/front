@@ -22,6 +22,11 @@ const userReducer = (state = INITIAL_STATE, action: Action) => {
                 loading:false
             }
         case UserActionTypes.CONFIRM_EMAIL:
+        case UserActionTypes.LOGIN_SUCCESS:
+            return{
+                ...state,
+                currentUser: action.payload
+            }
         case UserActionTypes.SIGN_UP_FAILURE:
             return {
                 ...state,
