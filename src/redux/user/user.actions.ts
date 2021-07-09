@@ -1,4 +1,5 @@
 import { UserCredentials } from '../../interfaces/user-credentials.interface'
+import { UserResponse } from '../../interfaces/user-response.interface'
 import UserActionTypes from './user.types'
 
 export const signUpStart = (userCredentials:UserCredentials) => ({
@@ -6,7 +7,7 @@ export const signUpStart = (userCredentials:UserCredentials) => ({
     payload: userCredentials
 })
 
-export const signUpSuccess = (user:UserCredentials) => ({
+export const signUpSuccess = (user:UserResponse) => ({
     type: UserActionTypes.SIGN_UP_SUCCESS,
     payload: user
 })
@@ -21,7 +22,7 @@ export const confirmEmail = (confirmationCode:string) => ({
     payload: confirmationCode
 })
 
-export const confirmEmailSuccess = (user:UserCredentials) => ({
+export const confirmEmailSuccess = (user:UserResponse) => ({
     type: UserActionTypes.CONFIRM_EMAIL_SUCCESS,
     payload: user
 })

@@ -1,4 +1,5 @@
 import { Route, Switch } from 'react-router';
+import { createTheme,ThemeProvider } from '@material-ui/core/styles';
 import './App.css';
 import ActivateEmail from './components/activate-email/activate-email.component';
 import CompleteProfile from './components/complete-profile/complete-profile.component';
@@ -6,6 +7,14 @@ import ResendEmail from './components/resend-email/resend-email.component';
 import CreditCardDetail from './components/credit-card-details/credit-card-details.component';
 import Layout from './components/layout/layout.component';
 import SignUp from './components/signup/signup.component';
+
+const theme = createTheme({
+  typography: {
+    fontFamily: [
+      'Manrope',
+    ],
+  },
+});
 
 const App = () => (
     <Layout>

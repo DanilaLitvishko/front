@@ -12,20 +12,20 @@ export function* singUp({type, payload}:{type: string, payload:UserPayload}){
     try{
         const {email, password} = yield payload;
         const username:string = yield email;
-        const {user}:{user:UserResponse} = yield axios.post('http://localhost:3001/auth/signup', {username, password})
-        yield put(signUpSuccess(user))
+        const {user}:{user:UserResponse} = yield axios.post('http://localhost:3001/auth/signup', {username, password});
+        yield put(signUpSuccess(user));
     }catch(error){
-        yield put(signUpFailure(error))
+        yield put(signUpFailure(error));
     }
 }
 
 export function* confirmEmail({type, payload}:{type: string, payload:ConfirmEmail}){
     try{
         const {confirmationCode}:{confirmationCode:string} = yield payload;
-        const {user}:{user:UserResponse} = yield axios.get(`http://localhost:3001/confirm-registration/${confirmationCode}`)
-        yield put(confirmEmailSuccess(user))
+        const {user}:{user:UserResponse} = yield axios.get(`http://localhost:3001/confirm-registration/${confirmationCode}`);
+        yield put(confirmEmailSuccess(user));
     }catch(error){
-        yield put(confirmEmailFailure(error))
+        yield put(confirmEmailFailure(error));
     }
 }
 

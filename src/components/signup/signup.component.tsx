@@ -3,7 +3,8 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import { useFormik } from 'formik'
 import React, {useState} from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+
 import { 
     Input, 
     Label, 
@@ -16,16 +17,20 @@ import {
 import SignUpSchema from './signup.validation-schema'
 import { signUpStart } from '../../redux/user/user.actions';
 import {Redirect} from 'react-router-dom'
+import { selectError } from '../../redux/user/user.selectors';
+import DialogError from '../dialog-error/dialog-error.component'
 
 const SignUp = () => {
     const [value, setValue] = useState(1);
     const [signUp, setSignUp] = useState(false);
+    const [open, setOpen] = useState(false);
 
     const dispatch = useDispatch();
-
+    const error = useSelector(selectError); 
     const handleChange = (event:React.ChangeEvent<{}>, newValue:number) => {
         setValue(newValue);
     };
+
     const formik = useFormik({
         initialValues:{
             email: '',
@@ -33,8 +38,13 @@ const SignUp = () => {
             confirmPassword: ''
         },
         onSubmit: async values => {
-            dispatch(signUpStart(values));
-            setSignUp(true)
+            await dispatch(signUpStart(values));
+            if(!error){
+                console.log(error)
+                //setSignUp(true);
+            }else{
+                setOpen(true)
+            }
         },
         validationSchema: SignUpSchema,
     })
@@ -56,27 +66,26 @@ const SignUp = () => {
                     <Grid item><Label>Email</Label></Grid>
                         <Grid item>
                             <Input
+                                {...formik.getFieldProps('email')}
                                 id="email"
                                 name="email"
                                 type="text"
                                 onChange={formik.handleChange}
                                 value={formik.values.email}
                                 placeholder="email"
-                                {...formik.getFieldProps('email')}
                                 variant="outlined"
                                 error={Boolean(formik.errors.email)}
                             />
-                            
                         </Grid>
                     <Grid item><Label>Password</Label></Grid>
                     <Grid item>
                         <Input
+                            {...formik.getFieldProps('password')}
                             id="password"
                             name="password"
                             type="password"
                             onChange={formik.handleChange}
                             value={formik.values.password}
-                            {...formik.getFieldProps('password')}
                             placeholder="password"
                             variant="outlined"
                             error={Boolean(formik.errors.password)}
@@ -85,12 +94,12 @@ const SignUp = () => {
                     <Grid item><Label>Confirm Password</Label></Grid>
                     <Grid item>
                         <Input
+                            {...formik.getFieldProps('confirmPassword')}
                             id="confirmPassword"
                             name="confirmPassword"
                             type="password"
                             onChange={formik.handleChange}
                             value={formik.values.confirmPassword}
-                            {...formik.getFieldProps('confirmPassword')}
                             placeholder="Confirm password"
                             variant="outlined"
                             error={Boolean(formik.errors.confirmPassword)}
@@ -117,6 +126,7 @@ const SignUp = () => {
                         :null
                     }
                 </Grid>
+                <DialogError open={open}/>
             </form>
         </Window>
     )
