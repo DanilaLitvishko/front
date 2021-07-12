@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import { useFormik } from 'formik'
 import {useSelector} from 'react-redux'
+import axios from 'axios'
 
 import IndustrieItem from '../industrie-item/industrie-item.component'
 import { AddPosition, Input, Label, SaveButton, SaveTextInButton, UpdateText, Window } from './complete-profile.styles'
@@ -47,15 +48,20 @@ const CompleteProfile = () => {
             companyName: '',
             phoneNumber: '',
         },
-        onSubmit: ({name, companyName, phoneNumber}) => {
-            const obj = {
+        onSubmit: async ({name, companyName, phoneNumber}) => {
+            const bodyParameters = {
                 name,
                 companyName,
                 phoneNumber,
-                userIndustries,
-                userSpecialities,
+                specialities: userIndustries,
+                industries: userSpecialities,
             }
-            console.log(obj)
+            const config = {
+                headers: {  Authorization: `Bearer ${currentUser}` }
+            }
+            console.log(bodyParameters)
+            const response = await axios.post('http://localhost:3001/user-info', bodyParameters, config)
+            console.log(response)
         },
         validationSchema: CompleteProfileSchema,
     })

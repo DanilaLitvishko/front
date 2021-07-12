@@ -1,5 +1,3 @@
 export interface UserResponse{
-    user:{
-        email:string
-    }
+    accessToken:string
 }

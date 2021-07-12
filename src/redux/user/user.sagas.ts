@@ -57,8 +57,8 @@ export function* login({type, payload}:{type: typeof UserActionTypes.SIGN_UP_STA
     try{
         const {email, password} = yield payload;
         const username:string = yield email;
-        const {user}:{user:UserResponse} = yield axios.post('http://localhost:3001/auth/signin', {username, password})
-        yield put(loginSuccess(user))
+        const {data}: {data:UserResponse} = yield axios.post('http://localhost:3001/auth/signin', {username, password})
+        yield put(loginSuccess(data.accessToken))
     }catch(error){
         yield put(loginFailure(error))
     }
