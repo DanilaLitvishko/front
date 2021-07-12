@@ -3,7 +3,7 @@ import axios from 'axios'
 
 import UserActionTypes from './user.types'
 
-import {signUpSuccess, signUpFailure, confirmEmailSuccess, confirmEmailFailure} from './user.actions'
+import {signUpSuccess, signUpFailure, confirmEmailSuccess, confirmEmailFailure, resendEmailSuccess, resendEmailFailure} from './user.actions'
 import {UserPayload} from '../../interfaces/user-payload.interface'
 import { UserResponse } from '../../interfaces/user-response.interface'
 import { ConfirmEmail } from '../../interfaces/confirm-email.interface'
@@ -32,7 +32,10 @@ export function* confirmEmail({type, payload}:{type: string, payload:ConfirmEmai
 export function* resendEmail({type, payload}:{type: string, payload:ConfirmEmail}){
     try{
         yield axios.get(`http://localhost:3001/confirm-registration/resend-email/${payload}`)
-    }catch(error){}
+        put(resendEmailSuccess())
+    }catch(error){
+        put(resendEmailFailure(error))
+    }
 }
 
 export function* onSingUpStart(){

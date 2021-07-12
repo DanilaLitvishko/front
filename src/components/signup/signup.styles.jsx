@@ -1,5 +1,6 @@
 import { TextField } from "@material-ui/core";
 import styled from "styled-components";
+import {Typography} from '@material-ui/core'
 
 export const Window = styled.div`
     width: 496px;
@@ -8,10 +9,8 @@ export const Window = styled.div`
     border-radius: 8px;
 `
 
-export const SignUpText = styled.div`
+export const SignUpText = styled(Typography)`
 
-    font-family: Manrope;
-    font-style: normal;
     font-weight: bold;
     font-size: 18px;
     line-height: 26px;
@@ -21,10 +20,8 @@ export const SignUpText = styled.div`
     color: #2E1AAD;
 `
 
-export const LoginText = styled.div`
+export const LoginText = styled(Typography)`
 
-    font-family: Manrope;
-    font-style: normal;
     font-weight: bold;
     font-size: 18px;
     line-height: 26px;
@@ -35,10 +32,8 @@ export const LoginText = styled.div`
     color: #999999;
 `
 
-export const Label = styled.label`
+export const Label = styled(Typography)`
 
-    font-family: Manrope;
-    font-style: normal;
     font-weight: 800;
     font-size: 12px;
     line-height: 22px;
@@ -72,12 +67,10 @@ export const SignUpButton = styled.button`
     border-radius: 8px;
 `
 
-export const SignUpTextInButton = styled.div`
+export const SignUpTextInButton = styled(Typography)`
     width: 58px;
     height: 20px;
 
-    font-family: Manrope;
-    font-style: normal;
     font-weight: bold;
     font-size: 16px;
     line-height: 20px;
@@ -88,12 +81,10 @@ export const SignUpTextInButton = styled.div`
     color: #FFFFFF;
 `
 
-export const Text = styled.div`
+export const Text = styled(Typography)`
     width: 372px;
     height: 144px;
 
-    font-family: Manrope;
-    font-style: normal;
     font-weight: normal;
     font-size: 14px;
     line-height: 24px;

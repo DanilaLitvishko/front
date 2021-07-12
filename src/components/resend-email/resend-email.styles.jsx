@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import {Typography} from '@material-ui/core'
 
 export const Window = styled.div`
     display: flex;
@@ -13,17 +14,13 @@ export const Window = styled.div`
     height: 335px;
 `
 
-export const Thanks = styled.div`
-    font-family: Manrope;
-    font-style: normal;
+export const Thanks = styled(Typography)`
     font-weight: 800;
     font-size: 20px;
     line-height: 28px;
 `
 
-export const String = styled.div`
-    font-family: Manrope;
-    font-style: normal;
+export const String = styled(Typography)`
     font-weight: normal;
     font-size: 16px;
     line-height: 24px;
@@ -33,9 +30,7 @@ export const String = styled.div`
     color: #231F20;
 `
 
-export const ButtonText = styled.div`
-    font-family: Manrope;
-    font-style: normal;
+export const ButtonText = styled(Typography)`
     font-weight: bold;
     font-size: 16px;
     line-height: 20px;

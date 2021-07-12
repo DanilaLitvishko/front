@@ -2,7 +2,7 @@ import Grid from '@material-ui/core/Grid';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import { useFormik } from 'formik'
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 import { 
@@ -17,19 +17,40 @@ import {
 import SignUpSchema from './signup.validation-schema'
 import { signUpStart } from '../../redux/user/user.actions';
 import {Redirect} from 'react-router-dom'
-import { selectError } from '../../redux/user/user.selectors';
+import { selectError, selectLoading } from '../../redux/user/user.selectors';
 import DialogError from '../dialog-error/dialog-error.component'
 
 const SignUp = () => {
+    const loading = useSelector(selectLoading);
+    const error = useSelector(selectError); 
+
     const [value, setValue] = useState(1);
     const [signUp, setSignUp] = useState(false);
     const [open, setOpen] = useState(false);
+    const [isRegistered, setIsRegistered] = useState(false);
+
+    const handleClose = () => {
+        setOpen(false)
+    }
 
     const dispatch = useDispatch();
-    const error = useSelector(selectError); 
     const handleChange = (event:React.ChangeEvent<{}>, newValue:number) => {
         setValue(newValue);
     };
+
+    useEffect(() => {
+
+        console.log(isRegistered, error, loading)
+
+        if(error && isRegistered && loading === false){
+            setOpen(true)
+        }
+    
+        if(isRegistered && error === undefined && loading === false){
+            setSignUp(true);
+        }
+
+    }, [loading, error, isRegistered]);
 
     const formik = useFormik({
         initialValues:{
@@ -39,12 +60,7 @@ const SignUp = () => {
         },
         onSubmit: async values => {
             await dispatch(signUpStart(values));
-            if(!error){
-                console.log(error)
-                //setSignUp(true);
-            }else{
-                setOpen(true)
-            }
+            setIsRegistered(true);
         },
         validationSchema: SignUpSchema,
     })
@@ -126,10 +142,10 @@ const SignUp = () => {
                         :null
                     }
                 </Grid>
-                <DialogError open={open}/>
+                <DialogError open={open} close={handleClose}/>
             </form>
         </Window>
     )
 }
 
-export default SignUp
+export default SignUp;

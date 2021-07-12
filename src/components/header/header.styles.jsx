@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import {Typography} from '@material-ui/core'
 
 export const LogoContainer = styled.div`
     width: 102px;
@@ -29,9 +30,7 @@ export const ButtonsContainer = styled.div`
     }
 `;
 
-export const MenuItem = styled.div`
-    font-family: Manrope;
-    font-style: normal;
+export const MenuItem = styled(Typography)`
     font-weight: bold;
     font-size: 14px;
     line-height: 20px;
@@ -61,24 +60,20 @@ export const SignUpButton = styled.button`
     border-radius: 8px;
 `
 
-export const Login = styled.span`
+export const Login = styled(Typography)`
     width: 38px;
     height: 20px;
 
-    font-family: Manrope;
-    font-style: normal;
     font-weight: bold;
     font-size: 14px;
     line-height: 20px;
     color: #2E1AAD;
 `
 
-export const SignUp = styled.span`
+export const SignUp = styled(Typography)`
     width: 51px;
     height: 20px;
 
-    font-family: Manrope;
-    font-style: normal;
     font-weight: bold;
     font-size: 14px;
     line-height: 20px;

@@ -17,27 +17,27 @@ const Footer = () => {
     <Grid container spacing={3}>
         <Grid container item direction="column" xs alignItems="flex-end" justify="center">
           <CompanyInfo>
-          <CompanyName item>I-TAPP</CompanyName>
-          <Copyright item>Copyright © 2021 I-TAPP</Copyright>
-          <Copyright item>All rights reserved</Copyright>
+          <CompanyName>I-TAPP</CompanyName>
+          <Copyright>Copyright © 2021 I-TAPP</Copyright>
+          <Copyright>All rights reserved</Copyright>
           </CompanyInfo>
         </Grid>
         <Grid container item direction="column" xs alignItems="flex-end" justify="flex-start">
         <CompanyColumn>
-            <Heading item>Company</Heading>
-            <String item>Home</String>
-            <String item>About I-TAPP</String>
-            <String item>News</String>
-            <String item>Terms and Conditions</String>
-            <String item>Privacy Policy</String>
+            <Heading>Company</Heading>
+            <String>Home</String>
+            <String>About I-TAPP</String>
+            <String>News</String>
+            <String>Terms and Conditions</String>
+            <String>Privacy Policy</String>
           </CompanyColumn>
         </Grid>
         <Grid container item direction="column" xs justify="flex-end">
           <JobsColumn>
-            <Heading item>Jobs</Heading>
-            <String item>For Candidates</String>
-            <String item>For Employers</String>
-            <String item>For Headhunters</String>
+            <Heading>Jobs</Heading>
+            <String>For Candidates</String>
+            <String>For Employers</String>
+            <String>For Headhunters</String>
           </JobsColumn>
         </Grid>
       </Grid>

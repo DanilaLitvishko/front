@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import Grid from '@material-ui/core/Grid';
+import {Typography} from '@material-ui/core'
    
 export const Box = styled.div`
   width: 100%;
@@ -15,12 +16,10 @@ export const CompanyInfo = styled.div`
   height: 133px;
 `
 
-export const CompanyName = styled.div`
+export const CompanyName = styled(Typography)`
   width: 109px;
   height: 37px;
 
-  font-family: Montserrat;
-  font-style: normal;
   font-weight: 900;
   font-size: 30px;
   line-height: 37px;
@@ -30,9 +29,7 @@ export const CompanyName = styled.div`
   color: #999999;
 `
 
-export const Copyright = styled.div`
-  font-family: Manrope;
-  font-style: normal;
+export const Copyright = styled(Typography)`
   font-weight: normal;
   font-size: 14px;
   line-height: 24px;
@@ -42,12 +39,10 @@ export const Copyright = styled.div`
   color: #D9DBE1;
 `
 
-export const Heading = styled.div`
+export const Heading = styled(Typography)`
   width: 160px;
   height: 30px;
 
-  font-family: Manrope;
-  font-style: normal;
   font-weight: 500;
   font-size: 20px;
   line-height: 30px;
@@ -57,12 +52,10 @@ export const Heading = styled.div`
   color: #FFFFFF;
 `
 
-export const String = styled.div`
+export const String = styled(Typography)`
   width: 200px;
   height: 26px;
 
-  font-family: Manrope;
-  font-style: normal;
   font-weight: normal;
   font-size: 16px;
   line-height: 26px;

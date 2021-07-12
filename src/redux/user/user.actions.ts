@@ -4,17 +4,17 @@ import UserActionTypes from './user.types'
 
 export const signUpStart = (userCredentials:UserCredentials) => ({
     type: UserActionTypes.SIGN_UP_START,
-    payload: userCredentials
+    payload: userCredentials,
 })
 
 export const signUpSuccess = (user:UserResponse) => ({
     type: UserActionTypes.SIGN_UP_SUCCESS,
-    payload: user
+    payload: user,
 })
 
 export const signUpFailure = (error:string) => ({
     type: UserActionTypes.SIGN_UP_FAILURE,
-    payload: error
+    payload: error,
 })
 
 export const confirmEmail = (confirmationCode:string) => ({
@@ -35,4 +35,13 @@ export const confirmEmailFailure = (error:string) => ({
 export const resendEmail = (email:string) => ({
     type: UserActionTypes.RESEND_EMAIL,
     payload: email,
+})
+
+export const resendEmailSuccess = () => ({
+    type: UserActionTypes.RESEND_EMAIL_SUCCESS,
+})
+
+export const resendEmailFailure = (error:string) => ({
+    type: UserActionTypes.RESEND_EMAIL_FAILURE,
+    payload: error
 })
