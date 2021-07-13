@@ -13,11 +13,17 @@ const UserActionTypes = {
     LOGIN_SUCCESS:'@@user/LOGIN_SUCCESS',
     LOGIN_FAILURE:'@@user/LOGIN_FAILURE',
 <<<<<<< HEAD
+<<<<<<< HEAD
     SEND_USER_INFO_START:'@@user/SEND_USER_INFO_START',
     SEND_USER_INFO_SUCCESS:'@@user/SEND_USER_INFO_SUCCESS',
     SEND_USER_INFO_FAILURE:'@@user/SEND_USER_INFO_FAILURE',
 =======
 >>>>>>> added user-info
+=======
+    SEND_USER_INFO_START:'@@user/SEND_USER_INFO_START',
+    SEND_USER_INFO_SUCCESS:'@@user/SEND_USER_INFO_SUCCESS',
+    SEND_USER_INFO_FAILURE:'@@user/SEND_USER_INFO_FAILURE',
+>>>>>>> added sending user info
 }
 
 export default UserActionTypes;

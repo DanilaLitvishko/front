@@ -64,14 +64,13 @@ export function* sendUserInfo(sendUserInfo:SendUserInfoSaga){
     }
 }
 
-export function* login({type, payload}:{type: typeof UserActionTypes.SIGN_UP_START, payload:UserPayload}){
+export function* sendUserInfo({type, payload}:{type: typeof UserActionTypes.SEND_USER_INFO_START, payload:UserInfo}){
     try{
-        const {email, password} = yield payload;
-        const username:string = yield email;
-        const {data}: {data:UserResponse} = yield axios.post('http://localhost:3001/auth/signin', {username, password})
-        yield put(loginSuccess(data.accessToken))
+        const { bodyParameters } = yield payload;
+        const { data } = yield axios.post('http://localhost:3001/user-info', bodyParameters);
+        yield put(sendUserInfoSuccess(data));
     }catch(error){
-        yield put(loginFailure(error))
+        yield put(sendUserInfoFailure(error));
     }
 }
 
@@ -102,4 +101,8 @@ export function* userSagas(){
         call(onResendEmail),
         call(onLogin),
         call(onSendUserInfo)
+<<<<<<< HEAD
+=======
+    ])
+>>>>>>> added sending user info
 }
