@@ -4,7 +4,7 @@ import {ReactComponent as Logo} from '../../assets/icon.svg'
 import { makeStyles } from "@material-ui/core/styles";
 import {useDispatch} from 'react-redux'
 import { resendEmail } from '../../redux/user/user.actions';
-import { LocationProps } from '../../interfaces/location-props.interface';
+import { useLocation } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
     logoContainer:{
@@ -18,21 +18,23 @@ const useStyles = makeStyles((theme) => ({
     }
 }))
 
-const ResendEmail = (props:LocationProps) => {
+const ResendEmail = () => {
 
     const classes = useStyles();
     const dispatch = useDispatch();
 
+    const {state}:{state:{email:string}} = useLocation()
+
     const resendEmailConfirmation = () => {
-        dispatch(resendEmail(props.location.state.email))
+        dispatch(resendEmail(state.email))
     }
 
     return (
         <Window>
-                <Logo className={classes.logoContainer}/>
-                <Thanks>Thank you for registering</Thanks>
-                <String className={classes.textContainer}>Please check your email to confirm your account</String>
-                <Button className={classes.buttonContainer} onClick={resendEmailConfirmation}><ButtonText>Resend Email Confirmation</ButtonText></Button>
+            <Logo className={classes.logoContainer}/>
+            <Thanks>Thank you for registering</Thanks>
+            <String className={classes.textContainer}>Please check your email to confirm your account</String>
+            <Button className={classes.buttonContainer} onClick={resendEmailConfirmation}><ButtonText>Resend Email Confirmation</ButtonText></Button>
         </Window>
     )
 }

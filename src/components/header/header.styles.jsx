@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import {Typography} from '@material-ui/core'
 
 export const LogoContainer = styled.div`
     width: 102px;
@@ -16,70 +15,62 @@ export const Line = styled.div`
     height: 1px;
     left: 0px;
     top: 80px;
-
-    background: #EBEBEB;
+    background: ${props => props.theme.color.grayWhite};
 `
 
 export const ButtonsContainer = styled.div`
     padding: 0px;
-
     width: 214px;
     height: 40px;
-    @media screen and (max-width: 800px) {
-        width: 80%;
-    }
 `;
 
-export const MenuItem = styled(Typography)`
+export const MenuItem = styled.div`
+    font-family: ${props => props.theme.fontFamily};
+    font-style: ${props => props.theme.fontStyle};
     font-weight: bold;
     font-size: 14px;
     line-height: 20px;
-
     font-feature-settings: 'liga' off;
-
-    color: #999999;
+    color: ${props => props.theme.color.gray};
 `;
 
 export const LoginButton = styled.button`
     height: 40px;
     width: 100px;
-
-    border: 1px solid #2E1AAD;
+    border: 1px solid ${props => props.theme.color.blue};
     box-sizing: border-box;
     border-radius: 8px;
-
     margin: 0px 14px;
 `
 
 export const SignUpButton = styled.button`
     height: 40px;
     width: 100px;
-
-    border: 1px solid #2E1AAD;
-    background: #2E1AAD;
+    border: 1px solid ${props => props.theme.color.blue};
+    background: ${props => props.theme.color.blue};
     border-radius: 8px;
 `
 
-export const Login = styled(Typography)`
+export const Login = styled.div`
     width: 38px;
     height: 20px;
-
+    font-family: ${props => props.theme.fontFamily};
+    font-style: ${props => props.theme.fontStyle};
     font-weight: bold;
     font-size: 14px;
     line-height: 20px;
-    color: #2E1AAD;
+    color: ${props => props.theme.color.blue};
 `
 
-export const SignUp = styled(Typography)`
+export const SignUp = styled.div`
     width: 51px;
     height: 20px;
-
+    font-family: ${props => props.theme.fontFamily};
+    font-style: ${props => props.theme.fontStyle};
     font-weight: bold;
     font-size: 14px;
     line-height: 20px;
-
     text-align: center;
     font-feature-settings: 'liga' off;
-
-    color: #FFFFFF;
+    color: ${props => props.theme.color.white};
 `

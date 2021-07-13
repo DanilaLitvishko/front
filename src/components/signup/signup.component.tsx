@@ -19,6 +19,7 @@ import { signUpStart } from '../../redux/user/user.actions';
 import {Redirect} from 'react-router-dom'
 import { selectError, selectLoading } from '../../redux/user/user.selectors';
 import DialogError from '../dialog-error/dialog-error.component'
+import { UserPayload } from '../../interfaces/user-payload.interface';
 
 const SignUp = () => {
     const loading = useSelector(selectLoading);
@@ -39,17 +40,13 @@ const SignUp = () => {
     };
 
     useEffect(() => {
-
-        console.log(isRegistered, error, loading)
-
         if(error && isRegistered && loading === false){
             setOpen(true)
         }
-    
+        
         if(isRegistered && error === undefined && loading === false){
             setSignUp(true);
         }
-
     }, [loading, error, isRegistered]);
 
     const formik = useFormik({
@@ -58,7 +55,7 @@ const SignUp = () => {
             password: '',
             confirmPassword: ''
         },
-        onSubmit: async values => {
+        onSubmit: async (values: UserPayload) => {
             await dispatch(signUpStart(values));
             setIsRegistered(true);
         },

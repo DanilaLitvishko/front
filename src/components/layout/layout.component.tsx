@@ -13,7 +13,9 @@ const Layout = (props:LayoutProps) => {
             <Grid item container md={12} justify="center">
                 {props.children}
             </Grid>
-            <Grid item container md={12} direction="column"><Footer/></Grid>
+            <Grid item container md={12} direction="column">
+                <Footer/>
+            </Grid>
         </Grid>
     )
 }

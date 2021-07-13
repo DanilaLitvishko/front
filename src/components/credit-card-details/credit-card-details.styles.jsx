@@ -9,7 +9,8 @@ export const Window = styled.div`
 `
 
 export const EnterString = styled.div`
-    font-family: Manrope;
+    font-family: ${props => props.theme.fontFamily};
+    font-style: ${props => props.theme.fontStyle};
     font-style: normal;
     font-weight: 800;
     font-size: 16px;

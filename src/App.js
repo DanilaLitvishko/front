@@ -1,26 +1,16 @@
 import { Route, Switch } from 'react-router';
-import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
-import './App.css';
+import {ThemeProvider } from 'styled-components';
+
 import ActivateEmail from './components/activate-email/activate-email.component';
 import CompleteProfile from './components/complete-profile/complete-profile.component';
 import ResendEmail from './components/resend-email/resend-email.component';
 import CreditCardDetail from './components/credit-card-details/credit-card-details.component';
 import Layout from './components/layout/layout.component';
 import SignUp from './components/signup/signup.component';
-
-const theme = createMuiTheme({
-  typography: {
-    fontFamily: 'Manrope',
-    fontWeightBold: 700,
-    fontWeightMedium:600,
-    fontWeightRegular:500,
-    fontWeightLight:400,
-    fontStyle: 'normal'
-  },
-});
+import mainTheme from './themes/main.theme'
 
 const App = () => (
-  <ThemeProvider theme={theme}>
+  <ThemeProvider theme={mainTheme}>
     <Layout>
       <Switch>
         <Route exact path='/' component={SignUp}/>

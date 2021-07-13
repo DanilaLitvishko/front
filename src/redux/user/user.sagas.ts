@@ -4,13 +4,14 @@ import axios from 'axios'
 import UserActionTypes from './user.types'
 
 import {signUpSuccess, signUpFailure, confirmEmailSuccess, confirmEmailFailure, resendEmailSuccess, resendEmailFailure} from './user.actions'
-import {UserPayload} from '../../interfaces/user-payload.interface'
 import { UserResponse } from '../../interfaces/user-response.interface'
 import { ConfirmEmail } from '../../interfaces/confirm-email.interface'
+import { SignUpSaga } from '../../interfaces/signup-saga.interface'
+import { ConfirmEmailSaga } from '../../interfaces/confirm-email-saga.interface'
 
-export function* singUp({type, payload}:{type: string, payload:UserPayload}){
+export function* singUp(signUpAction: SignUpSaga){
     try{
-        const {email, password} = yield payload;
+        const {payload:{email, password}} = yield signUpAction;
         const username:string = yield email;
         const {user}:{user:UserResponse} = yield axios.post('http://localhost:3001/auth/signup', {username, password});
         yield put(signUpSuccess(user));
@@ -19,9 +20,9 @@ export function* singUp({type, payload}:{type: string, payload:UserPayload}){
     }
 }
 
-export function* confirmEmail({type, payload}:{type: string, payload:ConfirmEmail}){
+export function* confirmEmail(confirmEmailAction: ConfirmEmailSaga){
     try{
-        const {confirmationCode}:{confirmationCode:string} = yield payload;
+        const {payload:{confirmationCode}} = yield confirmEmailAction;
         const {user}:{user:UserResponse} = yield axios.get(`http://localhost:3001/confirm-registration/${confirmationCode}`);
         yield put(confirmEmailSuccess(user));
     }catch(error){
@@ -29,9 +30,9 @@ export function* confirmEmail({type, payload}:{type: string, payload:ConfirmEmai
     }
 }
 
-export function* resendEmail({type, payload}:{type: string, payload:ConfirmEmail}){
+export function* resendEmail(confirmEmailAction: ConfirmEmailSaga){
     try{
-        yield axios.get(`http://localhost:3001/confirm-registration/resend-email/${payload}`)
+        yield axios.get(`http://localhost:3001/confirm-registration/resend-email/${confirmEmailAction.payload}`)
         put(resendEmailSuccess())
     }catch(error){
         put(resendEmailFailure(error))

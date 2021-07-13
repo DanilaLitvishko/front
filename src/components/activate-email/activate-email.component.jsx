@@ -14,6 +14,7 @@ export const ActivateEmail = () => {
     useEffect(() => {
         dispatch(confirmEmail(params.confirmationCode));
     }, [dispatch, params.confirmationCode])
+    
     return (
         <Window>
             <Thanks>You confirmed your email</Thanks>
