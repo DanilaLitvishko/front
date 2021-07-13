@@ -1,10 +1,25 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import { TabsContainer, Window } from './profile.styles'
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
+import axios from 'axios';
+import { useSelector, useDispatch } from 'react-redux'
+
+import { selectCurrentUser } from '../../redux/user/user.selectors';
 
 const Profile = () => {
+
+    const currentUser = useSelector(selectCurrentUser);
+
+    console.log(currentUser)
+
     const [value, setValue] = React.useState(0);
+
+    // const config = {
+    //     headers: {  Authorization: `Bearer ${currentUser}` }
+    // }
+    // const res = await axios.get('http://localhost:3001/user-info', config)
+    // console.log(res)
 
     const handleChange = (event, newValue) => {
       setValue(newValue);

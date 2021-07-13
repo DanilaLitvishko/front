@@ -1,7 +1,11 @@
 import { LoginResponse } from '../../interfaces/login-response.interface'
 import { UserCredentials } from '../../interfaces/user-credentials.interface'
+<<<<<<< HEAD
 import { UserPayload } from '../../interfaces/user-payload.interface'
 import { UserResponse } from '../../interfaces/user-response.interface'
+=======
+import { UserInfo } from '../../interfaces/userInfo.interface'
+>>>>>>> added sending user info
 import UserActionTypes from './user.types'
 
 export const signUpStart = (userCredentials:UserPayload) => ({
@@ -59,5 +63,20 @@ export const loginSuccess = (user:LoginResponse) => ({
 
 export const loginFailure = (error:string) => ({
     type: UserActionTypes.LOGIN_FAILURE,
+    payload: error
+})
+
+export const sendUserInfo = (userInfo: UserInfo) => ({
+    type: UserActionTypes.SEND_USER_INFO_START,
+    payload:userInfo
+})
+
+export const sendUserInfoSuccess = (userInfo:UserInfo) => ({
+    type: UserActionTypes.SEND_USER_INFO_SUCCESS,
+    payload: userInfo
+})
+
+export const sendUserInfoFailure = (error:any) => ({
+    type: UserActionTypes.SEND_USER_INFO_FAILURE,
     payload: error
 })

@@ -1,21 +1,21 @@
 import React, { useState } from 'react'
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import { useFormik } from 'formik'
-import {useSelector} from 'react-redux'
-import axios from 'axios'
+import { useSelector, useDispatch } from 'react-redux'
 
 import IndustrieItem from '../industrie-item/industrie-item.component'
 import { AddPosition, Input, Label, SaveButton, SaveTextInButton, UpdateText, Window } from './complete-profile.styles'
 import CompleteProfileSchema from './complete-profile.validation-schema';
 import DialogPopup from '../dialog/dialog.component'
 import { selectCurrentUser } from '../../redux/user/user.selectors';
+import { sendUserInfo } from '../../redux/user/user.actions';
+import axios from 'axios';
 
 const CompleteProfile = (props) => {
 
-    const currentUser = useSelector(selectCurrentUser);
+    console.log(axios.defaults.headers.common['Authorization'])
 
-    console.log(currentUser)
-
+    const dispatch = useDispatch();
     const {industries, specialities} = props;
 
     const [open, setOpen] = useState(false);
@@ -56,12 +56,7 @@ const CompleteProfile = () => {
                 specialities: userIndustries,
                 industries: userSpecialities,
             }
-            const config = {
-                headers: {  Authorization: `Bearer ${currentUser}` }
-            }
-            console.log(bodyParameters)
-            const response = await axios.post('http://localhost:3001/user-info', bodyParameters, config)
-            console.log(response)
+            dispatch(sendUserInfo({bodyParameters}))
         },
         validationSchema: CompleteProfileSchema,
     })
