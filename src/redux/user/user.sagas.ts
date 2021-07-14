@@ -8,12 +8,15 @@ import { UserResponse } from '../../interfaces/user-response.interface'
 import { ConfirmEmail } from '../../interfaces/confirm-email.interface'
 import { SignUpSaga } from '../../interfaces/signup-saga.interface'
 import { ConfirmEmailSaga } from '../../interfaces/confirm-email-saga.interface'
+import { UserCredentials } from '../../interfaces/user-credentials.interface'
+import { LoginSaga } from '../../interfaces/login-saga.interface'
+import { LoginResponse } from '../../interfaces/login-response.interface'
 
 export function* singUp(signUpAction: SignUpSaga){
     try{
         const {payload:{email, password}} = yield signUpAction;
         const username:string = yield email;
-        const {user}:{user:UserResponse} = yield axios.post('http://localhost:3001/auth/signup', {username, password});
+        const {user}:{user:UserCredentials} = yield axios.post('http://localhost:3001/auth/signup', {username, password});
         yield put(signUpSuccess(user));
     }catch(error){
         yield put(signUpFailure(error));
@@ -39,11 +42,11 @@ export function* resendEmail(confirmEmailAction: ConfirmEmailSaga){
     }
 }
 
-export function* login({type, payload}:{type: typeof UserActionTypes.SIGN_UP_START, payload:UserPayload}){
+export function* login(login: LoginSaga){
     try{
-        const {email, password} = yield payload;
+        const {email, password} = yield login.payload;
         const username:string = yield email;
-        const {user}:{user:UserResponse} = yield axios.post('http://localhost:3001/auth/signin', {username, password})
+        const {user}:{user:LoginResponse} = yield axios.post('http://localhost:3001/auth/signin', {username, password})
         yield put(loginSuccess(user))
     }catch(error){
         yield put(loginFailure(error))
