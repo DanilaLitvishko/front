@@ -1,7 +1,8 @@
 import { Action } from '../../interfaces/action.interface'
+import { InitialState } from '../../interfaces/initial-state.interface'
 import UserActionTypes from './user.types'
 
-const INITIAL_STATE:{currentUser:string | null, error: string | null, loading: boolean} = {
+const INITIAL_STATE:InitialState = {
     currentUser: null,
     error: null,
     loading: false,

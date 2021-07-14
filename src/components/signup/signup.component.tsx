@@ -55,8 +55,8 @@ const SignUp = () => {
             password: '',
             confirmPassword: ''
         },
-        onSubmit: async (values: UserPayload) => {
-            await dispatch(signUpStart(values));
+        onSubmit: (values: UserPayload) => {
+            dispatch(signUpStart(values));
             setIsRegistered(true);
         },
         validationSchema: SignUpSchema,

@@ -5,6 +5,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import {useDispatch} from 'react-redux'
 import { resendEmail } from '../../redux/user/user.actions';
 import { useLocation } from 'react-router-dom';
+import { ResendEmailState } from '../../interfaces/resend-email-state.interface';
 
 const useStyles = makeStyles((theme) => ({
     logoContainer:{
@@ -23,7 +24,7 @@ const ResendEmail = () => {
     const classes = useStyles();
     const dispatch = useDispatch();
 
-    const {state}:{state:{email:string}} = useLocation()
+    const {state}:{state:ResendEmailState} = useLocation()
 
     const resendEmailConfirmation = () => {
         dispatch(resendEmail(state.email))
