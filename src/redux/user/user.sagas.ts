@@ -77,7 +77,7 @@ export function* login({type, payload}:{type: typeof UserActionTypes.SIGN_UP_STA
         const {email, password} = yield payload;
         const username:string = yield email;
         const {data}: {data:UserResponse} = yield axios.post('http://localhost:3001/auth/signin', {username, password});
-        yield axios.defaults.headers.common['Authorization'] = data.accessToken;
+        yield axios.defaults.headers.common['Authorization'] = `Bearer ${data.accessToken}` ;
         yield put(loginSuccess(data.accessToken));
     }catch(error){
         yield put(loginFailure(error));

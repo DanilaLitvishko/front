@@ -1,20 +1,16 @@
 import React, { useState } from 'react'
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import { useFormik } from 'formik'
-import { useSelector, useDispatch } from 'react-redux'
+import { useDispatch } from 'react-redux'
+import { Link } from 'react-router-dom'
 
 import IndustrieItem from '../industrie-item/industrie-item.component'
 import { AddPosition, Input, Label, SaveButton, SaveTextInButton, UpdateText, Window } from './complete-profile.styles'
 import CompleteProfileSchema from './complete-profile.validation-schema';
 import DialogPopup from '../dialog/dialog.component'
-import { selectCurrentUser } from '../../redux/user/user.selectors';
 import { sendUserInfo } from '../../redux/user/user.actions';
-import axios from 'axios';
 
 const CompleteProfile = (props) => {
-
-    console.log(axios.defaults.headers.common['Authorization'])
-
     const dispatch = useDispatch();
     const {industries, specialities} = props;
 
@@ -159,6 +155,7 @@ const CompleteProfile = () => {
                     </div>
                 <DialogPopup selectedValue={selectedValue} open={open} onClose={handleClose} specialities={specialities}/>
                 <SaveButton type="submit" disabled={formik.isSubmitting}><SaveTextInButton>Save</SaveTextInButton></SaveButton>
+                <Link to='/profile'>Profile</Link>
             </form>
         </Window>
     )
