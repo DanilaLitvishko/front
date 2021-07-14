@@ -3,54 +3,47 @@ import styled from 'styled-components'
 export const Window = styled.div`
     display: flex;
     flex-direction: column;
-    
     justify-content: center;
     align-items: center;
-
-    background: #F5F7FA;
+    background: ${props => props.theme.color.blueWhite};
     border-radius: 8px;
     width: 496px;
     height: 335px;
 `
 
 export const Thanks = styled.div`
-    font-family: Manrope;
-    font-style: normal;
+    font-family: ${props => props.theme.fontFamily};
+    font-style: ${props => props.theme.fontStyle};
     font-weight: 800;
     font-size: 20px;
     line-height: 28px;
 `
 
 export const String = styled.div`
-    font-family: Manrope;
-    font-style: normal;
+    font-family: ${props => props.theme.fontFamily};
+    font-style: ${props => props.theme.fontStyle};
     font-weight: normal;
     font-size: 16px;
     line-height: 24px;
-
     font-feature-settings: 'liga' off;
-
-    color: #231F20;
+    color: ${props => props.theme.color.redBlack};
 `
 
 export const ButtonText = styled.div`
-    font-family: Manrope;
-    font-style: normal;
+    font-family: ${props => props.theme.fontFamily};
+    font-style: ${props => props.theme.fontStyle};
     font-weight: bold;
     font-size: 16px;
     line-height: 20px;
-
     text-align: center;
     font-feature-settings: 'liga' off;
-
-    color: #FFFFFF;
+    color: ${props => props.theme.color.white};
 `
 
 export const Button = styled.button`
     height: 52px;
     width: 272px;
-
-    background: #2E1AAD;
-    border: 1px solid #2E1AAD;
+    background: ${props => props.theme.color.blue};
+    border: 1px solid ${props => props.theme.color.blue};
     border-radius: 8px;
 `

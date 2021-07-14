@@ -1,3 +1,4 @@
 export interface ConfirmEmail{
-    confirmationCode: string;
+    confirmationCode?: string;
+    email?:string,
 }

@@ -1,19 +1,20 @@
 import { UserCredentials } from '../../interfaces/user-credentials.interface'
+import { UserResponse } from '../../interfaces/user-response.interface'
 import UserActionTypes from './user.types'
 
 export const signUpStart = (userCredentials:UserCredentials) => ({
     type: UserActionTypes.SIGN_UP_START,
-    payload: userCredentials
+    payload: userCredentials,
 })
 
-export const signUpSuccess = (user:any) => ({
+export const signUpSuccess = (user:UserResponse) => ({
     type: UserActionTypes.SIGN_UP_SUCCESS,
-    payload: user
+    payload: user,
 })
 
-export const signUpFailure = (error:any) => ({
+export const signUpFailure = (error:string) => ({
     type: UserActionTypes.SIGN_UP_FAILURE,
-    payload: error
+    payload: error,
 })
 
 export const confirmEmail = (confirmationCode:string) => ({
@@ -21,12 +22,26 @@ export const confirmEmail = (confirmationCode:string) => ({
     payload: confirmationCode
 })
 
-export const confirmEmailSuccess = (user:any) => ({
-    type: UserActionTypes.SIGN_UP_SUCCESS,
+export const confirmEmailSuccess = (user:UserResponse) => ({
+    type: UserActionTypes.CONFIRM_EMAIL_SUCCESS,
     payload: user
 })
 
-export const confirmEmailFailure = (error:any) => ({
+export const confirmEmailFailure = (error:string) => ({
     type: UserActionTypes.SIGN_UP_FAILURE,
+    payload: error
+})
+
+export const resendEmail = (email:string) => ({
+    type: UserActionTypes.RESEND_EMAIL,
+    payload: email,
+})
+
+export const resendEmailSuccess = () => ({
+    type: UserActionTypes.RESEND_EMAIL_SUCCESS,
+})
+
+export const resendEmailFailure = (error:string) => ({
+    type: UserActionTypes.RESEND_EMAIL_FAILURE,
     payload: error
 })

@@ -4,13 +4,11 @@ import Grid from '@material-ui/core/Grid';
 export const Box = styled.div`
   width: 100%;
   height: 360px;
-
-  background: #0B0D17;
+  background: ${props => props.theme.color.blackBlue};
 `;
 
 export const CompanyInfo = styled.div`
   margin-right: 125px;
-
   width: 350px;
   height: 133px;
 `
@@ -18,69 +16,55 @@ export const CompanyInfo = styled.div`
 export const CompanyName = styled.div`
   width: 109px;
   height: 37px;
-
-  font-family: Montserrat;
-  font-style: normal;
+  font-family: ${props => props.theme.fontFamily};
+  font-style: ${props => props.theme.fontStyle};
   font-weight: 900;
   font-size: 30px;
   line-height: 37px;
-
   text-transform: uppercase;
-
-  color: #999999;
+  color: ${props => props.theme.color.gray};
 `
 
 export const Copyright = styled.div`
-  font-family: Manrope;
-  font-style: normal;
+  font-family: ${props => props.theme.fontFamily};
+  font-style: ${props => props.theme.fontStyle};
   font-weight: normal;
   font-size: 14px;
   line-height: 24px;
-
   font-feature-settings: 'liga' off;
-
-  color: #D9DBE1;
+  color: ${props => props.theme.color.moreBlueWhite};
 `
 
 export const Heading = styled.div`
   width: 160px;
   height: 30px;
-
-  font-family: Manrope;
-  font-style: normal;
+  font-family: ${props => props.theme.fontFamily};
+  font-style: ${props => props.theme.fontStyle};
   font-weight: 500;
   font-size: 20px;
   line-height: 30px;
-
   font-feature-settings: 'liga' off;
-
-  color: #FFFFFF;
+  color: ${props => props.theme.color.white};
 `
 
 export const String = styled.div`
   width: 200px;
   height: 26px;
-
-  font-family: Manrope;
-  font-style: normal;
+  font-family: ${props => props.theme.fontFamily};
   font-weight: normal;
   font-size: 16px;
   line-height: 26px;
-
   font-feature-settings: 'liga' off;
   padding: 6px;
-
-  color: #D9DBE1;
+  color: ${props => props.theme.color.moreBlueWhite};
 `
    
 export const CompanyColumn = styled.div`
   width: 300px;
   height: 280px;
-
 `
 
 export const JobsColumn = styled(Grid)`
   width: 160px;
   height: 156px;
-
 `
