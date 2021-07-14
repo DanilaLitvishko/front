@@ -1,3 +1,5 @@
 export interface ResendEmailState{
-    email:string;
+    state:{
+        email:string;
+    }
 }

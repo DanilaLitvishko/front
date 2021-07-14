@@ -24,7 +24,7 @@ const ResendEmail = () => {
     const classes = useStyles();
     const dispatch = useDispatch();
 
-    const {state}:{state:ResendEmailState} = useLocation()
+    const {state}:ResendEmailState = useLocation()
 
     const resendEmailConfirmation = () => {
         dispatch(resendEmail(state.email))
