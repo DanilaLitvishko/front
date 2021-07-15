@@ -13,9 +13,14 @@ const userReducer = (state = INITIAL_STATE, action: Action) => {
         case UserActionTypes.SIGN_UP_START:
             return{
                 ...state,
+                error:null,
                 loading:true,
             }
         case UserActionTypes.SIGN_UP_SUCCESS:
+            return{
+                ...state,
+                loading:false
+            }
         case UserActionTypes.CONFIRM_EMAIL:
         case UserActionTypes.SIGN_UP_FAILURE:
             return {
