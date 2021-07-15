@@ -17,7 +17,7 @@ const Login = () => {
 
     const dispatch = useDispatch();
 
-    const formik = useFormik({
+    const {values, getFieldProps, handleChange, errors, handleSubmit} = useFormik({
         initialValues:{
             email: '',
             password: '',
@@ -28,34 +28,34 @@ const Login = () => {
         validationSchema: LoginSchema,
     })
     return (
-        <form onSubmit={formik.handleSubmit}>
+        <form onSubmit={handleSubmit}>
             <Grid container direction="column" alignItems="center" spacing={1}>
                 <Grid item><Label>Email</Label></Grid>
                     <Grid item>
                         <Input
-                            {...formik.getFieldProps('email')}
+                            {...getFieldProps('email')}
                             id="email"
                             name="email"
                             type="text"
-                            onChange={formik.handleChange}
-                            value={formik.values.email}
+                            onChange={handleChange}
+                            value={values.email}
                             placeholder="email"
                             variant="outlined"
-                            error={Boolean(formik.errors.email)}
+                            error={Boolean(errors.email)}
                         />                    
                     </Grid>
                 <Grid item><Label>Password</Label></Grid>
                 <Grid item>
                     <Input
-                        {...formik.getFieldProps('password')}
+                        {...getFieldProps('password')}
                         id="password"
                         name="password"
                         type="password"
-                        onChange={formik.handleChange}
-                        value={formik.values.password}
+                        onChange={handleChange}
+                        value={values.password}
                         placeholder="password"
                         variant="outlined"
-                        error={Boolean(formik.errors.password)}
+                        error={Boolean(errors.password)}
                     />
                 </Grid>
                 <SignUpButton type="submit">

@@ -3,8 +3,8 @@ import styled from "styled-components";
 
 export const Label = styled.label`
 
-    font-family: Manrope;
-    font-style: normal;
+    font-family:  ${props => props.theme.fontFamily};
+    font-style: ${props => props.theme.fontStyle};
     font-weight: 800;
     font-size: 12px;
     line-height: 22px;

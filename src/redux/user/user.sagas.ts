@@ -14,8 +14,8 @@ import { LoginResponse } from '../../interfaces/login-response.interface'
 
 export function* singUp(signUpAction: SignUpSaga){
     try{
-        const {payload:{email, password}} = yield signUpAction;
-        const username:string = yield email;
+        const {payload:{email, password}} = signUpAction;
+        const username:string = email;
         const {user}:UserCredentials = yield axios.post('http://localhost:3001/auth/signup', {username, password});
         yield put(signUpSuccess({user}));
     }catch(error){
@@ -25,7 +25,7 @@ export function* singUp(signUpAction: SignUpSaga){
 
 export function* confirmEmail(confirmEmailAction: ConfirmEmailSaga){
     try{
-        const {payload:{confirmationCode}} = yield confirmEmailAction;
+        const {payload:{confirmationCode}} = confirmEmailAction;
         const {user}:UserResponse = yield axios.get(`http://localhost:3001/confirm-registration/${confirmationCode}`);
         yield put(confirmEmailSuccess({user}));
     }catch(error){
@@ -44,8 +44,8 @@ export function* resendEmail(confirmEmailAction: ConfirmEmailSaga){
 
 export function* login(login: LoginSaga){
     try{
-        const {email, password} = yield login.payload;
-        const username:string = yield email;
+        const {email, password} = login.payload;
+        const username:string = email;
         const {user}:LoginResponse = yield axios.post('http://localhost:3001/auth/signin', {username, password})
         yield put(loginSuccess({user}))
     }catch(error){

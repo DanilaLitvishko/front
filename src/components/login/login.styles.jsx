@@ -2,15 +2,15 @@ import { TextField } from "@material-ui/core";
 import styled from "styled-components";
 
 export const Label = styled.label`
-    font-family: Manrope;
-    font-style: normal;
+    font-family: ${props => props.theme.fontFamily};
+    font-style: ${props => props.theme.fontStyle};
     font-weight: 800;
     font-size: 12px;
     line-height: 22px;
 
     font-feature-settings: 'liga' off;
 
-    color: #999999;
+    color: ${props => props.theme.color.gray};
 `
 
 export const Input = styled(TextField)`
@@ -18,7 +18,7 @@ export const Input = styled(TextField)`
     width: 400px;
     border-radius: 8px;
 
-    background: #FFFFFF;
+    background: ${props => props.theme.color.white};
 
     & .MuiOutlinedInput-root{
         border-radius: 8px;
@@ -31,8 +31,8 @@ export const SignUpButton = styled.button`
     width: 400px;
     border-radius: 8px;
 
-    background: #2E1AAD;
-    border: 1px solid #2E1AAD;
+    background: ${props => props.theme.color.blue};
+    border: 1px solid ${props => props.theme.color.blue};
     border-radius: 8px;
 `
 
@@ -40,8 +40,8 @@ export const SignUpTextInButton = styled.div`
     width: 58px;
     height: 20px;
 
-    font-family: Manrope;
-    font-style: normal;
+    font-family: ${props => props.theme.fontFamily};
+    font-style: ${props => props.theme.fontStyle};
     font-weight: bold;
     font-size: 16px;
     line-height: 20px;
@@ -49,5 +49,5 @@ export const SignUpTextInButton = styled.div`
     text-align: center;
     font-feature-settings: 'liga' off;
 
-    color: #FFFFFF;
+    color: ${props => props.theme.color.white};
 `

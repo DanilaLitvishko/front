@@ -22,7 +22,6 @@ const SignUp = () => {
     const loading = useSelector(selectLoading);
     const error = useSelector(selectError); 
 
-    const [value, setValue] = useState(1);
     const [signUp, setSignUp] = useState(false);
     const [open, setOpen] = useState(false);
     const [isRegistered, setIsRegistered] = useState(false);
@@ -34,12 +33,11 @@ const SignUp = () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-
-        if(error && isRegistered && loading === false){
+        if(error && isRegistered && !loading){
             setOpen(true)
         }
         
-        if(isRegistered && error === null && loading === false){
+        if(isRegistered && !error && !loading){
             setSignUp(true);
         }
     }, [loading, error, isRegistered]);
