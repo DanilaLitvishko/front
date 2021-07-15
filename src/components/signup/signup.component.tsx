@@ -34,11 +34,12 @@ const SignUp = () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
+
         if(error && isRegistered && loading === false){
             setOpen(true)
         }
         
-        if(isRegistered && error === undefined && loading === false){
+        if(isRegistered && error === null && loading === false){
             setSignUp(true);
         }
     }, [loading, error, isRegistered]);

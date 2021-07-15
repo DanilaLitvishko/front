@@ -31,7 +31,7 @@ function TabPanel(props) {
 const Auth = () => {
     const [value, setValue] = useState(1);
 
-    const handleChange = (event, newValue) => {
+    const handleChange = (event:Event, newValue:number) => {
         setValue(newValue);
     };
     

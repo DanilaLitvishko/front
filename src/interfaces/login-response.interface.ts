@@ -1,3 +1,5 @@
 export interface LoginResponse{
-    accessToken: string;
+    user:{
+        accessToken: string;
+    }
 }

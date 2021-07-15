@@ -11,6 +11,7 @@ import {
 } from './login.styles'
 import LoginSchema from './login.validation-schema'
 import {login} from '../../redux/user/user.actions'
+import {UserPayload} from '../../interfaces/user-payload.interface'
 
 const Login = () => {
 
@@ -21,7 +22,7 @@ const Login = () => {
             email: '',
             password: '',
         },
-        onSubmit: async values => {
+        onSubmit: async (values:UserPayload) => {
             dispatch(login(values))
         },
         validationSchema: LoginSchema,
@@ -32,13 +33,13 @@ const Login = () => {
                 <Grid item><Label>Email</Label></Grid>
                     <Grid item>
                         <Input
+                            {...formik.getFieldProps('email')}
                             id="email"
                             name="email"
                             type="text"
                             onChange={formik.handleChange}
                             value={formik.values.email}
                             placeholder="email"
-                            {...formik.getFieldProps('email')}
                             variant="outlined"
                             error={Boolean(formik.errors.email)}
                         />                    
@@ -46,12 +47,12 @@ const Login = () => {
                 <Grid item><Label>Password</Label></Grid>
                 <Grid item>
                     <Input
+                        {...formik.getFieldProps('password')}
                         id="password"
                         name="password"
                         type="password"
                         onChange={formik.handleChange}
                         value={formik.values.password}
-                        {...formik.getFieldProps('password')}
                         placeholder="password"
                         variant="outlined"
                         error={Boolean(formik.errors.password)}

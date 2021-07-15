@@ -1,3 +1,5 @@
 export interface UserResponse{
-    email:string
+    user:{
+        email:string
+    }
 }

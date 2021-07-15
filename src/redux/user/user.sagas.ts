@@ -16,8 +16,8 @@ export function* singUp(signUpAction: SignUpSaga){
     try{
         const {payload:{email, password}} = yield signUpAction;
         const username:string = yield email;
-        const {user}:{user:UserCredentials} = yield axios.post('http://localhost:3001/auth/signup', {username, password});
-        yield put(signUpSuccess(user));
+        const {user}:UserCredentials = yield axios.post('http://localhost:3001/auth/signup', {username, password});
+        yield put(signUpSuccess({user}));
     }catch(error){
         yield put(signUpFailure(error));
     }
@@ -26,8 +26,8 @@ export function* singUp(signUpAction: SignUpSaga){
 export function* confirmEmail(confirmEmailAction: ConfirmEmailSaga){
     try{
         const {payload:{confirmationCode}} = yield confirmEmailAction;
-        const {user}:{user:UserResponse} = yield axios.get(`http://localhost:3001/confirm-registration/${confirmationCode}`);
-        yield put(confirmEmailSuccess(user));
+        const {user}:UserResponse = yield axios.get(`http://localhost:3001/confirm-registration/${confirmationCode}`);
+        yield put(confirmEmailSuccess({user}));
     }catch(error){
         yield put(confirmEmailFailure(error));
     }
@@ -46,8 +46,8 @@ export function* login(login: LoginSaga){
     try{
         const {email, password} = yield login.payload;
         const username:string = yield email;
-        const {user}:{user:LoginResponse} = yield axios.post('http://localhost:3001/auth/signin', {username, password})
-        yield put(loginSuccess(user))
+        const {user}:LoginResponse = yield axios.post('http://localhost:3001/auth/signin', {username, password})
+        yield put(loginSuccess({user}))
     }catch(error){
         yield put(loginFailure(error))
     }

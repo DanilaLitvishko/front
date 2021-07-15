@@ -1,7 +1,9 @@
 export interface UserCredentials{
-    email:string,
-    password:string,
-    isConfirm?:boolean,
-    confirmationCode?:string,
-    id?:number,
+    user:{
+        email:string,
+        password:string,
+        isConfirm?:boolean,
+        confirmationCode?:string,
+        id?:number,
+    }
 }
