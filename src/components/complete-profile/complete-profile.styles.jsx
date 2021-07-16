@@ -68,6 +68,8 @@ export const SaveButton = styled.button`
 `
 
 export const SaveTextInButton = styled.div`
+    font-family: ${props => props.theme.fontFamily};
+    font-style: ${props => props.theme.fontStyle};
     width: 39px;
     height: 22px;
     font-weight: 800;
@@ -82,7 +84,7 @@ export const Industrie = styled.div`
     font-weight: 500;
     font-size: 16px;
     line-height: 22px;
-    border-bottom: 1px solid #999999;
+    border-bottom: 1px solid ${props => props.theme.color.gray};
     padding: 7px;
     margin: 7px;
     width: 400px;

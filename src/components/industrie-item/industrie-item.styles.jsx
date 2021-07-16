@@ -1,12 +1,12 @@
 import styled from 'styled-components'
 
 export const Industrie = styled.div`
-    font-family: Manrope;
-    font-style: normal;
+    font-family: ${props => props.theme.fontFamily};
+    font-style: ${props => props.theme.fontStyle};
     font-weight: 500;
     font-size: 16px;
     line-height: 22px;
-    border-bottom: 1px solid #999999;
+    border-bottom: 1px solid ${props => props.theme.color.gray};
     padding: 7px;
     margin: 7px;
     width: 400px;

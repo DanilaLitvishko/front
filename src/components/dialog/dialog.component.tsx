@@ -3,17 +3,17 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Dialog from '@material-ui/core/Dialog';
+import { DialogPopupProps } from '../../interfaces/dialog-popup-props.interface';
+import { OptionalInformation } from '../../interfaces/optional-information.interface';
 
-const emails = ['username@gmail.com', 'user02@gmail.com'];
-
-const DialogPopup = (props) => {
+const DialogPopup = (props: DialogPopupProps) => {
   const { onClose, selectedValue, open, specialities } = props;
 
   const handleClose = () => {
     onClose(selectedValue);
   };
 
-  const handleListItemClick = (value) => {
+  const handleListItemClick = (value: OptionalInformation | null) => {
     onClose(value);
   };
 

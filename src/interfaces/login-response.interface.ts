@@ -1,5 +1,5 @@
 export interface LoginResponse{
-    user:{
+    data:{
         accessToken: string;
     }
 }

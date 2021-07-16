@@ -7,10 +7,5 @@ export interface UserInfo{
         phoneNumber:string,
         industries?: OptionInfo[],
         specialities?: OptionInfo[], 
-    },
-    config:{
-        headers:{
-            Authorization:string,
-        }
-    } 
+    }
 }
