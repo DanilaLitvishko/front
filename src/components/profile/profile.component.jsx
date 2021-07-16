@@ -1,6 +1,7 @@
 import React, {useEffect} from 'react'
 import axios from 'axios';
 import { ReactComponent as Pencil } from '../../assets/pencil.svg'
+import Box from '@material-ui/core/Box';
 
 import { 
     TabsContainer, 
@@ -25,7 +26,8 @@ import {
   SubscriptionTextContainer,
   ButtonContainer,
   ButtonText,
-  ManageCardDetailsContainer
+  ManageCardDetailsContainer,
+  HeadingContainer
 } from './profile.styles'
 
 const Profile = () => {
@@ -57,13 +59,15 @@ const Profile = () => {
                     </Tabs>
                 </TabsContainer>
             <AboutYouContainer>
+              <HeadingContainer>
                 <Heading>
                     About you
-                    <AngleText>
+                </Heading>
+                <AngleText>
                     <PencilContainer><Pencil/></PencilContainer>
                         Edit
-                    </AngleText>
-                </Heading>
+                </AngleText>
+              </HeadingContainer>
             </AboutYouContainer>
             <SpecialitiesContainer>
                 <Heading>
@@ -102,13 +106,19 @@ const Profile = () => {
               <SwitchContainer><AntSwitch/></SwitchContainer>
             </LineContainer>
             <NotificationLine/>
-            <NotificationText>
-                Weekly summary of applications
-            </NotificationText>
+            <LineContainer>
+              <NotificationText>
+                  Weekly summary of applications
+              </NotificationText>
+              <SwitchContainer><AntSwitch/></SwitchContainer>
+            </LineContainer>
           <NotificationLine/>
-          <NotificationText>
-            Invitations
-          </NotificationText>
+          <LineContainer>
+            <NotificationText>
+              Invitations
+            </NotificationText>
+            <SwitchContainer><AntSwitch/></SwitchContainer>
+          </LineContainer>
         </NotificationsContainer>
       </Window>
     )

@@ -37,9 +37,10 @@ export const AboutYouContainer = styled.div`
 `
 
 export const Heading = styled.div`
+  display: flex;
     margin-left: 24px;
     margin-top: 16px;
-    width: 81px;
+    width: auto;
     height: 24px;
     font-family: Manrope;
     font-style: normal;
@@ -217,7 +218,11 @@ export const ManageCardDetailsContainer = styled.div`
     text-decoration-line: underline;
     font-feature-settings: 'liga' off;
     color: #231F20;
+`
 
+export const HeadingContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
 `
 
 export const AntSwitch = withStyles((theme) => ({
@@ -226,9 +231,10 @@ export const AntSwitch = withStyles((theme) => ({
       height: 16,
       padding: 0,
       display: 'flex',
+      overflow: 'none',
     },
     switchBase: {
-      padding: 2,
+      padding: 3,
       color: theme.palette.grey[500],
       '&$checked': {
         transform: 'translateX(12px)',
@@ -257,14 +263,15 @@ export const AntSwitch = withStyles((theme) => ({
 
   export const StyledTabs = withStyles({
     indicator: {
-        left:'0px',
+      left:'0px',
+      top: '10px',
       display: 'flex',
-      justifyContent: 'center',
+      justifyContent: 'flex-end',
       backgroundColor: 'transparent',
       '& > span': {
-        maxWidth: 40,
-        width: '100%',
-        backgroundColor: '#635ee7',
+        height: '28px',
+        width: '14px',
+        backgroundColor: '#2E1AAD',
       },
     },
   })((props) => <Tabs {...props} TabIndicatorProps={{ children: <span /> }} />);
@@ -272,12 +279,17 @@ export const AntSwitch = withStyles((theme) => ({
   export const StyledTab = withStyles((theme) => ({
     root: {
       textTransform: 'none',
-      color: 'black',
-      fontWeight: theme.typography.fontWeightRegular,
-      fontSize: theme.typography.pxToRem(15),
+      color: '#999999',
+      fontFamily: 'Manrope',
+      fontStyle: 'normal',
+      fontWeight: 'bold',
+      fontSize: '14px',
+      lineHeight: '20px',
+      fontFeatureSettings: 'liga',
       marginRight: theme.spacing(1),
-      '&:focus': {
-        opacity: 1,
+      '&.MuiTab-textColorInherit.Mui-selected': {
+        color: '#2E1AAD',
       },
+      
     },
   }))((props) => <Tab disableRipple {...props} />);

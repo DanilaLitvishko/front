@@ -1,8 +1,6 @@
 import React, {useState} from 'react'
-import Tabs from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab';
-import AppBar from '@material-ui/core/AppBar'
-import { Window } from './auth.styles'
+
+import { Window, AntTab, AntTabs } from './auth.styles'
 import SignUp from '../signup/signup.component';
 import Login from '../login/login.component';
 import TabPanel from '../tab-panel/tab-panel.component'
@@ -16,18 +14,10 @@ const Auth = () => {
     
     return (
         <Window>
-            <AppBar position="static" color="default">
-                <Tabs
-                    value={value}
-                    onChange={handleChange}
-                    indicatorColor="primary"
-                    textColor="primary"
-                    centered
-                >
-                    <Tab label="Login"/>
-                    <Tab label="SignUp" />
-                </Tabs>
-            </AppBar>
+            <AntTabs value={value} onChange={handleChange} aria-label="ant example" centered>
+                <AntTab label="Login"/>
+                <AntTab label="SignUp" />
+            </AntTabs>
             <TabPanel value={value} index={0}>
                 <Login/>
             </TabPanel>
