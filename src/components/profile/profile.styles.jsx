@@ -1,4 +1,8 @@
 import styled from 'styled-components'
+import Switch from '@material-ui/core/Switch';
+import { withStyles } from '@material-ui/core/styles';
+import Tabs from '@material-ui/core/Tabs';
+import Tab from '@material-ui/core/Tab';
 
 export const Window = styled.div`
     width: 1110px;
@@ -66,6 +70,7 @@ export const SubscriptionContainer = styled.div`
     box-shadow: 0px 30px 40px rgba(212, 217, 232, 0.1);
     border-radius: 8px;
     display: flex;
+    flex-direction: column;
 `
 
 export const InvoicesContainer = styled.div`
@@ -155,4 +160,124 @@ export const SwitchContainer = styled.div`
 `
 
 export const SubscriptionLine = styled.div`
+    width: 164px;
+    height: 1px;
+    background: #D6D6D6;
+    display: flex;
+    margin-left: 18px;
+    margin-top: 16px;
 `
+
+export const SubscriptionTextContainer = styled.div`
+    width: 157px;
+    height: 22px;
+    font-family: Manrope;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 22px;
+    color: #231F20;
+    display: flex;
+    margin-left: 23px;
+    margin-top: 44px;
+    margin-bottom: 27px;
+`
+
+export const ButtonContainer = styled.button`
+    width: 164px;
+    height: 35px;
+    border: 1px solid #2E1AAD;
+    box-sizing: border-box;
+    border-radius: 6px;
+    margin-left: 18px;
+    margin-top: 19px;
+`
+
+export const ButtonText = styled.div`
+    width: 133px;
+    height: 22px;
+    font-family: Manrope;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 22px;
+    color: #2E1AAD;
+`
+
+export const ManageCardDetailsContainer = styled.div`
+    margin-top: 10px;
+    margin-left: 46px;
+    width: 112px;
+    height: 22px;
+    font-family: Manrope;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 22px;
+    text-decoration-line: underline;
+    font-feature-settings: 'liga' off;
+    color: #231F20;
+
+`
+
+export const AntSwitch = withStyles((theme) => ({
+    root: {
+      width: 28,
+      height: 16,
+      padding: 0,
+      display: 'flex',
+    },
+    switchBase: {
+      padding: 2,
+      color: theme.palette.grey[500],
+      '&$checked': {
+        transform: 'translateX(12px)',
+        color: theme.palette.common.white,
+        '& + $track': {
+          opacity: 1,
+          backgroundColor: theme.palette.primary.main,
+          borderColor: theme.palette.primary.main,
+        },
+      },
+    },
+    thumb: {
+      width: 12,
+      height: 12,
+      boxShadow: 'none',
+    },
+    track: {
+      border: `1px solid ${theme.palette.grey[500]}`,
+      borderRadius: 16 / 2,
+      opacity: 1,
+      backgroundColor: theme.palette.common.white,
+    },
+    checked: {},
+  }))(Switch);
+
+
+  export const StyledTabs = withStyles({
+    indicator: {
+        left:'0px',
+      display: 'flex',
+      justifyContent: 'center',
+      backgroundColor: 'transparent',
+      '& > span': {
+        maxWidth: 40,
+        width: '100%',
+        backgroundColor: '#635ee7',
+      },
+    },
+  })((props) => <Tabs {...props} TabIndicatorProps={{ children: <span /> }} />);
+  
+  export const StyledTab = withStyles((theme) => ({
+    root: {
+      textTransform: 'none',
+      color: 'black',
+      fontWeight: theme.typography.fontWeightRegular,
+      fontSize: theme.typography.pxToRem(15),
+      marginRight: theme.spacing(1),
+      '&:focus': {
+        opacity: 1,
+      },
+    },
+  }))((props) => <Tab disableRipple {...props} />);

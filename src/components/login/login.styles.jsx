@@ -7,7 +7,6 @@ export const Label = styled.label`
     font-weight: 800;
     font-size: 12px;
     line-height: 22px;
-
     font-feature-settings: 'liga' off;
 
     color: ${props => props.theme.color.gray};
@@ -26,7 +25,6 @@ export const Input = styled(TextField)`
 `
 
 export const SignUpButton = styled.button`
-
     height: 52px;
     width: 400px;
     border-radius: 8px;
@@ -45,7 +43,6 @@ export const SignUpTextInButton = styled.div`
     font-weight: bold;
     font-size: 16px;
     line-height: 20px;
-
     text-align: center;
     font-feature-settings: 'liga' off;
 

@@ -1,19 +1,35 @@
 import React, {useEffect} from 'react'
-import { TabsContainer, Window } from './profile.styles'
-import Tabs from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab';
 import axios from 'axios';
-import { useSelector, useDispatch } from 'react-redux'
+import { ReactComponent as Pencil } from '../../assets/pencil.svg'
 
-import { selectCurrentUser } from '../../redux/user/user.selectors';
+import { 
+    TabsContainer, 
+    Window, 
+    AboutYouContainer, 
+    SpecialitiesContainer, 
+    SubscriptionContainer, 
+    InvoicesContainer,
+    NotificationsContainer,  
+    Heading,
+    AngleText,
+    PencilContainer,
+    ViewAllText,
+    NotificationText,
+    NotificationLine,
+    SwitchContainer,
+    LineContainer,
+  AntSwitch,
+  StyledTab,
+  StyledTabs,
+  SubscriptionLine,
+  SubscriptionTextContainer,
+  ButtonContainer,
+  ButtonText,
+  ManageCardDetailsContainer
+} from './profile.styles'
 
 const Profile = () => {
-
-    const currentUser = useSelector(selectCurrentUser);
-
-    console.log(currentUser)
-
-    const [value, setValue] = React.useState(0);
+  const [value, setValue] = React.useState(0);
 
     // const config = {
     //     headers: {  Authorization: `Bearer ${currentUser}` }
@@ -40,13 +56,61 @@ const Profile = () => {
                         <Tab label="Roles"/>
                     </Tabs>
                 </TabsContainer>
-            </div>
-            <div>About you</div>
-            <div>Specialities</div>
-            <div>Subscription</div>
-            <div>Invoices</div>
-            <div>Notifications</div>
-        </Window>
+            <AboutYouContainer>
+                <Heading>
+                    About you
+                    <AngleText>
+                    <PencilContainer><Pencil/></PencilContainer>
+                        Edit
+                    </AngleText>
+                </Heading>
+            </AboutYouContainer>
+            <SpecialitiesContainer>
+                <Heading>
+                    Specialities
+                    <ViewAllText>View all</ViewAllText>
+                    <AngleText>+Add</AngleText>
+                </Heading>
+            </SpecialitiesContainer>
+            <SubscriptionContainer>
+                <Heading>
+                    Subscription
+                </Heading>
+                <SubscriptionLine/>
+                <SubscriptionTextContainer>
+                  Active (£12 / month)
+                </SubscriptionTextContainer>
+                <SubscriptionLine/>
+                <ButtonContainer><ButtonText>Cancel Subscription</ButtonText></ButtonContainer>
+                <ManageCardDetailsContainer>Manage card details</ManageCardDetailsContainer>
+            </SubscriptionContainer>
+            <InvoicesContainer>
+              <Heading>
+                Invoices
+              </Heading>
+              <ViewAllText>View all</ViewAllText>
+            </InvoicesContainer>
+          <NotificationsContainer>
+            <Heading>
+              Notifications
+            </Heading>
+            <NotificationLine/>
+            <LineContainer>
+              <NotificationText>
+                Receive notification on application updates
+              </NotificationText>
+              <SwitchContainer><AntSwitch/></SwitchContainer>
+            </LineContainer>
+            <NotificationLine/>
+            <NotificationText>
+                Weekly summary of applications
+            </NotificationText>
+          <NotificationLine/>
+          <NotificationText>
+            Invitations
+          </NotificationText>
+        </NotificationsContainer>
+      </Window>
     )
 }
 
