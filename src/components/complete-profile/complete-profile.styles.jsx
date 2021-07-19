@@ -68,10 +68,29 @@ export const SaveButton = styled.button`
 `
 
 export const SaveTextInButton = styled.div`
+    font-family: ${props => props.theme.fontFamily};
+    font-style: ${props => props.theme.fontStyle};
     width: 39px;
     height: 22px;
     font-weight: 800;
     font-size: 16px;
     line-height: 22px;
+    color: ${props => props.theme.color.white};
+`
+
+export const Industrie = styled.div`
+    font-family: ${props => props.theme.fontFamily};
+    font-style: ${props => props.theme.fontStyle};
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 22px;
+    border-bottom: 1px solid ${props => props.theme.color.gray};
+    padding: 7px;
+    margin: 7px;
+    width: 400px;
+    &:last-child {
+        border-bottom: none;
+    }
+
     color: ${props => props.theme.color.white};
 `
