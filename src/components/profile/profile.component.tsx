@@ -24,12 +24,14 @@ import {
     LineContainer
 } from './profile.styles'
 
+
 const AntSwitch = withStyles((theme) => ({
     root: {
       width: 28,
       height: 16,
       padding: 0,
       display: 'flex',
+      overflow: 'visible',
     },
     switchBase: {
       padding: 2,
@@ -58,6 +60,12 @@ const AntSwitch = withStyles((theme) => ({
     checked: {},
   }))(Switch);
 
+  interface StyledTabsProps {
+    value: number;
+    onChange: (event: React.ChangeEvent<{}>, newValue: number) => void;
+    orientation:"horizontal" | "vertical" | undefined,
+  }
+
 const StyledTabs = withStyles({
     indicator: {
         left:'0px',
@@ -70,7 +78,11 @@ const StyledTabs = withStyles({
         backgroundColor: '#635ee7',
       },
     },
-  })((props) => <Tabs {...props} TabIndicatorProps={{ children: <span /> }} />);
+  })((props:StyledTabsProps) => <Tabs {...props} TabIndicatorProps={{ children: <span /> }} />);
+
+  interface StyledTabProps {
+    label: string;
+  }
   
   const StyledTab = withStyles((theme) => ({
     root: {
@@ -83,19 +95,15 @@ const StyledTabs = withStyles({
         opacity: 1,
       },
     },
-  }))((props) => <Tab disableRipple {...props} />);
+  }))((props: StyledTabProps) => <Tab disableRipple {...props} />);
 
 const Profile = () => {
-
-    console.log(axios.defaults.headers.common['Authorization'] )
-
     const [value, setValue] = React.useState(0);
 
     useEffect(() => {
         const fetchData = async () => {
             try{
                 const res = await axios.get('http://localhost:3001/user-info')
-                console.log(res)
             }
             catch(error){}
         }
@@ -103,17 +111,16 @@ const Profile = () => {
         fetchData();
     }, [])
 
-    const handleChange = (event, newValue) => {
+    const handleChange = (event:React.ChangeEvent<{}>, newValue:number) => {
       setValue(newValue);
     };
     return (
         <Window>
                 <TabsContainer>
                     <StyledTabs 
+                        orientation="vertical"
                         value={value} 
                         onChange={handleChange} 
-                        aria-label="styled tabs example" 
-                        orientation="vertical"
                     >
                         <StyledTab label="My Profile" />
                         <StyledTab label="Requsted Support" />

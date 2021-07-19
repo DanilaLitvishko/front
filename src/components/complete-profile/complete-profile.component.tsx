@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import { useFormik } from 'formik'
-import { ReactReduxContextValue, useDispatch } from 'react-redux'
+import { useDispatch } from 'react-redux'
 
 import IndustrieItem from '../industrie-item/industrie-item.component'
 import { AddPosition, Input, Label, SaveButton, SaveTextInButton, UpdateText, Window } from './complete-profile.styles'
@@ -10,6 +10,7 @@ import DialogPopup from '../dialog/dialog.component'
 import { sendUserInfo } from '../../redux/user/user.actions';
 import { OptionalInformation } from '../../interfaces/optional-information.interface';
 import { CompleteProfileProps } from '../../interfaces/complete-profile-props.interface';
+import { CompleteProfileValues } from '../../interfaces/complete-profile-values.interface';
 
 const CompleteProfile = (props: CompleteProfileProps) => {
     const dispatch = useDispatch();
@@ -43,7 +44,7 @@ const CompleteProfile = (props: CompleteProfileProps) => {
             companyName: '',
             phoneNumber: '',
         },
-        onSubmit: ({name, companyName, phoneNumber}) => {
+        onSubmit: ({name, companyName, phoneNumber}: CompleteProfileValues) => {
             const bodyParameters = {
                 name,
                 companyName,
@@ -51,7 +52,7 @@ const CompleteProfile = (props: CompleteProfileProps) => {
                 specialities: userIndustries,
                 industries: userSpecialities,
             }
-            dispatch(sendUserInfo(bodyParameters))
+            dispatch(sendUserInfo({bodyParameters}))
         },
         validationSchema: CompleteProfileSchema,
     })
@@ -123,7 +124,9 @@ const CompleteProfile = (props: CompleteProfileProps) => {
                             options={industries.map((industrie:OptionalInformation) => industrie.name)}
                             onChange={(event: React.ChangeEvent<{}>, newValue:string) => { 
                                 const value = industries.find((industrie:OptionalInformation) => {return industrie.name===newValue})
-                                setUserIndustries([...userIndustries, value])
+                                if(value){
+                                    setUserIndustries([...userIndustries, value])
+                                }
                             }}
                             renderInput={(params) => 
                                 <Input

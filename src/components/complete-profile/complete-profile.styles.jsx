@@ -79,8 +79,8 @@ export const SaveTextInButton = styled.div`
 `
 
 export const Industrie = styled.div`
-    font-family: Manrope;
-    font-style: normal;
+    font-family: ${props => props.theme.fontFamily};
+    font-style: ${props => props.theme.fontStyle};
     font-weight: 500;
     font-size: 16px;
     line-height: 22px;
