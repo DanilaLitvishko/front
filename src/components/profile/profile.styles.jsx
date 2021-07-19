@@ -43,14 +43,14 @@ export const Heading = styled.div`
     font-size: 16px;
     line-height: 24px;
     font-feature-settings: 'liga' off;
-    color: #231F20;
+    color: ${props => props.theme.color.redBlack};
 `
 
 export const SpecialitiesContainer = styled.div`
     margin-left: 8px;
     width: 397px;
     height: 286px;
-    background: #FFFFFF;
+    background: ${props => props.theme.color.white};
     box-shadow: 0px 30px 40px rgba(212, 217, 232, 0.1);
     border-radius: 8px;
     display: flex;
@@ -62,7 +62,7 @@ export const SubscriptionContainer = styled.div`
     margin-right: 21px;
     width: 200px;
     height: 272px;
-    background: #FFFFFF;
+    background: ${props => props.theme.color.white};
     box-shadow: 0px 30px 40px rgba(212, 217, 232, 0.1);
     border-radius: 8px;
     display: flex;
@@ -71,7 +71,7 @@ export const SubscriptionContainer = styled.div`
 export const InvoicesContainer = styled.div`
     width: 589px;
     height: 272px;
-    background: #FFFFFF;
+    background: ${props => props.theme.color.white};
     box-shadow: 0px 30px 40px rgba(212, 217, 232, 0.1);
     border-radius: 8px;
     display: flex;
@@ -82,7 +82,7 @@ export const NotificationsContainer = styled.div`
     margin-left: 230px;
     width: 810px;
     height: 221px;
-    background: #FFFFFF;
+    background: ${props => props.theme.color.white};
     box-shadow: 0px 30px 40px rgba(212, 217, 232, 0.1);
     border-radius: 8px;
     display: flex;
@@ -93,13 +93,13 @@ export const NotificationsContainer = styled.div`
 export const AngleText = styled.div`
     width: 26px;
     height: 20px;
-    font-family: Manrope;
-    font-style: normal;
+    font-family: ${props => props.theme.fontFamily};
+    font-style: ${props => props.theme.fontStyle};
     font-weight: normal;
     font-size: 14px;
     line-height: 20px;
     font-feature-settings: 'liga' off;
-    color: #2E1AAD;
+    color: ${props => props.theme.color.blue};
     display: flex;
 `
 
@@ -112,13 +112,13 @@ export const PencilContainer = styled.div`
 export const ViewAllText = styled.div`
     width: 48px;
     height: 16px;
-    font-family: Manrope;
-    font-style: normal;
+    font-family: ${props => props.theme.fontFamily};
+    font-style: ${props => props.theme.fontStyle};
     font-weight: normal;
     font-size: 14px;
     line-height: 16px;
     font-feature-settings: 'liga' off;
-    color: #2E1AAD;
+    color: ${props => props.theme.color.blue};
 `
 
 export const NotificationLine = styled.div`
@@ -127,20 +127,20 @@ export const NotificationLine = styled.div`
     height: 1px;
     left: 453px;
     top: 858px;
-    background: #EBEBEB;
+    background: ${props => props.theme.color.grayWhite};
 `
 
 export const NotificationText = styled.div`
     margin-top: 10px;
     margin-bottom: 3px;
     height: 24px;
-    font-family: Manrope;
-    font-style: normal;
+    font-family: ${props => props.theme.fontFamily};
+    font-style: ${props => props.theme.fontStyle};
     font-weight: normal;
     font-size: 14px;
     line-height: 24px;
     font-feature-settings: 'liga' off;
-    color: #231F20;
+    color: ${props => props.theme.color.redBlack};
     display: flex;
 `
 
