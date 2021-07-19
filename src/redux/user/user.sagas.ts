@@ -57,9 +57,8 @@ export function* login(login: LoginSaga){
 
 export function* sendUserInfo(sendUserInfo:SendUserInfoSaga){
     try{
-        const bodyParameters = sendUserInfo.payload;
-        const { data } = yield axios.post('http://localhost:3001/user-info', bodyParameters);
-        yield put(sendUserInfoSuccess(data));
+        const {data}:UserInfo = yield axios.post('http://localhost:3001/user-info', sendUserInfo.payload);
+        yield put(sendUserInfoSuccess({data}));
     }catch(error){
         yield put(sendUserInfoFailure(error));
     }

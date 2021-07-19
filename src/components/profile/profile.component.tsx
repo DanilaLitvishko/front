@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, useState} from 'react'
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import axios from 'axios';
@@ -57,7 +57,6 @@ const AntSwitch = withStyles((theme) => ({
       opacity: 1,
       backgroundColor: theme.palette.common.white,
     },
-    checked: {},
   }))(Switch);
 
   interface StyledTabsProps {
@@ -98,7 +97,7 @@ const StyledTabs = withStyles({
   }))((props: StyledTabProps) => <Tab disableRipple {...props} />);
 
 const Profile = () => {
-    const [value, setValue] = React.useState(0);
+    const [value, setValue] = useState(0);
 
     useEffect(() => {
         const fetchData = async () => {

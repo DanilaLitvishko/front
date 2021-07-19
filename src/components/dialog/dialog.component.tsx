@@ -6,9 +6,7 @@ import Dialog from '@material-ui/core/Dialog';
 import { DialogPopupProps } from '../../interfaces/dialog-popup-props.interface';
 import { OptionalInformation } from '../../interfaces/optional-information.interface';
 
-const DialogPopup = (props: DialogPopupProps) => {
-  const { onClose, selectedValue, open, specialities } = props;
-
+const DialogPopup = ({ onClose, selectedValue, open, specialities }: DialogPopupProps) => {
   const handleClose = () => {
     onClose(selectedValue);
   };

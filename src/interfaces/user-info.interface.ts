@@ -1,7 +1,7 @@
 import { OptionInfo } from './option-info.interface'
 
 export interface UserInfo{
-    bodyParameters:{
+    data:{
         name:string,
         companyName:string,
         phoneNumber:string,

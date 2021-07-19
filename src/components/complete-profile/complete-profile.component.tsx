@@ -12,10 +12,9 @@ import { OptionalInformation } from '../../interfaces/optional-information.inter
 import { CompleteProfileProps } from '../../interfaces/complete-profile-props.interface';
 import { CompleteProfileValues } from '../../interfaces/complete-profile-values.interface';
 
-const CompleteProfile = (props: CompleteProfileProps) => {
-    const dispatch = useDispatch();
+const CompleteProfile = ({industries, specialities} : CompleteProfileProps) => {
 
-    const {industries, specialities} = props;
+    const dispatch = useDispatch();
 
     const [open, setOpen] = useState(false);
     const [selectedValue, setSelectedValue] = useState(null);
@@ -45,14 +44,14 @@ const CompleteProfile = (props: CompleteProfileProps) => {
             phoneNumber: '',
         },
         onSubmit: ({name, companyName, phoneNumber}: CompleteProfileValues) => {
-            const bodyParameters = {
+            const data = {
                 name,
                 companyName,
                 phoneNumber,
                 specialities: userIndustries,
                 industries: userSpecialities,
             }
-            dispatch(sendUserInfo({bodyParameters}))
+            dispatch(sendUserInfo({data}))
         },
         validationSchema: CompleteProfileSchema,
     })
@@ -116,14 +115,14 @@ const CompleteProfile = (props: CompleteProfileProps) => {
                 </AddPosition>
                 <Label>Industries</Label>
                     {                    
-                        industries.length &&
+                        industries &&
                         <Autocomplete
                             freeSolo
                             id="autocompleteIndustries"
                             disableClearable
                             options={industries.map((industrie:OptionalInformation) => industrie.name)}
                             onChange={(event: React.ChangeEvent<{}>, newValue:string) => { 
-                                const value = industries.find((industrie:OptionalInformation) => {return industrie.name===newValue})
+                                const value = industries.find((industrie:OptionalInformation) => industrie.name===newValue)
                                 if(value){
                                     setUserIndustries([...userIndustries, value])
                                 }

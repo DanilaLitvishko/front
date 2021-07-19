@@ -16,7 +16,7 @@ import {UserPayload} from '../../interfaces/user-payload.interface'
 
 const Login = () => {
 
-    const [login1, setLogin1] = useState(false);
+    const [isLogged, setIsLogged] = useState(false);
 
     const dispatch = useDispatch();
 
@@ -27,7 +27,7 @@ const Login = () => {
         },
         onSubmit: async (values:UserPayload) => {
             dispatch(login(values))
-            setLogin1(true)
+            setIsLogged(true)
         },
         validationSchema: LoginSchema,
     })
@@ -69,7 +69,7 @@ const Login = () => {
                 </SignUpButton>
             </Grid>
             {
-                login1?<Redirect to={{
+                isLogged?<Redirect to={{
                     pathname:"/completeProfile",
                     state:{email: values.email}
                 }}/>

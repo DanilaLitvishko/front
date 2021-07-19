@@ -2,8 +2,7 @@ import React from 'react'
 import { IndustrieItemProps } from '../../interfaces/industrie-item-props.interface';
 import { Industrie, RemoveButtonContainer, TextContainer } from './industrie-item.styles'
 
-const IndustrieItem = (props:IndustrieItemProps) => {
-    const { industrie, onDelete } = props;
+const IndustrieItem = ({ industrie, onDelete }:IndustrieItemProps) => {
     const handleDelete = () => {
         onDelete(industrie)
     }

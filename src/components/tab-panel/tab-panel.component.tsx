@@ -3,9 +3,7 @@ import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import { TabPanelProps } from '../../interfaces/tab-panel-props.interface';
 
-const TabPanel = (props:TabPanelProps) => {
-    const { children, value, index, ...other } = props;
-  
+const TabPanel = ({ children, value, index, ...other }:TabPanelProps) => {  
     return (
       <div
         role="tabpanel"

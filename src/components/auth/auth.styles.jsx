@@ -33,5 +33,4 @@ export const AntTab = withStyles((theme) => ({
         color: `${props => props.theme.color.blue}`,
       },
     },
-    selected: {},
   }))((props) => <Tab disableRipple {...props} />);
