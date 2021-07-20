@@ -68,12 +68,26 @@ export const sendUserInfo = (userInfo: UserInfo) => ({
     payload:userInfo
 })
 
-export const sendUserInfoSuccess = (userInfo:UserInfo) => ({
+export const sendUserInfoSuccess = (userInfo: UserInfo) => ({
     type: UserActionTypes.SEND_USER_INFO_SUCCESS,
     payload: userInfo
 })
 
-export const sendUserInfoFailure = (error:Error | AxiosError) => ({
+export const sendUserInfoFailure = (error: Error | AxiosError) => ({
     type: UserActionTypes.SEND_USER_INFO_FAILURE,
+    payload: error
+})
+
+export const fetchUserInfoStart = () => ({
+    type: UserActionTypes.FETCH_USER_INFO_START
+})
+
+export const fetchUserInfoSuccess = (userInfo: UserInfo) =>({
+    type: UserActionTypes.FETCH_USER_INFO_SUCCESS,
+    payload: userInfo,
+})
+
+export const fetchUserInfoFailure = (error: Error | AxiosError) => ({
+    type: UserActionTypes.FETCH_USER_INFO_FAILURE,
     payload: error
 })

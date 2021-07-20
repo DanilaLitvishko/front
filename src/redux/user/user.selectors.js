@@ -16,3 +16,8 @@ export const selectLoading = createSelector(
     selectUser,
     (user) => user.loading
 )
+
+export const selectUserInfo = createSelector(
+    selectUser,
+    (user) => user.userInfo
+)

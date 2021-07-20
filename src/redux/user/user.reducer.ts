@@ -6,20 +6,22 @@ const INITIAL_STATE:InitialState = {
     currentUser: null,
     error: null,
     loading: false,
+    userInfo: null,
 }
 
 const userReducer = (state = INITIAL_STATE, action: Action) => {
     switch(action.type){
+        case UserActionTypes.FETCH_USER_INFO_START:
         case UserActionTypes.SIGN_UP_START:
             return{
                 ...state,
-                error:null,
-                loading:true,
+                error: null,
+                loading: true,
             }
         case UserActionTypes.SIGN_UP_SUCCESS:
             return{
                 ...state,
-                loading:false
+                loading: false
             }
         case UserActionTypes.CONFIRM_EMAIL:
         case UserActionTypes.LOGIN_SUCCESS:
@@ -27,12 +29,19 @@ const userReducer = (state = INITIAL_STATE, action: Action) => {
                 ...state,
                 currentUser: action.payload
             }
+        case UserActionTypes.FETCH_USER_INFO_SUCCESS:
+            return{
+                ...state,
+                userInfo: action.payload,
+                loading: false
+            }
+        case UserActionTypes.FETCH_USER_INFO_FAILURE:
         case UserActionTypes.SEND_USER_INFO_FAILURE:
         case UserActionTypes.SIGN_UP_FAILURE:
             return {
                 ...state,
                 error: action.payload,
-                loading:false,
+                loading: false,
             }
         default:
             return state

@@ -1,8 +1,6 @@
 import styled from 'styled-components'
 import Switch from '@material-ui/core/Switch';
 import { withStyles } from '@material-ui/core/styles';
-import Tabs from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab';
 
 export const Window = styled.div`
     width: 1110px;
@@ -22,19 +20,6 @@ export const TabsContainer = styled.div`
     box-shadow: 0px 30px 40px rgba(212, 217, 232, 0.1);
     border-radius: 8px;
     display: flex;
-`
-
-export const AboutYouContainer = styled.div`
-    margin-left: 32px;
-    margin-right: 8px;
-    width: 397px;
-    height: 286px;
-    background: #FFFFFF;
-    box-shadow: 0px 30px 40px rgba(212, 217, 232, 0.1);
-    border-radius: 8px;
-    display: flex;
-    margin-bottom: -50px;
-    flex-direction:column;
 `
 
 export const HeadingContainer = styled.div`
@@ -57,18 +42,6 @@ export const Heading = styled.div`
     line-height: 24px;
     font-feature-settings: 'liga' off;
     color: ${props => props.theme.color.redBlack};
-`
-
-export const SpecialitiesContainer = styled.div`
-    margin-left: 8px;
-    width: 397px;
-    height: 286px;
-    background: ${props => props.theme.color.white};
-    box-shadow: 0px 30px 40px rgba(212, 217, 232, 0.1);
-    border-radius: 8px;
-    display: flex;
-    margin-bottom: -50px;
-    flex-direction: column;
 `
 
 export const SubscriptionContainer = styled.div`
@@ -118,12 +91,6 @@ export const AngleText = styled.div`
     color: ${props => props.theme.color.blue};
     display: flex;
     margin-right: 39px;
-`
-
-export const PencilContainer = styled.div`
-    width: 12px;
-    height: 12px;
-    margin-right: 5px;
 `
 
 export const ViewAllText = styled.div`
@@ -283,37 +250,3 @@ export const AntSwitch = withStyles((theme) => ({
     },
     checked: {},
   }))(Switch);
-
-
-  export const StyledTabs = withStyles({
-    indicator: {
-      left:'0px',
-      top: '10px',
-      display: 'flex',
-      justifyContent: 'flex-end',
-      backgroundColor: 'transparent',
-      '& > span': {
-        height: '28px',
-        width: '14px',
-        backgroundColor: '#2E1AAD',
-      },
-    },
-  })((props) => <Tabs {...props} TabIndicatorProps={{ children: <span /> }} />);
-  
-  export const StyledTab = withStyles((theme) => ({
-    root: {
-      textTransform: 'none',
-      color: '#999999',
-      fontFamily: 'Manrope',
-      fontStyle: 'normal',
-      fontWeight: 'bold',
-      fontSize: '14px',
-      lineHeight: '20px',
-      fontFeatureSettings: 'liga',
-      marginRight: theme.spacing(1),
-      '&.MuiTab-textColorInherit.Mui-selected': {
-        color: '#2E1AAD',
-      },
-      
-    },
-  }))((props) => <Tab disableRipple {...props} />);

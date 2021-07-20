@@ -1,8 +1,8 @@
 import React from 'react'
 import { ListItemProps } from '../../interfaces/industrie-item-props.interface';
-import { Industrie, RemoveButtonContainer, TextContainer } from './industrie-item.styles'
+import { Industrie, RemoveButtonContainer, TextContainer } from './specialities-item.styles'
 
-const IndustrieItem = ({ item, onDelete }:ListItemProps) => {
+const SpecialityItem = ({ item, onDelete }:ListItemProps) => {
     const handleDelete = () => {
         onDelete(item)
     }
@@ -12,10 +12,10 @@ const IndustrieItem = ({ item, onDelete }:ListItemProps) => {
                 {item.name}
             </TextContainer>
             <RemoveButtonContainer onClick={handleDelete}>
-                &#10005;
+                ✕
             </RemoveButtonContainer>
         </Industrie>
     )
 }
 
-export default IndustrieItem
+export default SpecialityItem

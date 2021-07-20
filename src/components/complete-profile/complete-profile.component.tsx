@@ -11,6 +11,7 @@ import { sendUserInfo } from '../../redux/user/user.actions';
 import { OptionalInformation } from '../../interfaces/optional-information.interface';
 import { CompleteProfileProps } from '../../interfaces/complete-profile-props.interface';
 import { CompleteProfileValues } from '../../interfaces/complete-profile-values.interface';
+import { Link } from 'react-router-dom';
 
 const CompleteProfile = ({industries, specialities} : CompleteProfileProps) => {
 
@@ -48,8 +49,8 @@ const CompleteProfile = ({industries, specialities} : CompleteProfileProps) => {
                 name,
                 companyName,
                 phoneNumber,
-                specialities: userIndustries,
-                industries: userSpecialities,
+                specialities: userSpecialities,
+                industries: userIndustries,
             }
             dispatch(sendUserInfo({data}))
         },
@@ -140,13 +141,14 @@ const CompleteProfile = ({industries, specialities} : CompleteProfileProps) => {
                     <div>
                         {
                             userIndustries.map((item:OptionalInformation) => 
-                                <IndustrieItem key={item.id} industrie={item} onDelete={handleClearClick}/>
+                                <IndustrieItem key={item.id} item={item} onDelete={handleClearClick}/>
                             )
                         }
                     </div>
                 <DialogPopup selectedValue={selectedValue} open={open} onClose={handleClose} specialities={specialities}/>
                 <SaveButton type="submit" disabled={isSubmitting}><SaveTextInButton>Save</SaveTextInButton></SaveButton>
             </form>
+            <Link to='/profile'>Profile</Link>
         </Window>
     )
 }

@@ -15,14 +15,14 @@ const Footer = () => {
   return (
     <Box>
     <Grid container spacing={3}>
-        <Grid container item direction="column" xs alignItems="flex-end" justify="center">
+        <Grid container item direction="column" xs alignItems="flex-end" justifyContent="center">
           <CompanyInfo>
           <CompanyName>I-TAPP</CompanyName>
           <Copyright>Copyright © 2021 I-TAPP</Copyright>
           <Copyright>All rights reserved</Copyright>
           </CompanyInfo>
         </Grid>
-        <Grid container item direction="column" xs alignItems="flex-end" justify="flex-start">
+        <Grid container item direction="column" xs alignItems="flex-end" justifyContent="flex-start">
         <CompanyColumn>
             <Heading>Company</Heading>
             <String>Home</String>
@@ -32,7 +32,7 @@ const Footer = () => {
             <String>Privacy Policy</String>
           </CompanyColumn>
         </Grid>
-        <Grid container item direction="column" xs justify="flex-end">
+        <Grid container item direction="column" xs justifyContent="flex-end">
           <JobsColumn>
             <Heading>Jobs</Heading>
             <String>For Candidates</String>
