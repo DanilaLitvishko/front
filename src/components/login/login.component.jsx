@@ -15,6 +15,8 @@ import {login} from '../../redux/user/user.actions'
 
 const Login = () => {
 
+    const [isLogged, setIsLogged] = useState(false);
+
     const dispatch = useDispatch();
     const formik = useFormik({
         initialValues:{
@@ -23,11 +25,10 @@ const Login = () => {
         },
         onSubmit: async values => {
             dispatch(login(values))
-            setLogin1(true)
+            setIsLogged(true)
         },
         validationSchema: LoginSchema,
     })
-    const [login1, setLogin1] = useState(false);
 
     return (
         <form onSubmit={formik.handleSubmit}>
@@ -67,7 +68,7 @@ const Login = () => {
                 </SignUpButton>
             </Grid>
             {
-                login1?<Redirect to={{
+                isLogged?<Redirect to={{
                     pathname:"/completeProfile",
                     state:{email: formik.values.email}
                 }}/>

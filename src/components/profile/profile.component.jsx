@@ -1,24 +1,23 @@
 import React, {useEffect} from 'react'
 import axios from 'axios';
 import { ReactComponent as Pencil } from '../../assets/pencil.svg'
-import Box from '@material-ui/core/Box';
 
 import { 
-    TabsContainer, 
-    Window, 
-    AboutYouContainer, 
-    SpecialitiesContainer, 
-    SubscriptionContainer, 
-    InvoicesContainer,
-    NotificationsContainer,  
-    Heading,
-    AngleText,
-    PencilContainer,
-    ViewAllText,
-    NotificationText,
-    NotificationLine,
-    SwitchContainer,
-    LineContainer,
+  TabsContainer, 
+  Window, 
+  AboutYouContainer, 
+  SpecialitiesContainer, 
+  SubscriptionContainer, 
+  InvoicesContainer,
+  NotificationsContainer,  
+  Heading,
+  AngleText,
+  PencilContainer,
+  ViewAllText,
+  NotificationText,
+  NotificationLine,
+  SwitchContainer,
+  LineContainer,
   AntSwitch,
   StyledTab,
   StyledTabs,
@@ -27,7 +26,9 @@ import {
   ButtonContainer,
   ButtonText,
   ManageCardDetailsContainer,
-  HeadingContainer
+  HeadingContainer,
+  HeadingLine,
+  InvoicesLine
 } from './profile.styles'
 
 const Profile = () => {
@@ -64,20 +65,24 @@ const Profile = () => {
                     About you
                 </Heading>
                 <AngleText>
-                    <PencilContainer><Pencil/></PencilContainer>
-                        Edit
+                  <PencilContainer><Pencil/></PencilContainer>
+                  Edit
                 </AngleText>
               </HeadingContainer>
+              <HeadingLine/>
             </AboutYouContainer>
             <SpecialitiesContainer>
-                <Heading>
-                    Specialities
-                    <ViewAllText>View all</ViewAllText>
-                    <AngleText>+Add</AngleText>
-                </Heading>
+              <HeadingContainer>
+                  <Heading>
+                      Specialities
+                      <ViewAllText>View all</ViewAllText>
+                  </Heading>
+                  <AngleText>+Add</AngleText>
+                </HeadingContainer>
+                <HeadingLine/>
             </SpecialitiesContainer>
             <SubscriptionContainer>
-                <Heading>
+                <Heading style={{'margin-top': '20px'}}>
                     Subscription
                 </Heading>
                 <SubscriptionLine/>
@@ -89,13 +94,16 @@ const Profile = () => {
                 <ManageCardDetailsContainer>Manage card details</ManageCardDetailsContainer>
             </SubscriptionContainer>
             <InvoicesContainer>
-              <Heading>
-                Invoices
-              </Heading>
-              <ViewAllText>View all</ViewAllText>
+              <HeadingContainer>
+                    <Heading>
+                        Invoices
+                        <ViewAllText>View all</ViewAllText>
+                    </Heading>
+                </HeadingContainer>
+                <InvoicesLine/>
             </InvoicesContainer>
           <NotificationsContainer>
-            <Heading>
+            <Heading style={{'margin-top': '20px'}}>
               Notifications
             </Heading>
             <NotificationLine/>

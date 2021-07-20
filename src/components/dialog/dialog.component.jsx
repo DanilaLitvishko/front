@@ -4,8 +4,6 @@ import ListItemText from '@material-ui/core/ListItemText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Dialog from '@material-ui/core/Dialog';
 
-const emails = ['username@gmail.com', 'user02@gmail.com'];
-
 const DialogPopup = (props) => {
   const { onClose, selectedValue, open, specialities } = props;
 

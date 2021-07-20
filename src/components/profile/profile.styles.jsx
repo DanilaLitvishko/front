@@ -34,12 +34,20 @@ export const AboutYouContainer = styled.div`
     border-radius: 8px;
     display: flex;
     margin-bottom: -50px;
+    flex-direction:column;
+`
+
+export const HeadingContainer = styled.div`
+  width: 100%;
+  height: 54px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 16px;
 `
 
 export const Heading = styled.div`
-  display: flex;
+    display: flex;
     margin-left: 24px;
-    margin-top: 16px;
     width: auto;
     height: 24px;
     font-family: Manrope;
@@ -60,6 +68,7 @@ export const SpecialitiesContainer = styled.div`
     border-radius: 8px;
     display: flex;
     margin-bottom: -50px;
+    flex-direction: column;
 `
 
 export const SubscriptionContainer = styled.div`
@@ -81,6 +90,7 @@ export const InvoicesContainer = styled.div`
     box-shadow: 0px 30px 40px rgba(212, 217, 232, 0.1);
     border-radius: 8px;
     display: flex;
+    flex-direction: column;
 `
 
 export const NotificationsContainer = styled.div`
@@ -107,6 +117,7 @@ export const AngleText = styled.div`
     font-feature-settings: 'liga' off;
     color: ${props => props.theme.color.blue};
     display: flex;
+    margin-right: 39px;
 `
 
 export const PencilContainer = styled.div`
@@ -116,6 +127,7 @@ export const PencilContainer = styled.div`
 `
 
 export const ViewAllText = styled.div`
+    margin-left: 8px;
     width: 48px;
     height: 16px;
     font-family: ${props => props.theme.fontFamily};
@@ -124,7 +136,8 @@ export const ViewAllText = styled.div`
     font-size: 14px;
     line-height: 16px;
     font-feature-settings: 'liga' off;
-    color: ${props => props.theme.color.blue};
+    color:  ${props => props.theme.color.blue};
+    margin-top: 5px;
 `
 
 export const NotificationLine = styled.div`
@@ -205,6 +218,14 @@ export const ButtonText = styled.div`
     color: #2E1AAD;
 `
 
+export const HeadingLine = styled.div`
+    width: 349px;
+    height: 1px;
+    margin-left: 24px;
+    margin-top: -20px;
+    background: #EBEBEB;
+`
+
 export const ManageCardDetailsContainer = styled.div`
     margin-top: 10px;
     margin-left: 46px;
@@ -220,9 +241,12 @@ export const ManageCardDetailsContainer = styled.div`
     color: #231F20;
 `
 
-export const HeadingContainer = styled.div`
-  display: flex;
-  justify-content: space-between;
+export const InvoicesLine = styled.div`
+  width: 541px;
+  height: 1px;
+  margin-top: -20px;
+  margin-left: 24px;
+  background: #D6D6D6;
 `
 
 export const AntSwitch = withStyles((theme) => ({
@@ -231,7 +255,7 @@ export const AntSwitch = withStyles((theme) => ({
       height: 16,
       padding: 0,
       display: 'flex',
-      overflow: 'none',
+      overflow: 'visible',
     },
     switchBase: {
       padding: 3,
