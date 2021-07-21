@@ -12,6 +12,7 @@ import { LoginResponse } from '../../interfaces/login-response.interface'
 import {sendUserInfoFailure, sendUserInfoSuccess} from './user.actions'
 import { UserInfo } from '../../interfaces/user-info.interface'
 import { SendUserInfoSaga } from '../../interfaces/send-user-info-saga.interface'
+import { ContactSupport } from '@material-ui/icons'
 
 export function* singUp(signUpAction: SignUpSaga){
     try{
@@ -26,8 +27,8 @@ export function* singUp(signUpAction: SignUpSaga){
 
 export function* confirmEmail(confirmEmailAction: ConfirmEmailSaga){
     try{
-        const {payload:{confirmationCode}} = confirmEmailAction;
-        const {user}:UserCredentials = yield axios.get(`http://localhost:3001/confirm-registration/${confirmationCode}`);
+        const {payload} = confirmEmailAction;
+        const {user}:UserCredentials = yield axios.get(`http://localhost:3001/confirm-registration/${payload}`);
         yield put(confirmEmailSuccess({user}));
     }catch(error){
         yield put(confirmEmailFailure(error));

@@ -7,8 +7,7 @@ import {Redirect} from 'react-router-dom'
 import {
     Input,
     Label,
-    SignUpButton,
-    SignUpTextInButton
+    LoginButton,
 } from './login.styles'
 import LoginSchema from './login.validation-schema'
 import {login} from '../../redux/user/user.actions'
@@ -32,8 +31,8 @@ const Login = () => {
         validationSchema: LoginSchema,
     })
     return (
-        <form onSubmit={handleSubmit}>
-            <Grid container direction="column" alignItems="center" spacing={1}>
+        <form onSubmit={handleSubmit} style={{'marginLeft':'24px', 'marginRight':'24px', 'marginTop':'25px'}}>
+            <Grid container direction="column" spacing={1}>
                 <Grid item><Label>Email</Label></Grid>
                     <Grid item>
                         <Input
@@ -49,7 +48,7 @@ const Login = () => {
                         />                    
                     </Grid>
                 <Grid item><Label>Password</Label></Grid>
-                <Grid item>
+                <Grid item style={{'marginBottom': '40px'}}>
                     <Input
                         {...getFieldProps('password')}
                         id="password"
@@ -62,11 +61,9 @@ const Login = () => {
                         error={Boolean(errors.password)}
                     />
                 </Grid>
-                <SignUpButton type="submit">
-                    <SignUpTextInButton>
+                <LoginButton type="submit">
                         Login
-                    </SignUpTextInButton>
-                </SignUpButton>
+                </LoginButton>
             </Grid>
             {
                 isLogged?<Redirect to={{

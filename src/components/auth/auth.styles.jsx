@@ -10,27 +10,32 @@ export const Window = styled.div`
     border-radius: 8px;
 `
 
-export const AntTabs = withStyles({
+export const AntTabs = withStyles((theme) =>({
     root: {
-      borderBottom: `1px solid ${props => props.theme.color.redWhite}`,
+      borderBottom: `1px solid ${theme.color.redWhite}`,
+      width: '400px',
+      marginLeft: '48px'
     },
     indicator: {
-      backgroundColor: `${props => props.theme.color.blue}`,
+      backgroundColor: theme.color.blue,
+      width: '200px',
     },
 
-  })(Tabs);
+  }))((props) => <Tabs disableRipple {...props} TabIndicatorProps={{ children: <span /> }}/>);
   
 export const AntTab = withStyles((theme) => ({
     root: {
       textTransform: 'none',
       minWidth: 72,
-      marginRight: theme.spacing(4),
-      fontFamily: `${props => props.theme.color.fontFamily}`,
-      fontStyle: `${props => props.theme.color.fontStyle}`,
+      marginLeft: '77px',
+      marginRight: '64px',
+      fontFamily: theme.fontFamily,
+      fontStyle: theme.fontStyle,
       fontWeight: 'bold',
       fontSize: '18px',
-      '&$selected': {
-        color: `${props => props.theme.color.blue}`,
+      color: theme.color.gray,
+      '&.MuiTab-textColorInherit.Mui-selected': {
+        color: theme.color.blue,
       },
     },
   }))((props) => <Tab disableRipple {...props} />);

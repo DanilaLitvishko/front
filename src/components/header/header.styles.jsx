@@ -3,6 +3,7 @@ import styled from 'styled-components'
 export const LogoContainer = styled.div`
     width: 102px;
     height: 43px;
+    margin-left: 165px;
 `
 
 export const LeftNav = styled.div`
@@ -73,4 +74,48 @@ export const SignUp = styled.div`
     text-align: center;
     font-feature-settings: 'liga' off;
     color: ${props => props.theme.color.white};
+`
+
+export const Circle = styled.div`
+    width: 40px;
+    height: 40px;
+    background: red;
+    border-radius: 50%;
+    margin-left: 16px;
+    margin-right: 12px;
+    margin-top: -10px;
+`
+
+export const Label = styled.label`
+    font-family: ${props => props.theme.fontFamily};
+    font-style: ${props => props.theme.fontStyle};
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 20px;
+    width: auto;
+    height: 20px;
+    font-feature-settings: 'liga' off;
+    padding-right: 32px;
+
+    color: ${props => props.theme.color.gray};
+`
+
+export const ExitContainer = styled.div`
+    height: 16px;
+    width: 17px;
+    margin-left: 18px;
+    margin-right: 168px;
+`
+
+export const NameContainer = styled.div`
+    font-family: ${props => props.theme.fontFamily};
+    font-style: ${props => props.theme.fontStyle};
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 20px;
+    padding-right: 14px;
+    border-right: 1px solid ${props => props.theme.color.redWhite};
+    font-feature-settings: 'liga' off;
+    height: 24px;
+    color: #231F20;
 `

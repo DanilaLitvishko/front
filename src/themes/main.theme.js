@@ -1,4 +1,6 @@
-const mainTheme = {
+import { createTheme } from "@material-ui/core";
+
+const mainTheme = createTheme({
     fontSource:'https://fonts.googleapis.com/css2?family=Manrope:wght@200&display=swap',
     fontFamily: 'Manrope',
     fontStyle: 'normal',
@@ -15,6 +17,6 @@ const mainTheme = {
         redBlack:'#231F20',
         grayRed:'#C4C4C4'
     }
-}
+})
 
 export default mainTheme;

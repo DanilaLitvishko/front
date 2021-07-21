@@ -11,8 +11,8 @@ const StyledTab = withStyles((theme) => ({
       fontFamily: `${(props:any) => props.theme.fontFamily}`,
       fontStyle: `${(props:any) => props.theme.fontStyle}`,
       marginRight: theme.spacing(1),
-      '&:focus': {
-        opacity: 1,
+      '&.MuiTab-textColorInherit.Mui-selected': {
+        color: '#2E1AAD',
       },
     },
 }))((props: StyledTabProps) => <Tab disableRipple {...props} />);

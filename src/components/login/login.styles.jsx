@@ -1,4 +1,4 @@
-import { TextField } from "@material-ui/core";
+import { Button, TextField } from "@material-ui/core";
 import styled from "styled-components";
 
 export const Label = styled.label`
@@ -24,14 +24,27 @@ export const Input = styled(TextField)`
     }
 `
 
-export const SignUpButton = styled.button`
+export const LoginButton = styled(Button)`
     height: 52px;
     width: 400px;
     border-radius: 8px;
-
     background: ${props => props.theme.color.blue};
     border: 1px solid ${props => props.theme.color.blue};
     border-radius: 8px;
+    align-items: center;
+    & .MuiButton-label{
+        font-family: ${props => props.theme.fontFamily};
+        font-style: ${props => props.theme.fontStyle};
+        font-weight: bold;
+        font-size: 16px;
+        line-height: 20px;
+        text-align: center;
+        font-feature-settings: 'liga' off;
+        color: ${props => props.theme.color.white};
+    }
+    &.MuiButton-root{
+        text-transform: none;
+    }
 `
 
 export const SignUpTextInButton = styled.div`

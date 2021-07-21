@@ -9,7 +9,6 @@ import {
     Label, 
     Text,
     SignUpButton,
-    SignUpTextInButton,
     Square
 } from './signup.styles'
 import SignUpSchema from './signup.validation-schema'
@@ -56,8 +55,8 @@ const SignUp = () => {
     })
 
     return (
-        <form onSubmit={handleSubmit}>
-            <Grid container direction="column" alignItems="center" spacing={1}>
+        <form onSubmit={handleSubmit} style={{'marginLeft':'24px', 'marginRight':'24px', 'marginTop':'25px'}}>
+            <Grid container direction="column" spacing={1}>
                 <Grid item><Label>Email</Label></Grid>
                     <Grid item>
                         <Input
@@ -100,7 +99,7 @@ const SignUp = () => {
                         error={Boolean(errors.confirmPassword)}
                     />
                 </Grid>
-                <Grid item>
+                <Grid item style={{'display': 'flex', 'marginTop': '32px', 'marginBottom':'40px'}}>
                     <Square/>
                     <Text>
                         By creating an account you agree to the terms and conditions applicable to our service and acknowledge 
@@ -109,9 +108,7 @@ const SignUp = () => {
                     </Text>
                 </Grid>
                 <SignUpButton type="submit">
-                    <SignUpTextInButton>
                         Sign up
-                    </SignUpTextInButton>
                 </SignUpButton>
                 {
                     signUp?<Redirect to={{

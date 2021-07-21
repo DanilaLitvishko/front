@@ -10,7 +10,7 @@ const Layout = (props:LayoutProps) => {
             <Grid item container md={12}>
                 <Header/>
             </Grid>
-            <Grid item container md={12} justifyContent="center">
+            <Grid item container md={12} justifyContent="center" style={{'marginTop': '60px', 'marginBottom': '60px'}}>
                 {props.children}
             </Grid>
             <Grid item container md={12} direction="column">

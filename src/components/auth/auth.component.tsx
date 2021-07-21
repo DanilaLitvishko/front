@@ -14,9 +14,9 @@ const Auth = () => {
     
     return (
         <Window>
-            <AntTabs value={value} onChange={handleChange} aria-label="ant example" centered>
+            <AntTabs value={value} onChange={handleChange} aria-label="ant example">
                 <AntTab label="Login"/>
-                <AntTab label="SignUp" />
+                <AntTab label="Sign up"/>
             </AntTabs>
             <TabPanel value={value} index={0}>
                 <Login/>
