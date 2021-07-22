@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import {Button} from '@material-ui/core'
 
 export const Window = styled.div`
     display: flex;
@@ -29,21 +30,27 @@ export const String = styled.div`
     color: ${props => props.theme.color.redBlack};
 `
 
-export const ButtonText = styled.div`
-    font-family: ${props => props.theme.fontFamily};
-    font-style: ${props => props.theme.fontStyle};
-    font-weight: bold;
-    font-size: 16px;
-    line-height: 20px;
-    text-align: center;
-    font-feature-settings: 'liga' off;
-    color: ${props => props.theme.color.white};
-`
-
-export const Button = styled.button`
+export const StyledButton = styled(Button)`
     height: 52px;
     width: 272px;
     background: ${props => props.theme.color.blue};
     border: 1px solid ${props => props.theme.color.blue};
     border-radius: 8px;
+    align-items: center;
+    & .MuiButton-label{
+        font-family: ${props => props.theme.fontFamily};
+        font-style: ${props => props.theme.fontStyle};
+        font-weight: bold;
+        font-size: 16px;
+        line-height: 20px;
+        text-align: center;
+        font-feature-settings: 'liga' off;
+        color: ${props => props.theme.color.white};
+    }
+    &.MuiButton-root{
+        text-transform: none;
+    }
+    &:hover{
+        background-color: ${props => props.theme.color.blue};
+    }
 `

@@ -1,4 +1,5 @@
-import React, {useState, useEffect} from 'react'
+import axios from 'axios';
+import React, {useState, useEffect, useRef} from 'react'
 import { useInfoFromBackend } from '../../hooks/useInfoFromBackend.hook';
 import { OptionalInformation } from '../../interfaces/optional-information.interface';
 import DialogPopup from '../dialog/dialog.component';
@@ -12,44 +13,37 @@ import {
     HeadingContainer,
 } from './specialities.styles'
 
-const Specialities = ({specialities} : {specialities: OptionalInformation[] | undefined}) => {
+const Specialities = ({specialities, userInfoId} : {specialities: OptionalInformation[] | undefined, userInfoId:string | undefined}) => {
 
     const loadSpecialities = useInfoFromBackend('http://localhost:3001/specialities')
 
     const [userSpecialities, setUserSpecialities] = useState<OptionalInformation[] | undefined>(undefined);
     const [selectedValue, setSelectedValue] = useState(null);
-    const [open, setOpen] = useState(false);
+    const [openAddSpecialities, setOpenAddSpecialities] = useState(false);
+    const [openViewAllSpecialities, setOpenViewAllSpecialities] = useState(false);
+    const [addSpecialities, setAddSpecialities] = useState<OptionalInformation[] | undefined>(loadSpecialities.data)
+    const stateRef: any = useRef();
 
-    const handleClose = (value:OptionalInformation | null) => {
-        setOpen(false);
+    stateRef.current = {userInfoId, userSpecialities};
+
+    const handleCloseAdd = (value:OptionalInformation | null) => {
+        setOpenAddSpecialities(false);
         if(userSpecialities && value){
             setUserSpecialities([...userSpecialities, value])
         }
     };
 
-    const handleClickOpen = () => {
-        setOpen(true);
+    const handleClickOpenAdd = () => {
+        setOpenAddSpecialities(true);
     };
 
-    useEffect(() => {
-        setUserSpecialities(specialities)
-    }, [specialities]);
-
-    const check = (element:any, index:any, array:any) =>{
-
+    const handleCloseViewAll = () => {
+        setOpenViewAllSpecialities(false)
     }
 
-    // useEffect(() => {
-    //     if(loadSpecialities.data && userSpecialities){
-    //         const arr = loadSpecialities.data.filter((item:OptionalInformation) => {
-    //             const index = userSpecialities.findIndex(item);
-    //             console.log(index)
-    //         })
-    //         console.log(userSpecialities)
-    //         console.log(loadSpecialities.data)
-    //         console.log(arr)
-    //     }
-    // }, [userSpecialities, loadSpecialities.data])
+    const handleClickOpenViewAll = () => {
+        setOpenViewAllSpecialities(true)
+    }
 
     const handleClearClick = (value:OptionalInformation) => {
         if(userSpecialities){
@@ -58,14 +52,34 @@ const Specialities = ({specialities} : {specialities: OptionalInformation[] | un
         }
     }
 
+    useEffect(() => {
+        setUserSpecialities(specialities)
+    }, [specialities]);
+
+    useEffect(() => {
+        if(loadSpecialities.data && userSpecialities){
+            const arr = loadSpecialities.data.filter((item:OptionalInformation) => 
+                userSpecialities.findIndex((spec) => spec.id === item.id) < 0
+            )
+            setAddSpecialities(arr)
+        }
+    }, [userSpecialities, loadSpecialities.data])
+    
+    useEffect(() => {
+        return () => {
+            console.log(stateRef)
+            axios.post('http://localhost:3001/user-info/specialities', stateRef.current);
+        }
+    }, [])
+
     return (
         <SpecialitiesContainer>
             <HeadingContainer>
                 <Heading>
                     Specialities
-                    <ViewAllText>View all</ViewAllText>
+                    <ViewAllText style={{cursor: "pointer"}} onClick={handleClickOpenViewAll}>View all</ViewAllText>
                 </Heading>
-                <AngleText style={{cursor: "pointer"}} onClick={handleClickOpen}>+Add</AngleText>
+                <AngleText style={{cursor: "pointer"}} onClick={handleClickOpenAdd}>+Add</AngleText>
             </HeadingContainer>
             {
                 userSpecialities && userSpecialities.map((item:OptionalInformation) => 
@@ -73,12 +87,24 @@ const Specialities = ({specialities} : {specialities: OptionalInformation[] | un
                 )
             }
             {
-                userSpecialities && loadSpecialities.data?
+                addSpecialities?
                 <DialogPopup 
                     selectedValue={selectedValue} 
-                    open={open} 
-                    onClose={handleClose} 
-                    specialities={loadSpecialities.data}
+                    open={openAddSpecialities} 
+                    onClose={handleCloseAdd} 
+                    specialities={addSpecialities}
+                    title='Choose speciality'
+                />
+                :null
+            }
+            {
+                userSpecialities?
+                <DialogPopup 
+                    selectedValue={selectedValue} 
+                    open={openViewAllSpecialities} 
+                    onClose={handleCloseViewAll} 
+                    specialities={userSpecialities}
+                    title='Your specialities'
                 />
                 :null
             }

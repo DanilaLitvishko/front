@@ -15,12 +15,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchUserInfoStart } from '../../redux/user/user.actions';
 import { selectUserInfo } from '../../redux/user/user.selectors';
 import { UserInfo } from '../../interfaces/user-info.interface';
+import { Link } from 'react-router-dom';
 
 const Profile = () => {
     const [value, setValue] = useState(0);
     const dispatch = useDispatch();
     const userInfo:UserInfo | null = useSelector(selectUserInfo);
-
     useEffect(() => {
       dispatch(fetchUserInfoStart())
     }, [dispatch])
@@ -42,11 +42,12 @@ const Profile = () => {
               <StyledTab label="Roles" />
             </StyledTabs>
         </TabsContainer>
-      <AboutYou name={userInfo?.data.name} phoneNumber={userInfo?.data.phoneNumber}/>
-      <Specialities specialities={userInfo?.data.specialities}/>
+      <AboutYou name={userInfo?.data.name} phoneNumber={userInfo?.data.phoneNumber} email={userInfo?.data.email}/>
+      <Specialities specialities={userInfo?.data.specialities} userInfoId={userInfo?.data.id}/>
       <Subscription/>
       <Invoices/>
       <Notification/>
+      <Link to='/complete-profile'>Complete Profile</Link>
     </Window>
   )
 }

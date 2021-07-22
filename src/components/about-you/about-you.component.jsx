@@ -16,7 +16,7 @@ import {
 
   import { ReactComponent as Pencil } from '../../assets/pencil.svg'
 
-const AboutYou = ({name, phoneNumber}) => {
+const AboutYou = ({name, phoneNumber, email}) => {
     return (
         <AboutYouContainer>
             <HeadingContainer>
@@ -36,7 +36,7 @@ const AboutYou = ({name, phoneNumber}) => {
                     <StatusContainer>Top Headhunters</StatusContainer>
                 </div>
             </MainInfoContainer>
-            <TextContainer>Email: anne.marie93@gmail.com</TextContainer>
+            <TextContainer>Email: {email}</TextContainer>
             <TextContainer>Tel: {phoneNumber}</TextContainer>
         </AboutYouContainer>
     )

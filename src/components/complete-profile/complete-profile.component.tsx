@@ -1,10 +1,11 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import { useFormik } from 'formik'
 import { useDispatch } from 'react-redux'
+import { makeStyles } from '@material-ui/core/styles';
 
 import IndustrieItem from '../industrie-item/industrie-item.component'
-import { AddPosition, Input, Label, SaveButton, SaveTextInButton, UpdateText, Window } from './complete-profile.styles'
+import { AddPosition, Input, Label, SaveButton, UpdateText, Window } from './complete-profile.styles'
 import CompleteProfileSchema from './complete-profile.validation-schema';
 import DialogPopup from '../dialog/dialog.component'
 import { sendUserInfo } from '../../redux/user/user.actions';
@@ -13,15 +14,38 @@ import { CompleteProfileProps } from '../../interfaces/complete-profile-props.in
 import { CompleteProfileValues } from '../../interfaces/complete-profile-values.interface';
 import { Link } from 'react-router-dom';
 
+const focusedColor = "orange";
+const useStyles = makeStyles({
+  root: {
+    // input label when focused
+    '&.Mui-focused': {
+        outline: 'none'                                                          
+    }
+  }
+})
+
 const CompleteProfile = ({industries, specialities} : CompleteProfileProps) => {
 
+    const classes = useStyles();
     const dispatch = useDispatch();
 
     const [open, setOpen] = useState(false);
     const [selectedValue, setSelectedValue] = useState(null);
     const [userSpecialities, setUserSpecialities] = useState<OptionalInformation[]>([]);
+    const [specialitiesForAdd, setSpecialitiesForAdd] = useState<OptionalInformation[]>(specialities)
+    const [industriesForAdd, setIndustriesForAdd] = useState<OptionalInformation[]>(industries)
     const [userIndustries, setUserIndustries] = useState<OptionalInformation[]>([]);
-  
+
+    const [image, setImage] = useState<any>(null)
+
+    const onImageChange = (event:any) => {
+        if (event.target.files && event.target.files[0]) {
+          let img = event.target.files[0];
+          setImage(URL.createObjectURL(img))
+        }
+      };
+    
+
     const handleClickOpen = () => {
         setOpen(true);
     };
@@ -56,6 +80,33 @@ const CompleteProfile = ({industries, specialities} : CompleteProfileProps) => {
         },
         validationSchema: CompleteProfileSchema,
     })
+
+    useEffect(() => {
+        setSpecialitiesForAdd(specialities)
+    }, [specialities])
+
+    useEffect(() => {
+        setIndustriesForAdd(specialities)
+    }, [industries])
+
+
+    useEffect(() => {
+        if(specialities){
+            const arr = specialities.filter((item:OptionalInformation) => 
+                    userSpecialities.findIndex((spec) => spec.id === item.id) < 0
+            )
+            setSpecialitiesForAdd(arr)
+        }
+    }, [userSpecialities])
+
+    useEffect(() => {
+        if(industries){
+            const arr = industries.filter((item:OptionalInformation) => 
+                userIndustries.findIndex((spec) => spec.id === item.id) < 0
+            )
+            setIndustriesForAdd(arr)
+        }
+    }, [userIndustries])
     
     return (
         <Window>
@@ -105,6 +156,7 @@ const CompleteProfile = ({industries, specialities} : CompleteProfileProps) => {
                             type="text"
                             variant="outlined"
                             defaultValue={specialitiy.name}
+                            className={classes.root}
                             InputProps={{
                                 readOnly: true,
                             }}
@@ -116,14 +168,14 @@ const CompleteProfile = ({industries, specialities} : CompleteProfileProps) => {
                 </AddPosition>
                 <Label>Industries</Label>
                     {                    
-                        industries &&
+                        industriesForAdd &&
                         <Autocomplete
                             freeSolo
                             id="autocompleteIndustries"
                             disableClearable
-                            options={industries.map((industrie:OptionalInformation) => industrie.name)}
+                            options={industriesForAdd.map((industrie:OptionalInformation) => industrie.name)}
                             onChange={(event: React.ChangeEvent<{}>, newValue:string) => { 
-                                const value = industries.find((industrie:OptionalInformation) => industrie.name===newValue)
+                                const value = industriesForAdd.find((industrie:OptionalInformation) => industrie.name===newValue)
                                 if(value){
                                     setUserIndustries([...userIndustries, value])
                                 }
@@ -145,9 +197,12 @@ const CompleteProfile = ({industries, specialities} : CompleteProfileProps) => {
                             )
                         }
                     </div>
-                <DialogPopup selectedValue={selectedValue} open={open} onClose={handleClose} specialities={specialities}/>
-                <SaveButton type="submit" disabled={isSubmitting}><SaveTextInButton>Save</SaveTextInButton></SaveButton>
+                <DialogPopup selectedValue={selectedValue} open={open} onClose={handleClose} specialities={specialitiesForAdd} title='Choose speciality'/>
+                <SaveButton type="submit" disabled={isSubmitting}>Save</SaveButton>
             </form>
+            <img src={image} />
+            <h1>Select Image</h1>
+            <input type="file" name="myImage" onChange={onImageChange} />
             <Link to='/profile'>Profile</Link>
         </Window>
     )

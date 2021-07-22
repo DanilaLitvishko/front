@@ -55,7 +55,7 @@ export const login = (userCredentials:UserPayload) => ({
 
 export const loginSuccess = ({data}:LoginResponse) => ({
     type: UserActionTypes.LOGIN_SUCCESS,
-    payload: data.accessToken
+    payload: data.name
 })
 
 export const loginFailure = (error:Error | AxiosError) => ({

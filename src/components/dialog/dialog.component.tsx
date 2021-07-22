@@ -6,7 +6,7 @@ import Dialog from '@material-ui/core/Dialog';
 import { DialogPopupProps } from '../../interfaces/dialog-popup-props.interface';
 import { OptionalInformation } from '../../interfaces/optional-information.interface';
 
-const DialogPopup = ({ onClose, selectedValue, open, specialities }: DialogPopupProps) => {
+const DialogPopup = ({ onClose, selectedValue, open, specialities, title }: DialogPopupProps) => {
   const handleClose = () => {
     onClose(selectedValue);
   };
@@ -17,7 +17,7 @@ const DialogPopup = ({ onClose, selectedValue, open, specialities }: DialogPopup
 
   return (
     <Dialog onClose={handleClose} aria-labelledby="simple-dialog-title" open={open}>
-      <DialogTitle id="simple-dialog-title">Choose speciality</DialogTitle>
+      <DialogTitle id="simple-dialog-title">{title}</DialogTitle>
       <List>
         
         {specialities && specialities.map((speciality) => (

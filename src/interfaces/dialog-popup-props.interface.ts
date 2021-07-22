@@ -5,4 +5,5 @@ export interface DialogPopupProps{
     specialities: OptionalInformation[] | null,
     onClose: (value:OptionalInformation | null) => void,
     selectedValue: null | OptionalInformation,
+    title:string,
 }

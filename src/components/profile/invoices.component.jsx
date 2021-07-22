@@ -14,7 +14,7 @@ const Invoices = () => {
             <HeadingContainer>
                 <Heading>
                     Invoices
-                    <ViewAllText>View all</ViewAllText>
+                    <ViewAllText style={{cursor: "pointer"}}>View all</ViewAllText>
                 </Heading>
             </HeadingContainer>
             <InvoicesLine/>

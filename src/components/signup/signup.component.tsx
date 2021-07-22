@@ -16,10 +16,11 @@ import { signUpStart } from '../../redux/user/user.actions';
 import { selectError, selectLoading } from '../../redux/user/user.selectors';
 import DialogError from '../dialog-error/dialog-error.component'
 import { UserPayload } from '../../interfaces/user-payload.interface';
+import { AxiosError } from 'axios';
 
 const SignUp = () => {
     const loading = useSelector(selectLoading);
-    const error = useSelector(selectError); 
+    const error:AxiosError = useSelector(selectError); 
 
     const [signUp, setSignUp] = useState(false);
     const [open, setOpen] = useState(false);
@@ -117,7 +118,10 @@ const SignUp = () => {
                     }}/>
                     :null
                 }
-                <DialogError open={open} close={handleClose}/>
+                {
+                    error?<DialogError open={open} close={handleClose} message={error.response?.data.message}/>
+                    :null
+                }
             </Grid>
         </form>
     )

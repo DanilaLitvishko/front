@@ -45,6 +45,9 @@ export const LoginButton = styled(Button)`
     &.MuiButton-root{
         text-transform: none;
     }
+    &:hover{
+        background-color: ${props => props.theme.color.blue};
+    }
 `
 
 export const SignUpTextInButton = styled.div`

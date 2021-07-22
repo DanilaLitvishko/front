@@ -9,9 +9,7 @@ import {
     MenuItem, 
     Line,
     LoginButton,
-    Login,
     SignUpButton,
-    SignUp,
     LogoContainer,
     Label,
     Circle, 
@@ -56,13 +54,13 @@ const Header = () => {
                         <Label>For Employers</Label>
                         <Label>For Headhunters</Label>
                         <Circle/>
-                        <NameContainer>Anne-Marie</NameContainer>
+                        <NameContainer>{currentUser}</NameContainer>
                         <ExitContainer><Exit/></ExitContainer>
                     </div>
                     :<Grid item md={4}>
                         <div style={{'display':'flex'}}>
-                            <LoginButton><Login>Login</Login></LoginButton>
-                            <SignUpButton><SignUp>Signup</SignUp></SignUpButton>
+                            <LoginButton>Login</LoginButton>
+                            <SignUpButton>Signup</SignUpButton>
                         </div>
                     </Grid>
                 }

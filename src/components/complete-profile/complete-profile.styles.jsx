@@ -1,4 +1,4 @@
-import { TextField } from '@material-ui/core'
+import { Button, TextField } from '@material-ui/core'
 import styled from 'styled-components'
 
 export const Window = styled.div`
@@ -59,23 +59,30 @@ export const AddPosition = styled.div`
     color: ${props => props.theme.color.black};
 `
 
-export const SaveButton = styled.button`
+export const SaveButton = styled(Button)`
     height: 47px;
     width: 120px;
+    border-radius: 8px;
     background: ${props => props.theme.color.blue};
     border: 1px solid ${props => props.theme.color.blue};
     border-radius: 8px;
-`
-
-export const SaveTextInButton = styled.div`
-    font-family: ${props => props.theme.fontFamily};
-    font-style: ${props => props.theme.fontStyle};
-    width: 39px;
-    height: 22px;
-    font-weight: 800;
-    font-size: 16px;
-    line-height: 22px;
-    color: ${props => props.theme.color.white};
+    align-items: center;
+    & .MuiButton-label{
+        font-family: ${props => props.theme.fontFamily};
+        font-style: ${props => props.theme.fontStyle};
+        width: 39px;
+        height: 22px;
+        font-weight: 800;
+        font-size: 16px;
+        line-height: 22px;
+        color: ${props => props.theme.color.white};
+    }
+    &.MuiButton-root{
+        text-transform: none;
+    }
+    &:hover{
+        background-color: ${props => props.theme.color.blue};
+    }
 `
 
 export const Industrie = styled.div`

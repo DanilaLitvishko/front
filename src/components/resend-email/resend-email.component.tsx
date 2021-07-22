@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Thanks, Window, String, ButtonText} from './resend-email.styles'
+import { StyledButton, Thanks, Window, String} from './resend-email.styles'
 import {ReactComponent as Logo} from '../../assets/icon.svg'
 import { makeStyles } from "@material-ui/core/styles";
 import {useDispatch} from 'react-redux'
@@ -35,7 +35,7 @@ const ResendEmail = () => {
             <Logo className={classes.logoContainer}/>
             <Thanks>Thank you for registering</Thanks>
             <String className={classes.textContainer}>Please check your email to confirm your account</String>
-            <Button className={classes.buttonContainer} onClick={resendEmailConfirmation}><ButtonText>Resend Email Confirmation</ButtonText></Button>
+            <StyledButton className={classes.buttonContainer} onClick={resendEmailConfirmation}>Resend Email Confirmation</StyledButton>
         </Window>
     )
 }
