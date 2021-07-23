@@ -6,7 +6,6 @@ import {
     SubscriptionLine,
     SubscriptionTextContainer,
     ButtonContainer,
-    ButtonText,
     ManageCardDetailsContainer,
 } from './profile.styles'
 
@@ -21,7 +20,7 @@ const Subscription = () => {
                 Active (£12 / month)
             </SubscriptionTextContainer>
             <SubscriptionLine/>
-            <ButtonContainer><ButtonText>Cancel Subscription</ButtonText></ButtonContainer>
+            <ButtonContainer>Cancel Subscription</ButtonContainer>
             <ManageCardDetailsContainer>Manage card details</ManageCardDetailsContainer>
         </SubscriptionContainer>
     )

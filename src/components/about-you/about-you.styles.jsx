@@ -5,7 +5,7 @@ export const AboutYouContainer = styled.div`
     margin-right: 8px;
     width: 397px;
     height: 286px;
-    background: #FFFFFF;
+    background: ${props => props.theme.color.white};
     box-shadow: 0px 30px 40px rgba(212, 217, 232, 0.1);
     border-radius: 8px;
     display: flex;
@@ -26,8 +26,8 @@ export const Heading = styled.div`
     margin-left: 24px;
     width: auto;
     height: 24px;
-    font-family: Manrope;
-    font-style: normal;
+    font-family: ${props => props.theme.fontFamily};
+    font-style: ${props => props.theme.fontStyle};
     font-weight: 800;
     font-size: 16px;
     line-height: 24px;
@@ -54,7 +54,7 @@ export const HeadingLine = styled.div`
     height: 1px;
     margin-left: 24px;
     margin-top: -20px;
-    background: #EBEBEB;
+    background: ${props => props.theme.color.grayWhite};
 `
 
 export const PencilContainer = styled.div`
@@ -78,13 +78,14 @@ export const TextContainer = styled.div`
     font-weight: normal;
     font-size: 14px;
     font-feature-settings: 'liga' off;
-    color: #231F20;
+    color: ${props => props.theme.color.redBlack};
+    margin-bottom: 8px;
 `
 
-export const Circle = styled.div`
+export const Circle = styled.img`
     width: 64px;
     height: 64px;
-    background: red;
+    background: ${props => props.theme.color.grayRed};
     border-radius: 50%;
     margin-right: 20px;
 `
@@ -98,7 +99,7 @@ export const NameContainer = styled.div`
     font-size: 16px;
     line-height: 24px;
     font-feature-settings: 'liga' off;
-    color: #231F20;
+    color:${props => props.theme.color.redBlack};
 `
 
 export const StatusContainer = styled.div`
@@ -110,5 +111,5 @@ export const StatusContainer = styled.div`
     font-size: 16px;
     line-height: 24px;
     font-feature-settings: 'liga' off;
-    color: #999999;
+    color: ${props => props.theme.color.gray};
 `

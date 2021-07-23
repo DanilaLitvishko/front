@@ -16,7 +16,7 @@ import {
 
   import { ReactComponent as Pencil } from '../../assets/pencil.svg'
 
-const AboutYou = ({name, phoneNumber, email}) => {
+const AboutYou = ({name, phoneNumber, email, image}) => {
     return (
         <AboutYouContainer>
             <HeadingContainer>
@@ -30,7 +30,10 @@ const AboutYou = ({name, phoneNumber, email}) => {
             </HeadingContainer>
             <HeadingLine/>
             <MainInfoContainer>
-                <Circle/>
+                {
+                    image?<Circle src={require(`../../assets/${image}`).default}/>
+                    :<Circle/>
+                }
                 <div>
                     <NameContainer>{name}</NameContainer>
                     <StatusContainer>Top Headhunters</StatusContainer>

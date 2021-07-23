@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import Switch from '@material-ui/core/Switch';
 import { withStyles } from '@material-ui/core/styles';
+import { Button } from '@material-ui/core';
 
 export const Window = styled.div`
     width: 1110px;
@@ -164,7 +165,7 @@ export const SubscriptionTextContainer = styled.div`
     margin-bottom: 27px;
 `
 
-export const ButtonContainer = styled.button`
+export const ButtonContainer = styled(Button)`
     width: 164px;
     height: 35px;
     border: 1px solid #2E1AAD;
@@ -172,17 +173,23 @@ export const ButtonContainer = styled.button`
     border-radius: 6px;
     margin-left: 18px;
     margin-top: 19px;
-`
-
-export const ButtonText = styled.div`
-    width: 133px;
-    height: 22px;
-    font-family: Manrope;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 22px;
-    color: #2E1AAD;
+    align-items: center;
+    & .MuiButton-label{
+        font-family: ${props => props.theme.fontFamily};
+        font-style: ${props => props.theme.fontStyle};
+        width: 133px;
+        height: 22px;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 22px;
+        color: #2E1AAD;
+    }
+    &.MuiButton-root{
+        text-transform: none;
+    }
+    &:hover{
+        background-color: #FFFFFF;
+    }
 `
 
 export const HeadingLine = styled.div`

@@ -91,7 +91,7 @@ export const SignUpButton = styled(Button)`
     }
 `
 
-export const Circle = styled.div`
+export const Circle = styled.img`
     width: 40px;
     height: 40px;
     background: red;

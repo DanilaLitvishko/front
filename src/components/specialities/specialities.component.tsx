@@ -1,7 +1,9 @@
 import axios from 'axios';
 import React, {useState, useEffect, useRef} from 'react'
+import { useDispatch } from 'react-redux';
 import { useInfoFromBackend } from '../../hooks/useInfoFromBackend.hook';
 import { OptionalInformation } from '../../interfaces/optional-information.interface';
+import { editUserSpecialitiesStart } from '../../redux/user/user.actions';
 import DialogPopup from '../dialog/dialog.component';
 import SpecialityItem from './specialities-item.component';
 
@@ -17,6 +19,8 @@ const Specialities = ({specialities, userInfoId} : {specialities: OptionalInform
 
     const loadSpecialities = useInfoFromBackend('http://localhost:3001/specialities')
 
+    const dispatch = useDispatch();
+
     const [userSpecialities, setUserSpecialities] = useState<OptionalInformation[] | undefined>(undefined);
     const [selectedValue, setSelectedValue] = useState(null);
     const [openAddSpecialities, setOpenAddSpecialities] = useState(false);
@@ -24,7 +28,7 @@ const Specialities = ({specialities, userInfoId} : {specialities: OptionalInform
     const [addSpecialities, setAddSpecialities] = useState<OptionalInformation[] | undefined>(loadSpecialities.data)
     const stateRef: any = useRef();
 
-    stateRef.current = {userInfoId, userSpecialities};
+    stateRef.current = {userSpecialities};
 
     const handleCloseAdd = (value:OptionalInformation | null) => {
         setOpenAddSpecialities(false);
@@ -67,8 +71,7 @@ const Specialities = ({specialities, userInfoId} : {specialities: OptionalInform
     
     useEffect(() => {
         return () => {
-            console.log(stateRef)
-            axios.post('http://localhost:3001/user-info/specialities', stateRef.current);
+            dispatch(editUserSpecialitiesStart(stateRef.current))
         }
     }, [])
 

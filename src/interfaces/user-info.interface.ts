@@ -8,6 +8,7 @@ export interface UserInfo{
         phoneNumber:string,
         industries?: OptionInfo[],
         specialities?: OptionInfo[], 
-        email?:string
+        email?:string,
+        image?:string,
     }
 }

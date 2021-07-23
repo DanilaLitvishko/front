@@ -31,6 +31,7 @@ export const Input = styled(TextField)`
     border: 1px solid  ${props => props.theme.color.redWhite};
     box-sizing: border-box;
     border-radius: 8px;
+    margin-bottom: 24px;
 `
 
 export const Label = styled.div`
@@ -57,6 +58,7 @@ export const AddPosition = styled.div`
     font-size: 14px;
     line-height: 22px;
     color: ${props => props.theme.color.black};
+    margin-bottom: 66px;
 `
 
 export const SaveButton = styled(Button)`
@@ -98,7 +100,32 @@ export const Industrie = styled.div`
     &:last-child {
         border-bottom: none;
     }
-
     color: ${props => props.theme.color.white};
-    color: #FFFFFF;
+`
+
+export const UploadPhotoButton = styled(Button)`
+    height: 259px;
+    width: 300px;
+    border-radius: 8px;
+    background: ${props => props.theme.color.white};
+    border: 1px solid ${props => props.theme.color.redWhite};
+    border-radius: 8px;
+    align-items: center;
+    & .MuiButton-label{
+        font-family: ${props => props.theme.fontFamily};
+        font-style: ${props => props.theme.fontStyle};
+        width: 138px;
+        height: 22px;
+        font-weight: 800;
+        font-size: 16px;
+        line-height: 22px;
+        color:  ${props => props.theme.color.black};
+        opacity: 0.2;
+    }
+    &.MuiButton-root{
+        text-transform: none;
+    }
+    &:hover{
+        background-color: ${props => props.theme.color.white};
+    }
 `

@@ -7,6 +7,7 @@ const INITIAL_STATE:InitialState = {
     error: null,
     loading: false,
     userInfo: null,
+    image: null,
 }
 
 const userReducer = (state = INITIAL_STATE, action: Action) => {
@@ -14,6 +15,7 @@ const userReducer = (state = INITIAL_STATE, action: Action) => {
         case UserActionTypes.LOGIN:
         case UserActionTypes.FETCH_USER_INFO_START:
         case UserActionTypes.SIGN_UP_START:
+        case UserActionTypes.EDIT_USER_SPECIALITIES_START:
             return{
                 ...state,
                 error: null,
@@ -25,18 +27,26 @@ const userReducer = (state = INITIAL_STATE, action: Action) => {
                 loading: false
             }
         case UserActionTypes.CONFIRM_EMAIL:
-        case UserActionTypes.LOGIN_SUCCESS:
             return{
                 ...state,
                 currentUser: action.payload,
                 loading: false
             }
+        case UserActionTypes.LOGIN_SUCCESS:
+            return{
+                ...state,
+                currentUser: action.payload.name,
+                image: action.payload.image,
+                loading: false
+            }
+        case UserActionTypes.EDIT_USER_SPECIALITIES_SUCCESS:
         case UserActionTypes.FETCH_USER_INFO_SUCCESS:
             return{
                 ...state,
                 userInfo: action.payload,
                 loading: false
             }
+        case UserActionTypes.EDIT_USER_SPECIALITIES_FAILURE:
         case UserActionTypes.FETCH_USER_INFO_FAILURE:
         case UserActionTypes.SEND_USER_INFO_FAILURE:
         case UserActionTypes.SIGN_UP_FAILURE:

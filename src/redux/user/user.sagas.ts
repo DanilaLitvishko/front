@@ -2,7 +2,7 @@ import {takeLatest, put, all, call, takeEvery} from 'redux-saga/effects'
 import axios from 'axios'
 import UserActionTypes from './user.types'
 
-import {signUpSuccess, signUpFailure, confirmEmailSuccess, confirmEmailFailure, resendEmailSuccess, resendEmailFailure, loginSuccess, loginFailure, fetchUserInfoFailure, fetchUserInfoSuccess} from './user.actions'
+import {signUpSuccess, signUpFailure, confirmEmailSuccess, confirmEmailFailure, resendEmailSuccess, resendEmailFailure, loginSuccess, loginFailure, fetchUserInfoFailure, fetchUserInfoSuccess, editUserSpecialitiesFailure, editUserSpecialitiesSuccess} from './user.actions'
 import { ConfirmEmail } from '../../interfaces/confirm-email.interface'
 import { SignUpSaga } from '../../interfaces/signup-saga.interface'
 import { ConfirmEmailSaga } from '../../interfaces/confirm-email-saga.interface'
@@ -13,6 +13,7 @@ import {sendUserInfoFailure, sendUserInfoSuccess} from './user.actions'
 import { UserInfo } from '../../interfaces/user-info.interface'
 import { SendUserInfoSaga } from '../../interfaces/send-user-info-saga.interface'
 import { ContactSupport } from '@material-ui/icons'
+import { EditUserSpecialitiesSaga } from '../../interfaces/edit-user-specialities-saga.interface'
 
 export function* singUp(signUpAction: SignUpSaga){
     try{
@@ -67,10 +68,19 @@ export function* sendUserInfo(sendUserInfo:SendUserInfoSaga){
 
 export function* fetchUserInfo(){
     try{
-        const { data }: UserInfo = yield axios.get('http://localhost:3001/user-info');
+        const { data }: {data: any} = yield axios.get('http://localhost:3001/user-info');
         yield put(fetchUserInfoSuccess({data}))
     }catch(error){
         yield put(fetchUserInfoFailure(error))
+    }
+}
+
+export function* editUserSpecialities(editUserSpecialities: EditUserSpecialitiesSaga){
+    try{
+        const {data}:UserInfo = yield axios.post('http://localhost:3001/user-info/specialities', editUserSpecialities.payload);
+        yield put(editUserSpecialitiesSuccess({data}))
+    }catch(error){
+        yield put(editUserSpecialitiesFailure(error))
     }
 }
 
@@ -98,6 +108,10 @@ export function* onFetchUserInfo(){
     yield takeLatest(UserActionTypes.FETCH_USER_INFO_START, fetchUserInfo)
 }
 
+export function* onEditUserSpecialities(){
+    yield takeLatest(UserActionTypes.EDIT_USER_SPECIALITIES_START, editUserSpecialities)
+}
+
 export function* userSagas(){
     yield all([
         call(onSingUpStart),
@@ -105,6 +119,7 @@ export function* userSagas(){
         call(onResendEmail),
         call(onLogin),
         call(onSendUserInfo),
-        call(onFetchUserInfo)
+        call(onFetchUserInfo),
+        call(onEditUserSpecialities)
     ])
 }

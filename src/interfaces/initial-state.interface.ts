@@ -6,4 +6,5 @@ export interface InitialState{
     error: string | null, 
     loading: boolean,
     userInfo: UserInfo | null,
+    image: string | null,
 }

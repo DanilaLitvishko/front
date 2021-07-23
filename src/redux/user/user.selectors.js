@@ -21,3 +21,8 @@ export const selectUserInfo = createSelector(
     selectUser,
     (user) => user.userInfo
 )
+
+export const selectImage = createSelector(
+    selectUser,
+    (user) => user.image
+)

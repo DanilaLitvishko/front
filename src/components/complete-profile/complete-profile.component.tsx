@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux'
 import { makeStyles } from '@material-ui/core/styles';
 
 import IndustrieItem from '../industrie-item/industrie-item.component'
-import { AddPosition, Input, Label, SaveButton, UpdateText, Window } from './complete-profile.styles'
+import { AddPosition, Input, Label, SaveButton, UpdateText, UploadPhotoButton, Window } from './complete-profile.styles'
 import CompleteProfileSchema from './complete-profile.validation-schema';
 import DialogPopup from '../dialog/dialog.component'
 import { sendUserInfo } from '../../redux/user/user.actions';
@@ -13,6 +13,7 @@ import { OptionalInformation } from '../../interfaces/optional-information.inter
 import { CompleteProfileProps } from '../../interfaces/complete-profile-props.interface';
 import { CompleteProfileValues } from '../../interfaces/complete-profile-values.interface';
 import { Link } from 'react-router-dom';
+import { Button, TextField } from '@material-ui/core';
 
 const focusedColor = "orange";
 const useStyles = makeStyles({
@@ -21,6 +22,15 @@ const useStyles = makeStyles({
     '&.Mui-focused': {
         outline: 'none'                                                          
     }
+  },
+  image:{
+    width: '300px',
+    height: '259px',
+
+    background: '#FFFFFF',
+    border: '1px solid #DDDDD',
+    boxSizing: 'border-box',
+    borderRadius: '8px',
   }
 })
 
@@ -36,15 +46,13 @@ const CompleteProfile = ({industries, specialities} : CompleteProfileProps) => {
     const [industriesForAdd, setIndustriesForAdd] = useState<OptionalInformation[]>(industries)
     const [userIndustries, setUserIndustries] = useState<OptionalInformation[]>([]);
 
-    const [image, setImage] = useState<any>(null)
+    const [image, setImage] = useState<string>('')
 
     const onImageChange = (event:any) => {
         if (event.target.files && event.target.files[0]) {
-          let img = event.target.files[0];
-          setImage(URL.createObjectURL(img))
+          setImage(event.target.files[0].name)
         }
       };
-    
 
     const handleClickOpen = () => {
         setOpen(true);
@@ -75,6 +83,7 @@ const CompleteProfile = ({industries, specialities} : CompleteProfileProps) => {
                 phoneNumber,
                 specialities: userSpecialities,
                 industries: userIndustries,
+                image
             }
             dispatch(sendUserInfo({data}))
         },
@@ -112,43 +121,68 @@ const CompleteProfile = ({industries, specialities} : CompleteProfileProps) => {
         <Window>
             <form onSubmit={handleSubmit} style={{padding:'20px', margin:'10px'}}>
                 <UpdateText>Update  your profile</UpdateText>
-                <Input
-                    {...getFieldProps('name')}
-                    id="name"
-                    name="name"
-                    type="text"
-                    onChange={handleChange}
-                    value={name}
-                    placeholder="Your name"
-                    variant="outlined"
-                    error={Boolean(errors.name)}
-                    helperText={errors.name}
-                />
-                <Input
-                    {...getFieldProps('companyName')}
-                    id="companyName"
-                    name="companyName"
-                    type="text"
-                    onChange={handleChange}
-                    value={companyName}
-                    placeholder="Company name"
-                    variant="outlined"
-                    error={Boolean(errors.companyName)}
-                    helperText={errors.companyName}
-                />
-                <Input
-                    {...getFieldProps('phoneNumber')}
-                    id="phoneNumber"
-                    name="phoneNumber"
-                    type="text"
-                    onChange={handleChange}
-                    value={phoneNumber}
-                    placeholder="Phone number"
-                    variant="outlined"
-                    error={Boolean(errors.phoneNumber)}
-                    helperText={errors.companyName}
-                />
-                <Label>Specialities</Label>
+                <div style={{'display':'flex', flexDirection:'row'}}>
+                    <div style={{'display':'flex', flexDirection:'column'}}>
+                        <Input
+                            {...getFieldProps('name')}
+                            id="name"
+                            name="name"
+                            type="text"
+                            onChange={handleChange}
+                            value={name}
+                            placeholder="Your name"
+                            variant="outlined"
+                            error={Boolean(errors.name)}
+                            helperText={errors.name}
+                        />
+                        <Input
+                            {...getFieldProps('companyName')}
+                            id="companyName"
+                            name="companyName"
+                            type="text"
+                            onChange={handleChange}
+                            value={companyName}
+                            placeholder="Company name"
+                            variant="outlined"
+                            error={Boolean(errors.companyName)}
+                            helperText={errors.companyName}
+                        />
+                        <Input
+                            {...getFieldProps('phoneNumber')}
+                            id="phoneNumber"
+                            name="phoneNumber"
+                            type="text"
+                            onChange={handleChange}
+                            value={phoneNumber}
+                            placeholder="Phone number"
+                            variant="outlined"
+                            error={Boolean(errors.phoneNumber)}
+                            helperText={errors.companyName}
+                        />
+                        <Label>Specialities</Label>
+                    </div>
+                    <div style={{'display':'flex', 'marginLeft':'69px'}}>
+                        {
+                            image?<img src={require(`../../assets/${image}`).default} style={{'display':'flex'}} className={classes.image}/>
+                            :
+                            <div style={{'display':'flex'}}>
+                                <input
+                                    accept="image/*"
+                                    style={{ display: 'none' }}
+                                    id="raised-button-file"
+                                    multiple
+                                    type="file"
+                                    onChange={onImageChange}
+                                />
+                                <label htmlFor="raised-button-file">
+                                    <UploadPhotoButton component="span" className={classes.image}>
+                                        Upload you photo
+                                    </UploadPhotoButton>
+                                </label> 
+                            </div>
+                        }
+                    </div>
+                </div>
                 {
                     userSpecialities.map((specialitiy:OptionalInformation)=> (
                         <Input
@@ -200,9 +234,6 @@ const CompleteProfile = ({industries, specialities} : CompleteProfileProps) => {
                 <DialogPopup selectedValue={selectedValue} open={open} onClose={handleClose} specialities={specialitiesForAdd} title='Choose speciality'/>
                 <SaveButton type="submit" disabled={isSubmitting}>Save</SaveButton>
             </form>
-            <img src={image} />
-            <h1>Select Image</h1>
-            <input type="file" name="myImage" onChange={onImageChange} />
             <Link to='/profile'>Profile</Link>
         </Window>
     )

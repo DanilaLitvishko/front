@@ -16,7 +16,7 @@ import {
     ExitContainer,
     NameContainer
 } from './header.styles'
-import { selectCurrentUser } from '../../redux/user/user.selectors';
+import { selectCurrentUser, selectImage } from '../../redux/user/user.selectors';
 
 const useStyles = makeStyles((theme) => ({
     logoContainer:{
@@ -33,6 +33,8 @@ const useStyles = makeStyles((theme) => ({
 const Header = () => {
     const classes = useStyles();
     const currentUser = useSelector(selectCurrentUser)
+    const image = useSelector(selectImage)
+    console.log(currentUser)
     return(
         <>
             <Grid container spacing={3} alignItems="center" style={{'flexWrap':'nowrap'}}>
@@ -53,7 +55,10 @@ const Header = () => {
                     <div style={{'display':'flex'}}>
                         <Label>For Employers</Label>
                         <Label>For Headhunters</Label>
-                        <Circle/>
+                        {
+                            image?<Circle src={require(`../../assets/${image}`).default}/>
+                            :<Circle/>
+                        }
                         <NameContainer>{currentUser}</NameContainer>
                         <ExitContainer><Exit/></ExitContainer>
                     </div>

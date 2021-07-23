@@ -4,6 +4,7 @@ import { UserPayload } from '../../interfaces/user-payload.interface'
 import { UserInfo } from '../../interfaces/user-info.interface'
 import UserActionTypes from './user.types'
 import { AxiosError } from 'axios'
+import { OptionalInformation } from '../../interfaces/optional-information.interface'
 
 export const signUpStart = (userCredentials:UserPayload) => ({
     type: UserActionTypes.SIGN_UP_START,
@@ -55,7 +56,7 @@ export const login = (userCredentials:UserPayload) => ({
 
 export const loginSuccess = ({data}:LoginResponse) => ({
     type: UserActionTypes.LOGIN_SUCCESS,
-    payload: data.name
+    payload: data
 })
 
 export const loginFailure = (error:Error | AxiosError) => ({
@@ -89,5 +90,20 @@ export const fetchUserInfoSuccess = (userInfo: UserInfo) =>({
 
 export const fetchUserInfoFailure = (error: Error | AxiosError) => ({
     type: UserActionTypes.FETCH_USER_INFO_FAILURE,
+    payload: error
+})
+
+export const editUserSpecialitiesStart = (userSpecialities: OptionalInformation[]) => ({
+    type: UserActionTypes.EDIT_USER_SPECIALITIES_START,
+    payload: userSpecialities
+})
+
+export const editUserSpecialitiesSuccess = (userInfo: UserInfo) =>({
+    type: UserActionTypes.EDIT_USER_SPECIALITIES_SUCCESS,
+    payload: userInfo,
+})
+
+export const editUserSpecialitiesFailure = (error: Error | AxiosError) => ({
+    type: UserActionTypes.EDIT_USER_SPECIALITIES_FAILURE,
     payload: error
 })

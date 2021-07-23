@@ -42,7 +42,7 @@ const Profile = () => {
               <StyledTab label="Roles" />
             </StyledTabs>
         </TabsContainer>
-      <AboutYou name={userInfo?.data.name} phoneNumber={userInfo?.data.phoneNumber} email={userInfo?.data.email}/>
+      <AboutYou name={userInfo?.data.name} phoneNumber={userInfo?.data.phoneNumber} email={userInfo?.data.email} image={userInfo?.data.image}/>
       <Specialities specialities={userInfo?.data.specialities} userInfoId={userInfo?.data.id}/>
       <Subscription/>
       <Invoices/>
