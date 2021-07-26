@@ -9,7 +9,8 @@ import {
     Label, 
     Text,
     SignUpButton,
-    Square
+    Square,
+    useStyles
 } from './signup.styles'
 import SignUpSchema from './signup.validation-schema'
 import { signUpStart } from '../../redux/user/user.actions';
@@ -19,6 +20,8 @@ import { UserPayload } from '../../interfaces/user-payload.interface';
 import { AxiosError } from 'axios';
 
 const SignUp = () => {
+    const classes = useStyles()
+
     const loading = useSelector(selectLoading);
     const error:AxiosError = useSelector(selectError); 
 
@@ -56,7 +59,7 @@ const SignUp = () => {
     })
 
     return (
-        <form onSubmit={handleSubmit} style={{'marginLeft':'24px', 'marginRight':'24px', 'marginTop':'25px'}}>
+        <form onSubmit={handleSubmit} className={classes.form}>
             <Grid container direction="column" spacing={1}>
                 <Grid item><Label>Email</Label></Grid>
                     <Grid item>
@@ -100,7 +103,7 @@ const SignUp = () => {
                         error={Boolean(errors.confirmPassword)}
                     />
                 </Grid>
-                <Grid item style={{'display': 'flex', 'marginTop': '32px', 'marginBottom':'40px'}}>
+                <Grid item className={classes.text}>
                     <Square/>
                     <Text>
                         By creating an account you agree to the terms and conditions applicable to our service and acknowledge 

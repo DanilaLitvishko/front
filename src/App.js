@@ -6,7 +6,6 @@ import { QueryClient, QueryClientProvider } from 'react-query';
 
 import ActivateEmail from './components/activate-email/activate-email.component';
 import ResendEmail from './components/resend-email/resend-email.component';
-import CreditCardDetail from './components/credit-card-details/credit-card-details.component';
 import Layout from './components/layout/layout.component';
 import mainTheme from './themes/main.theme'
 import Auth from './components/auth/auth.component';
@@ -27,7 +26,6 @@ const App = () => {
             <Switch>
               <Route exact path='/' component={Auth}/>
               <Route path='/resendEmail' render={props=><ResendEmail {...props}/>}/>
-              <PrivateRoute authed={!!currentUser} path='/creditCardDetails' component={CreditCardDetail}/>
               <PrivateRoute authed={!!currentUser} path='/completeProfile' component={CompleteProfileContainer}/>
               <Route path='/activateEmail/:confirmationCode' component={ActivateEmail}/>
               <PrivateRoute authed={!!currentUser} path='/profile' component={Profile}/>

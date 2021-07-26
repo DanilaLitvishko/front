@@ -29,6 +29,7 @@ export function* singUp(signUpAction: SignUpSaga){
 export function* confirmEmail(confirmEmailAction: ConfirmEmailSaga){
     try{
         const {payload} = confirmEmailAction;
+        yield console.log(payload)
         const {user}:UserCredentials = yield axios.get(`http://localhost:3001/confirm-registration/${payload}`);
         yield put(confirmEmailSuccess({user}));
     }catch(error){

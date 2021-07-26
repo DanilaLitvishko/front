@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import Grid from '@material-ui/core/Grid';
+import { makeStyles } from '@material-ui/core/styles';
    
 export const Box = styled.div`
   width: 100%;
@@ -68,3 +69,17 @@ export const JobsColumn = styled(Grid)`
   width: 160px;
   height: 156px;
 `
+
+export const useStyles = makeStyles({
+  leftColumn:{
+    marginTop:'64px',
+    marginLeft:'165px'
+  },
+  centeredColumn:{
+    marginTop:'64px'
+  },
+  rightColumn:{
+    marginTop:'64px',
+    marginRight:'120px'
+  }
+})

@@ -10,10 +10,19 @@ import {
     AntSwitch,
   } from './profile.styles'
 
+  import { makeStyles } from '@material-ui/core/styles';
+
+const useStyles = makeStyles({
+    heading:{
+        marginTop: '20px',
+    },
+})
+
 const Notification = () => {
+    const classes = useStyles();
     return (
         <NotificationsContainer>
-            <Heading style={{'marginTop': '20px'}}>
+            <Heading className={classes.heading}>
                 Notifications
             </Heading>
             <NotificationLine/>

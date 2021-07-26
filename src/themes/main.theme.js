@@ -15,7 +15,8 @@ const mainTheme = createTheme({
         blackBlue: '#0B0D17',
         moreBlueWhite: '#D9DBE1',
         redBlack:'#231F20',
-        grayRed:'#C4C4C4'
+        grayRed:'#C4C4C4',
+        redGray: '#D6D6D6'
     }
 })
 

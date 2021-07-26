@@ -5,19 +5,26 @@ import {
     Heading,
     ViewAllText,
     HeadingContainer,
-    InvoicesLine
 } from './profile.styles'
+import { useInfoFromBackend } from '../../hooks/useInfoFromBackend.hook';
+import Invoice from './invoice.component'
 
 const Invoices = () => {
+    const loadInvoices = useInfoFromBackend('http://localhost:3001/payment')
+    console.log(loadInvoices.data)
     return (
         <InvoicesContainer>
             <HeadingContainer>
                 <Heading>
                     Invoices
-                    <ViewAllText style={{cursor: "pointer"}}>View all</ViewAllText>
+                    <ViewAllText>View all</ViewAllText>
                 </Heading>
+                {
+                    loadInvoices.isLoading?
+                    console.log(loadInvoices.data)
+                    :null
+                }
             </HeadingContainer>
-            <InvoicesLine/>
         </InvoicesContainer>
     )
 }

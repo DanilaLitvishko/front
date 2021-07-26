@@ -8,6 +8,7 @@ import {
     Input,
     Label,
     LoginButton,
+    useStyles
 } from './login.styles'
 import LoginSchema from './login.validation-schema'
 import {login} from '../../redux/user/user.actions'
@@ -17,6 +18,8 @@ import { AxiosError } from 'axios';
 import DialogError from '../dialog-error/dialog-error.component';
 
 const Login = () => {
+
+    const classes = useStyles();
 
     const [open, setOpen] = useState(false);
     const [isLogged, setIsLogged] = useState(false);
@@ -54,7 +57,7 @@ const Login = () => {
         validationSchema: LoginSchema,
     })
     return (
-        <form onSubmit={handleSubmit} style={{'marginLeft':'24px', 'marginRight':'24px', 'marginTop':'25px'}}>
+        <form onSubmit={handleSubmit} className={classes.form}>
             <Grid container direction="column" spacing={1}>
                 <Grid item><Label>Email</Label></Grid>
                     <Grid item>
@@ -71,7 +74,7 @@ const Login = () => {
                         />                    
                     </Grid>
                 <Grid item><Label>Password</Label></Grid>
-                <Grid item style={{'marginBottom': '40px'}}>
+                <Grid item className={classes.passwordInput}>
                     <Input
                         {...getFieldProps('password')}
                         id="password"

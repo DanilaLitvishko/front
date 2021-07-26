@@ -1,5 +1,6 @@
 import { Button, TextField } from '@material-ui/core'
 import styled from 'styled-components'
+import { makeStyles } from '@material-ui/core/styles';
 
 export const Window = styled.div`
     display: flex;
@@ -48,6 +49,7 @@ export const Label = styled.div`
 `
 
 export const AddPosition = styled.div`
+    cursor: pointer;
     margin: 12px;
     display: flex;
     width: 92px;
@@ -129,3 +131,51 @@ export const UploadPhotoButton = styled(Button)`
         background-color: ${props => props.theme.color.white};
     }
 `
+
+export const Image = styled.img`
+    display: flex;
+    width: 300px;
+    height: 259px;
+
+    background: ${props => props.theme.color.white};
+    border: 1px solid ${props => props.theme.color.redWhite};
+    box-sizing: border-box;
+    border-radius: 8px;
+`
+
+export const useStyles = makeStyles({
+    root: {
+      '&.Mui-focused': {
+          outline: 'none'                                                          
+      }
+    },
+    image:{
+      width: '300px',
+      height: '259px',
+  
+      background: '#FFFFFF',
+      border: '1px solid #DDDDD',
+      boxSizing: 'border-box',
+      borderRadius: '8px',
+      display: 'flex',
+    },
+    form:{
+      padding:'20px',
+      margin:'10px'
+    },
+    mainContainer:{
+      display:'flex',
+      flexDirection:'row'
+    },
+    leftColumn:{
+      display:'flex',
+      flexDirection:'column'
+    },
+    rightColumn:{
+      display:'flex',
+      marginLeft:'69px'
+    },
+    input:{
+        display: 'none',
+    }
+  })

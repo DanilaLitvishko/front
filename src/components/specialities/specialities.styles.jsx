@@ -46,6 +46,7 @@ export const AngleText = styled.div`
     color: ${props => props.theme.color.blue};
     display: flex;
     margin-right: 39px;
+    cursor: pointer;
 `
 
 export const ViewAllText = styled.div`
@@ -60,4 +61,5 @@ export const ViewAllText = styled.div`
     font-feature-settings: 'liga' off;
     color:  ${props => props.theme.color.blue};
     margin-top: 5px;
+    cursor: pointer;
 `

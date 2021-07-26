@@ -2,10 +2,9 @@ import React, { useState, useEffect } from 'react'
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import { useFormik } from 'formik'
 import { useDispatch } from 'react-redux'
-import { makeStyles } from '@material-ui/core/styles';
 
 import IndustrieItem from '../industrie-item/industrie-item.component'
-import { AddPosition, Input, Label, SaveButton, UpdateText, UploadPhotoButton, Window } from './complete-profile.styles'
+import { AddPosition, Input, Label, SaveButton, UpdateText, UploadPhotoButton, useStyles, Window } from './complete-profile.styles'
 import CompleteProfileSchema from './complete-profile.validation-schema';
 import DialogPopup from '../dialog/dialog.component'
 import { sendUserInfo } from '../../redux/user/user.actions';
@@ -13,26 +12,6 @@ import { OptionalInformation } from '../../interfaces/optional-information.inter
 import { CompleteProfileProps } from '../../interfaces/complete-profile-props.interface';
 import { CompleteProfileValues } from '../../interfaces/complete-profile-values.interface';
 import { Link } from 'react-router-dom';
-import { Button, TextField } from '@material-ui/core';
-
-const focusedColor = "orange";
-const useStyles = makeStyles({
-  root: {
-    // input label when focused
-    '&.Mui-focused': {
-        outline: 'none'                                                          
-    }
-  },
-  image:{
-    width: '300px',
-    height: '259px',
-
-    background: '#FFFFFF',
-    border: '1px solid #DDDDD',
-    boxSizing: 'border-box',
-    borderRadius: '8px',
-  }
-})
 
 const CompleteProfile = ({industries, specialities} : CompleteProfileProps) => {
 
@@ -119,10 +98,10 @@ const CompleteProfile = ({industries, specialities} : CompleteProfileProps) => {
     
     return (
         <Window>
-            <form onSubmit={handleSubmit} style={{padding:'20px', margin:'10px'}}>
+            <form onSubmit={handleSubmit} className={classes.form}>
                 <UpdateText>Update  your profile</UpdateText>
-                <div style={{'display':'flex', flexDirection:'row'}}>
-                    <div style={{'display':'flex', flexDirection:'column'}}>
+                <div className={classes.mainContainer}>
+                    <div className={classes.leftColumn}>
                         <Input
                             {...getFieldProps('name')}
                             id="name"
@@ -161,21 +140,21 @@ const CompleteProfile = ({industries, specialities} : CompleteProfileProps) => {
                         />
                         <Label>Specialities</Label>
                     </div>
-                    <div style={{'display':'flex', 'marginLeft':'69px'}}>
+                    <div className={classes.rightColumn}>
                         {
-                            image?<img src={require(`../../assets/${image}`).default} style={{'display':'flex'}} className={classes.image}/>
+                            image?<img src={require(`../../assets/${image}`).default} className={classes.image}/>
                             :
-                            <div style={{'display':'flex'}}>
+                            <div className={classes.image}>
                                 <input
                                     accept="image/*"
-                                    style={{ display: 'none' }}
+                                    className={classes.input}
                                     id="raised-button-file"
                                     multiple
                                     type="file"
                                     onChange={onImageChange}
                                 />
                                 <label htmlFor="raised-button-file">
-                                    <UploadPhotoButton component="span" className={classes.image}>
+                                    <UploadPhotoButton component="span">
                                         Upload you photo
                                     </UploadPhotoButton>
                                 </label> 
@@ -197,7 +176,7 @@ const CompleteProfile = ({industries, specialities} : CompleteProfileProps) => {
                         />
                     ))
                 }
-                <AddPosition style={{cursor: "pointer"}} onClick={handleClickOpen}>
+                <AddPosition onClick={handleClickOpen}>
                     + Add position
                 </AddPosition>
                 <Label>Industries</Label>

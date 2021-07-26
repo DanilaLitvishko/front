@@ -1,8 +1,9 @@
 import Tabs from '@material-ui/core/Tabs';
 import { withStyles } from '@material-ui/core/styles';
 import { StyledTabsProps } from '../../interfaces/styled-tabs-props';
+import { MainTheme } from '../../interfaces/theme.interface';
 
-const StyledTabs = withStyles({
+const StyledTabs = withStyles((theme:MainTheme) => ({
     indicator: {
         left:'0px',
       display: 'flex',
@@ -11,9 +12,9 @@ const StyledTabs = withStyles({
       '& > span': {
         maxWidth: 40,
         width: '100%',
-        backgroundColor: '#635ee7',
+        backgroundColor: theme.color?.blue,
       },
     },
-})((props:StyledTabsProps) => <Tabs {...props} TabIndicatorProps={{ children: <span /> }} />);
+}))((props:StyledTabsProps) => <Tabs {...props} TabIndicatorProps={{ children: <span /> }} />);
 
 export default StyledTabs;

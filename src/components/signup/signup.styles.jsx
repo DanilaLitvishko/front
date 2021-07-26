@@ -1,5 +1,6 @@
 import { Button, TextField } from "@material-ui/core";
 import styled from "styled-components";
+import { makeStyles } from '@material-ui/core/styles';
 
 export const Label = styled.label`
 
@@ -68,3 +69,16 @@ export const Square = styled.div`
     border-radius: 2px;
     margin-right: 10px;
 `
+
+export const useStyles = makeStyles({
+    form:{
+        marginLeft:'24px', 
+        marginRight:'24px', 
+        marginTop:'25px'
+    },
+    text:{
+        display: 'flex',
+        marginTop: '32px',         
+        marginBottom:'40px'
+    }
+})

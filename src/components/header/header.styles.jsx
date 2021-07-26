@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import {Button} from '@material-ui/core'
+import { makeStyles } from '@material-ui/core/styles';
 
 export const LogoContainer = styled.div`
     width: 102px;
@@ -60,7 +61,7 @@ export const LoginButton = styled(Button)`
         text-transform: none;
     }
     &:hover{
-        background-color: ${props => props.theme.color.blue};
+        background-color: ${props => props.theme.color.white};
     }
 `
 
@@ -132,5 +133,23 @@ export const NameContainer = styled.div`
     border-right: 1px solid ${props => props.theme.color.redWhite};
     font-feature-settings: 'liga' off;
     height: 24px;
-    color: #231F20;
+    color: ${props => props.theme.color.redBlack};
 `
+
+export const useStyles = makeStyles({
+    mainContainer:{
+        flexWrap:'nowrap',
+    },
+    logoContainer:{
+        margin: '10px',
+    },
+    homeText:{
+        textAlign:'end',
+    },
+    newsText:{
+        textAlign:'center',
+    },
+    userInfo:{
+        display: 'flex',
+    }
+})

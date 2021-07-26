@@ -6,7 +6,7 @@ import { Button } from '@material-ui/core';
 export const Window = styled.div`
     width: 1110px;
     height: 946px;
-    background: #F5F7FA;
+    background: ${props => props.theme.color.blueWhite};
     border-radius: 8px;
     display: flex;
     flex-wrap: wrap;
@@ -17,7 +17,7 @@ export const TabsContainer = styled.div`
     flex-direction: column;
     width: 200px;
     height: 151px;
-    background: #FFFFFF;
+    background: ${props => props.theme.color.white};
     box-shadow: 0px 30px 40px rgba(212, 217, 232, 0.1);
     border-radius: 8px;
     display: flex;
@@ -36,8 +36,8 @@ export const Heading = styled.div`
     margin-left: 24px;
     width: auto;
     height: 24px;
-    font-family: Manrope;
-    font-style: normal;
+    font-family: ${props => props.theme.fontFamily};
+    font-style: ${props => props.theme.color.fontStyle};
     font-weight: 800;
     font-size: 16px;
     line-height: 24px;
@@ -106,6 +106,7 @@ export const ViewAllText = styled.div`
     font-feature-settings: 'liga' off;
     color:  ${props => props.theme.color.blue};
     margin-top: 5px;
+    cursor: "pointer";
 `
 
 export const NotificationLine = styled.div`
@@ -144,21 +145,21 @@ export const SwitchContainer = styled.div`
 export const SubscriptionLine = styled.div`
     width: 164px;
     height: 1px;
-    background: #D6D6D6;
+    background: ${props => props.theme.color.redGray};
     display: flex;
     margin-left: 18px;
     margin-top: 16px;
 `
 
 export const SubscriptionTextContainer = styled.div`
-    width: 157px;
+    width: 167px;
     height: 22px;
-    font-family: Manrope;
-    font-style: normal;
+    font-family: ${props => props.theme.fontFamily};
+    font-style: ${props => props.theme.fontStyle};
     font-weight: bold;
     font-size: 16px;
     line-height: 22px;
-    color: #231F20;
+    color: ${props => props.theme.color.redBlack};
     display: flex;
     margin-left: 23px;
     margin-top: 44px;
@@ -168,7 +169,7 @@ export const SubscriptionTextContainer = styled.div`
 export const ButtonContainer = styled(Button)`
     width: 164px;
     height: 35px;
-    border: 1px solid #2E1AAD;
+    border: 1px solid ${props => props.theme.color.blue};
     box-sizing: border-box;
     border-radius: 6px;
     margin-left: 18px;
@@ -182,13 +183,13 @@ export const ButtonContainer = styled(Button)`
         font-weight: 500;
         font-size: 14px;
         line-height: 22px;
-        color: #2E1AAD;
+        color: ${props => props.theme.color.blue};
     }
     &.MuiButton-root{
         text-transform: none;
     }
     &:hover{
-        background-color: #FFFFFF;
+        background-color: ${props => props.theme.color.white};
     }
 `
 
@@ -197,7 +198,7 @@ export const HeadingLine = styled.div`
     height: 1px;
     margin-left: 24px;
     margin-top: -20px;
-    background: #EBEBEB;
+    background: ${props => props.theme.color.grayWhite};
 `
 
 export const ManageCardDetailsContainer = styled.div`
@@ -205,14 +206,14 @@ export const ManageCardDetailsContainer = styled.div`
     margin-left: 46px;
     width: 112px;
     height: 22px;
-    font-family: Manrope;
-    font-style: normal;
+    font-family: ${props => props.theme.fontFamily};
+    font-style: ${props => props.theme.fontStyle};
     font-weight: normal;
     font-size: 12px;
     line-height: 22px;
     text-decoration-line: underline;
     font-feature-settings: 'liga' off;
-    color: #231F20;
+    color: ${props => props.theme.color.redBlack};
 `
 
 export const InvoicesLine = styled.div`
@@ -220,7 +221,7 @@ export const InvoicesLine = styled.div`
   height: 1px;
   margin-top: -20px;
   margin-left: 24px;
-  background: #D6D6D6;
+  background: ${props => props.theme.color.redGray};
 `
 
 export const AntSwitch = withStyles((theme) => ({

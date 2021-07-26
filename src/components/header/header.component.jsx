@@ -14,21 +14,10 @@ import {
     Label,
     Circle, 
     ExitContainer,
-    NameContainer
+    NameContainer,
+    useStyles
 } from './header.styles'
 import { selectCurrentUser, selectImage } from '../../redux/user/user.selectors';
-
-const useStyles = makeStyles((theme) => ({
-    logoContainer:{
-        margin: '10px',
-    },
-    homeText:{
-        textAlign:'end',
-    },
-    newsText:{
-        textAlign:'center',
-    }
-}))
   
 const Header = () => {
     const classes = useStyles();
@@ -37,7 +26,7 @@ const Header = () => {
     console.log(currentUser)
     return(
         <>
-            <Grid container spacing={3} alignItems="center" style={{'flexWrap':'nowrap'}}>
+            <Grid container spacing={3} alignItems="center" className={classes.ma}>
                 <Grid item md>
                 <LogoContainer className={classes.logoContainer}><Logo/></LogoContainer>
                 </Grid>
@@ -52,7 +41,7 @@ const Header = () => {
                 </Grid>
                 {
                     currentUser?
-                    <div style={{'display':'flex'}}>
+                    <div className={classes.userInfo}>
                         <Label>For Employers</Label>
                         <Label>For Headhunters</Label>
                         {
@@ -63,10 +52,8 @@ const Header = () => {
                         <ExitContainer><Exit/></ExitContainer>
                     </div>
                     :<Grid item md={4}>
-                        <div style={{'display':'flex'}}>
-                            <LoginButton>Login</LoginButton>
-                            <SignUpButton>Signup</SignUpButton>
-                        </div>
+                        <LoginButton>Login</LoginButton>
+                        <SignUpButton>Signup</SignUpButton>
                     </Grid>
                 }
             </Grid>

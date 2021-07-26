@@ -80,9 +80,9 @@ const Specialities = ({specialities, userInfoId} : {specialities: OptionalInform
             <HeadingContainer>
                 <Heading>
                     Specialities
-                    <ViewAllText style={{cursor: "pointer"}} onClick={handleClickOpenViewAll}>View all</ViewAllText>
+                    <ViewAllText onClick={handleClickOpenViewAll}>View all</ViewAllText>
                 </Heading>
-                <AngleText style={{cursor: "pointer"}} onClick={handleClickOpenAdd}>+Add</AngleText>
+                <AngleText onClick={handleClickOpenAdd}>+Add</AngleText>
             </HeadingContainer>
             {
                 userSpecialities && userSpecialities.map((item:OptionalInformation) => 

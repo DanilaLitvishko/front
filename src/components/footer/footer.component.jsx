@@ -9,20 +9,22 @@ import {
   Copyright,
   CompanyColumn,
   JobsColumn,
+  useStyles,
 } from "./footer.styles";
   
 const Footer = () => {
+  const styles = useStyles()
   return (
     <Box>
     <Grid container spacing={3}>
-        <Grid container item direction="column" xs alignItems="flex-end" style={{'marginTop':'64px', 'marginLeft':'165px'}}>
+        <Grid container item direction="column" xs alignItems="flex-end" className={styles.leftColumn}>
           <CompanyInfo>
           <CompanyName>I-TAPP</CompanyName>
           <Copyright>Copyright © 2021 I-TAPP</Copyright>
           <Copyright>All rights reserved</Copyright>
           </CompanyInfo>
         </Grid>
-        <Grid container item direction="column" xs alignItems="flex-end" style={{'marginTop':'64px'}}>
+        <Grid container item direction="column" xs alignItems="flex-end" className={styles.centeredColumn}>
           <CompanyColumn>
             <Heading>Company</Heading>
             <String>Home</String>
@@ -32,7 +34,7 @@ const Footer = () => {
             <String>Privacy Policy</String>
           </CompanyColumn>
         </Grid>
-        <Grid container item direction="column" xs style={{'marginTop':'64px', marginRight:'120px'}}>
+        <Grid container item direction="column" xs className={styles.rightColumn}>
           <JobsColumn>
             <Heading>Jobs</Heading>
             <String>For Candidates</String>
