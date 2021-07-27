@@ -1,5 +1,5 @@
 export interface StyledTabsProps {
     value: number;
     onChange: (event: React.ChangeEvent<{}>, newValue: number) => void;
-    orientation:"horizontal" | "vertical" | undefined,
+    orientation:'horizontal' | 'vertical' | undefined,
 }

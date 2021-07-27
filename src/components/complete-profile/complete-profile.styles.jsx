@@ -1,5 +1,5 @@
-import { Button, TextField } from '@material-ui/core'
-import styled from 'styled-components'
+import { Button, TextField } from '@material-ui/core';
+import styled from 'styled-components';
 import { makeStyles } from '@material-ui/core/styles';
 
 export const Window = styled.div`
@@ -10,7 +10,7 @@ export const Window = styled.div`
     background: ${props => props.theme.color.blueWhite};
     border-radius: 8px;
     padding: 12px;
-`
+`;
 export const UpdateText = styled.div`
     display: flex;
     width: 155px;
@@ -21,7 +21,7 @@ export const UpdateText = styled.div`
     font-weight: 800;
     font-size: 16px;
     line-height: 22px;
-`
+`;
 
 export const Input = styled(TextField)`
     display: flex;
@@ -33,7 +33,7 @@ export const Input = styled(TextField)`
     box-sizing: border-box;
     border-radius: 8px;
     margin-bottom: 24px;
-`
+`;
 
 export const Label = styled.div`
     margin: 12px;
@@ -46,7 +46,7 @@ export const Label = styled.div`
     font-size: 16px;
     line-height: 22px;
     color: ${props => props.theme.color.black};
-`
+`;
 
 export const AddPosition = styled.div`
     cursor: pointer;
@@ -61,7 +61,7 @@ export const AddPosition = styled.div`
     line-height: 22px;
     color: ${props => props.theme.color.black};
     margin-bottom: 66px;
-`
+`;
 
 export const SaveButton = styled(Button)`
     height: 47px;
@@ -87,7 +87,7 @@ export const SaveButton = styled(Button)`
     &:hover{
         background-color: ${props => props.theme.color.blue};
     }
-`
+`;
 
 export const Industrie = styled.div`
     font-family: ${props => props.theme.fontFamily};
@@ -103,7 +103,7 @@ export const Industrie = styled.div`
         border-bottom: none;
     }
     color: ${props => props.theme.color.white};
-`
+`;
 
 export const UploadPhotoButton = styled(Button)`
     height: 259px;
@@ -130,7 +130,7 @@ export const UploadPhotoButton = styled(Button)`
     &:hover{
         background-color: ${props => props.theme.color.white};
     }
-`
+`;
 
 export const Image = styled.img`
     display: flex;
@@ -141,41 +141,42 @@ export const Image = styled.img`
     border: 1px solid ${props => props.theme.color.redWhite};
     box-sizing: border-box;
     border-radius: 8px;
-`
+`;
 
 export const useStyles = makeStyles({
-    root: {
-      '&.Mui-focused': {
-          outline: 'none'                                                          
-      }
-    },
-    image:{
-      width: '300px',
-      height: '259px',
+	root: {
+		'&.Mui-focused': {
+			outline: 'none'                                                          
+		}
+	},
+	image:{
+		width: '300px',
+		height: '259px',
   
-      background: '#FFFFFF',
-      border: '1px solid #DDDDD',
-      boxSizing: 'border-box',
-      borderRadius: '8px',
-      display: 'flex',
-    },
-    form:{
-      padding:'20px',
-      margin:'10px'
-    },
-    mainContainer:{
-      display:'flex',
-      flexDirection:'row'
-    },
-    leftColumn:{
-      display:'flex',
-      flexDirection:'column'
-    },
-    rightColumn:{
-      display:'flex',
-      marginLeft:'69px'
-    },
-    input:{
-        display: 'none',
-    }
-  })
+		background: '#FFFFFF',
+		border: '1px solid #DDDDD',
+		boxSizing: 'border-box',
+		borderRadius: '8px',
+		display: 'flex',
+		objectFit: 'contain'
+	},
+	form:{
+		padding:'20px',
+		margin:'10px'
+	},
+	mainContainer:{
+		display:'flex',
+		flexDirection:'row'
+	},
+	leftColumn:{
+		display:'flex',
+		flexDirection:'column'
+	},
+	rightColumn:{
+		display:'flex',
+		marginLeft:'69px'
+	},
+	input:{
+		display: 'none',
+	}
+});

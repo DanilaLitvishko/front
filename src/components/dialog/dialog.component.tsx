@@ -1,3 +1,5 @@
+import React from 'react';
+
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
@@ -7,27 +9,27 @@ import { DialogPopupProps } from '../../interfaces/dialog-popup-props.interface'
 import { OptionalInformation } from '../../interfaces/optional-information.interface';
 
 const DialogPopup = ({ onClose, selectedValue, open, specialities, title }: DialogPopupProps) => {
-  const handleClose = () => {
-    onClose(selectedValue);
-  };
+	const handleClose = () => {
+		onClose(selectedValue);
+	};
 
-  const handleListItemClick = (value: OptionalInformation | null) => {
-    onClose(value);
-  };
+	const handleListItemClick = (value: OptionalInformation | null) => {
+		onClose(value);
+	};
 
-  return (
-    <Dialog onClose={handleClose} aria-labelledby="simple-dialog-title" open={open}>
-      <DialogTitle id="simple-dialog-title">{title}</DialogTitle>
-      <List>
+	return (
+		<Dialog onClose={handleClose} aria-labelledby="simple-dialog-title" open={open}>
+			<DialogTitle id="simple-dialog-title">{title}</DialogTitle>
+			<List>
         
-        {specialities && specialities.map((speciality) => (
-          <ListItem button onClick={() => handleListItemClick(speciality)} key={speciality.id}>
-            <ListItemText primary={speciality.name} />
-          </ListItem>
-        ))}
-      </List>
-    </Dialog>
-  );
-}
+				{specialities && specialities.map((speciality) => (
+					<ListItem button onClick={() => handleListItemClick(speciality)} key={speciality.id}>
+						<ListItemText primary={speciality.name} />
+					</ListItem>
+				))}
+			</List>
+		</Dialog>
+	);
+};
 
 export default DialogPopup;

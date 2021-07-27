@@ -1,4 +1,4 @@
-import { Theme } from "@material-ui/core/styles";
+import { Theme } from '@material-ui/core/styles';
 
 export interface MainTheme extends Theme{
     fontSource?:'https://fonts.googleapis.com/css2?family=Manrope:wght@200&display=swap',

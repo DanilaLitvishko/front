@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const Industrie = styled.div`
     font-family: ${props => props.theme.fontFamily};
@@ -12,7 +12,7 @@ export const Industrie = styled.div`
     padding-bottom: 14px;
     width: 349px;
     display: flex;
-`
+`;
 
 export const TextContainer = styled.span`
   width: 90%;

@@ -1,5 +1,5 @@
-import { Button, TextField } from "@material-ui/core";
-import styled from "styled-components";
+import { Button, TextField } from '@material-ui/core';
+import styled from 'styled-components';
 import { makeStyles } from '@material-ui/core/styles';
 
 
@@ -11,7 +11,7 @@ export const Label = styled.label`
     line-height: 22px;
     font-feature-settings: 'liga' off;
     color: ${props => props.theme.color.gray};
-`
+`;
 
 export const Input = styled(TextField)`
     height: 52px;
@@ -21,7 +21,7 @@ export const Input = styled(TextField)`
     & .MuiOutlinedInput-root{
         border-radius: 8px;
     }
-`
+`;
 
 export const LoginButton = styled(Button)`
     height: 52px;
@@ -47,7 +47,7 @@ export const LoginButton = styled(Button)`
     &:hover{
         background-color: ${props => props.theme.color.blue};
     }
-`
+`;
 
 export const SignUpTextInButton = styled.div`
     width: 58px;
@@ -62,15 +62,15 @@ export const SignUpTextInButton = styled.div`
     font-feature-settings: 'liga' off;
 
     color: ${props => props.theme.color.white};
-`
+`;
 
 export const useStyles = makeStyles({
-    form:{
-        marginLeft:'24px', 
-        marginRight:'24px', 
-        marginTop:'25px'
-    },
-    passwordInput:{
-        marginBottom: '40px'
-    }
-})
+	form:{
+		marginLeft:'24px', 
+		marginRight:'24px', 
+		marginTop:'25px'
+	},
+	passwordInput:{
+		marginBottom: '40px'
+	}
+});

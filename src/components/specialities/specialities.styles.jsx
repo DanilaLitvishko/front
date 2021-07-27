@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const HeadingContainer = styled.div`
   width: 100%;
@@ -6,7 +6,7 @@ export const HeadingContainer = styled.div`
   display: flex;
   justify-content: space-between;
   margin-top: 16px;
-`
+`;
 
 export const Heading = styled.div`
     display: flex;
@@ -20,7 +20,7 @@ export const Heading = styled.div`
     line-height: 24px;
     font-feature-settings: 'liga' off;
     color: ${props => props.theme.color.redBlack};
-`
+`;
 
 export const SpecialitiesContainer = styled.div`
     margin-left: 8px;
@@ -32,7 +32,7 @@ export const SpecialitiesContainer = styled.div`
     display: flex;
     margin-bottom: -50px;
     flex-direction: column;
-`
+`;
 
 export const AngleText = styled.div`
     width: 26px;
@@ -47,7 +47,7 @@ export const AngleText = styled.div`
     display: flex;
     margin-right: 39px;
     cursor: pointer;
-`
+`;
 
 export const ViewAllText = styled.div`
     margin-left: 8px;
@@ -62,4 +62,4 @@ export const ViewAllText = styled.div`
     color:  ${props => props.theme.color.blue};
     margin-top: 5px;
     cursor: pointer;
-`
+`;

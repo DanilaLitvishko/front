@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const AboutYouContainer = styled.div`
     margin-left: 32px;
@@ -11,7 +11,7 @@ export const AboutYouContainer = styled.div`
     display: flex;
     margin-bottom: -50px;
     flex-direction:column;
-`
+`;
 
 export const HeadingContainer = styled.div`
   width: 100%;
@@ -19,7 +19,7 @@ export const HeadingContainer = styled.div`
   display: flex;
   justify-content: space-between;
   margin-top: 16px;
-`
+`;
 
 export const Heading = styled.div`
     display: flex;
@@ -33,7 +33,7 @@ export const Heading = styled.div`
     line-height: 24px;
     font-feature-settings: 'liga' off;
     color: ${props => props.theme.color.redBlack};
-`
+`;
 
 export const AngleText = styled.div`
     width: 26px;
@@ -47,7 +47,7 @@ export const AngleText = styled.div`
     color: ${props => props.theme.color.blue};
     display: flex;
     margin-right: 39px;
-`
+`;
 
 export const HeadingLine = styled.div`
     width: 349px;
@@ -55,13 +55,13 @@ export const HeadingLine = styled.div`
     margin-left: 24px;
     margin-top: -20px;
     background: ${props => props.theme.color.grayWhite};
-`
+`;
 
 export const PencilContainer = styled.div`
     width: 12px;
     height: 12px;
     margin-right: 5px;
-`
+`;
 
 export const MainInfoContainer = styled.div`
     margin-top: 24px;
@@ -69,7 +69,7 @@ export const MainInfoContainer = styled.div`
     margin-bottom: 20px;
     display: flex;
     flex-direction: row;
-`
+`;
 
 export const TextContainer = styled.div`
     font-family: ${props => props.theme.fontFamily};
@@ -80,7 +80,7 @@ export const TextContainer = styled.div`
     font-feature-settings: 'liga' off;
     color: ${props => props.theme.color.redBlack};
     margin-bottom: 8px;
-`
+`;
 
 export const Circle = styled.img`
     width: 64px;
@@ -88,7 +88,7 @@ export const Circle = styled.img`
     background: ${props => props.theme.color.grayRed};
     border-radius: 50%;
     margin-right: 20px;
-`
+`;
 
 export const NameContainer = styled.div`
     width: 154px;
@@ -100,7 +100,7 @@ export const NameContainer = styled.div`
     line-height: 24px;
     font-feature-settings: 'liga' off;
     color:${props => props.theme.color.redBlack};
-`
+`;
 
 export const StatusContainer = styled.div`
     width: 127px;
@@ -112,4 +112,4 @@ export const StatusContainer = styled.div`
     line-height: 24px;
     font-feature-settings: 'liga' off;
     color: ${props => props.theme.color.gray};
-`
+`;

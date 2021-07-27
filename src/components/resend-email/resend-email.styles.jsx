@@ -1,5 +1,5 @@
-import styled from 'styled-components'
-import {Button} from '@material-ui/core'
+import styled from 'styled-components';
+import {Button} from '@material-ui/core';
 
 export const Window = styled.div`
     display: flex;
@@ -10,7 +10,7 @@ export const Window = styled.div`
     border-radius: 8px;
     width: 496px;
     height: 335px;
-`
+`;
 
 export const Thanks = styled.div`
     font-family: ${props => props.theme.fontFamily};
@@ -18,7 +18,7 @@ export const Thanks = styled.div`
     font-weight: 800;
     font-size: 20px;
     line-height: 28px;
-`
+`;
 
 export const String = styled.div`
     font-family: ${props => props.theme.fontFamily};
@@ -28,7 +28,7 @@ export const String = styled.div`
     line-height: 24px;
     font-feature-settings: 'liga' off;
     color: ${props => props.theme.color.redBlack};
-`
+`;
 
 export const StyledButton = styled(Button)`
     height: 52px;
@@ -53,4 +53,4 @@ export const StyledButton = styled(Button)`
     &:hover{
         background-color: ${props => props.theme.color.blue};
     }
-`
+`;

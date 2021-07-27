@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const Industrie = styled.div`
     font-family: ${props => props.theme.fontFamily};
@@ -14,7 +14,7 @@ export const Industrie = styled.div`
     &:last-child {
         border-bottom: none;
     }
-`
+`;
 
 export const TextContainer = styled.span`
   width: 98%;

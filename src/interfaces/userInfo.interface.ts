@@ -1,4 +1,4 @@
-import { OptionInfo } from './option-info.interface'
+import { OptionInfo } from './option-info.interface';
 
 export interface UserInfo{
     bodyParameters:{

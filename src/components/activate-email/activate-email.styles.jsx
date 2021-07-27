@@ -1,5 +1,5 @@
-import { Link } from 'react-router-dom'
-import styled from 'styled-components'
+import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 
 export const Window = styled.div`
     display: flex;
@@ -10,7 +10,7 @@ export const Window = styled.div`
     border-radius: 8px;
     width: 496px;
     height: 335px;
-`
+`;
 
 export const Thanks = styled.div`
     font-family: ${props => props.theme.fontFamily};
@@ -18,7 +18,7 @@ export const Thanks = styled.div`
     font-weight: 800;
     font-size: 20px;
     line-height: 28px;
-`
+`;
 
 export const LoginButton = styled.button`
     height: 40px;
@@ -27,7 +27,7 @@ export const LoginButton = styled.button`
     box-sizing: border-box;
     border-radius: 8px;
     margin: 0px 14px;
-`
+`;
 
 
 export const Login = styled(Link)`
@@ -39,4 +39,4 @@ export const Login = styled(Link)`
     font-size: 14px;
     line-height: 20px;
     color: ${props => props.theme.color.blue};
-`
+`;

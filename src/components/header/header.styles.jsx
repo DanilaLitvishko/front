@@ -1,17 +1,17 @@
-import styled from 'styled-components'
-import {Button} from '@material-ui/core'
+import styled from 'styled-components';
+import {Button} from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
 export const LogoContainer = styled.div`
     width: 102px;
     height: 43px;
     margin-left: 165px;
-`
+`;
 
 export const LeftNav = styled.div`
     width: 456px;
     height: 32px;
-`
+`;
 
 export const Line = styled.div`
     width: 100%;
@@ -19,7 +19,7 @@ export const Line = styled.div`
     left: 0px;
     top: 80px;
     background: ${props => props.theme.color.grayWhite};
-`
+`;
 
 export const ButtonsContainer = styled.div`
     padding: 0px;
@@ -63,7 +63,7 @@ export const LoginButton = styled(Button)`
     &:hover{
         background-color: ${props => props.theme.color.white};
     }
-`
+`;
 
 export const SignUpButton = styled(Button)`
     height: 40px;
@@ -90,7 +90,7 @@ export const SignUpButton = styled(Button)`
     &:hover{
         background-color: ${props => props.theme.color.blue};
     }
-`
+`;
 
 export const Circle = styled.img`
     width: 40px;
@@ -100,7 +100,7 @@ export const Circle = styled.img`
     margin-left: 16px;
     margin-right: 12px;
     margin-top: -10px;
-`
+`;
 
 export const Label = styled.label`
     font-family: ${props => props.theme.fontFamily};
@@ -114,14 +114,14 @@ export const Label = styled.label`
     padding-right: 32px;
 
     color: ${props => props.theme.color.gray};
-`
+`;
 
 export const ExitContainer = styled.div`
     height: 16px;
     width: 17px;
     margin-left: 18px;
     margin-right: 168px;
-`
+`;
 
 export const NameContainer = styled.div`
     font-family: ${props => props.theme.fontFamily};
@@ -134,22 +134,22 @@ export const NameContainer = styled.div`
     font-feature-settings: 'liga' off;
     height: 24px;
     color: ${props => props.theme.color.redBlack};
-`
+`;
 
 export const useStyles = makeStyles({
-    mainContainer:{
-        flexWrap:'nowrap',
-    },
-    logoContainer:{
-        margin: '10px',
-    },
-    homeText:{
-        textAlign:'end',
-    },
-    newsText:{
-        textAlign:'center',
-    },
-    userInfo:{
-        display: 'flex',
-    }
-})
+	mainContainer:{
+		flexWrap:'nowrap',
+	},
+	logoContainer:{
+		margin: '10px',
+	},
+	homeText:{
+		textAlign:'end',
+	},
+	newsText:{
+		textAlign:'center',
+	},
+	userInfo:{
+		display: 'flex',
+	}
+});

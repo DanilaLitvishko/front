@@ -1,28 +1,28 @@
-import { createSelector } from 'reselect'
+import { createSelector } from 'reselect';
 
 const selectUser = state => state.user;
 
 export const selectCurrentUser = createSelector(
-    selectUser,  
-    (user) => user.currentUser
-)
+	selectUser,  
+	(user) => user.currentUser
+);
 
 export const selectError = createSelector(
-    selectUser,
-    (user) => user.error
-)
+	selectUser,
+	(user) => user.error
+);
 
 export const selectLoading = createSelector(
-    selectUser,
-    (user) => user.loading
-)
+	selectUser,
+	(user) => user.loading
+);
 
 export const selectUserInfo = createSelector(
-    selectUser,
-    (user) => user.userInfo
-)
+	selectUser,
+	(user) => user.userInfo
+);
 
 export const selectImage = createSelector(
-    selectUser,
-    (user) => user.image
-)
+	selectUser,
+	(user) => user.image
+);

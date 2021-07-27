@@ -1,5 +1,5 @@
-import { Button, TextField } from "@material-ui/core";
-import styled from "styled-components";
+import { Button, TextField } from '@material-ui/core';
+import styled from 'styled-components';
 import { makeStyles } from '@material-ui/core/styles';
 
 export const Label = styled.label`
@@ -11,7 +11,7 @@ export const Label = styled.label`
     line-height: 22px;
     font-feature-settings: 'liga' off;
     color: ${props => props.theme.color.gray};
-`
+`;
 
 export const Input = styled(TextField)`
     height: 52px;
@@ -21,7 +21,7 @@ export const Input = styled(TextField)`
     & .MuiOutlinedInput-root{
         border-radius: 8px;
     }
-`
+`;
 
 export const SignUpButton = styled(Button)`
     height: 52px;
@@ -47,7 +47,7 @@ export const SignUpButton = styled(Button)`
     &:hover{
         background-color: ${props => props.theme.color.blue};
     }
-`
+`;
 
 export const Text = styled.div`
     font-family: ${props => props.theme.fontFamily};
@@ -59,7 +59,7 @@ export const Text = styled.div`
     line-height: 24px;
     font-feature-settings: 'liga' off;
     color: ${props => props.theme.color.redBlack};
-`
+`;
 
 export const Square = styled.div`
     width: 18px;
@@ -68,17 +68,17 @@ export const Square = styled.div`
     box-sizing: border-box;
     border-radius: 2px;
     margin-right: 10px;
-`
+`;
 
 export const useStyles = makeStyles({
-    form:{
-        marginLeft:'24px', 
-        marginRight:'24px', 
-        marginTop:'25px'
-    },
-    text:{
-        display: 'flex',
-        marginTop: '32px',         
-        marginBottom:'40px'
-    }
-})
+	form:{
+		marginLeft:'24px', 
+		marginRight:'24px', 
+		marginTop:'25px'
+	},
+	text:{
+		display: 'flex',
+		marginTop: '32px',         
+		marginBottom:'40px'
+	}
+});
