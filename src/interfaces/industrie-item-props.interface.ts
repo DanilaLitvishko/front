@@ -1,6 +1,6 @@
-import { OptionalInformation } from './optional-information.interface';
+import { OptionalInformation } from "./optional-information.interface";
 
-export interface ListItemProps{
-    item: OptionalInformation,
-    onDelete: (item: OptionalInformation) => void,
+export interface ListItemProps {
+  item: OptionalInformation;
+  onDelete: (item: OptionalInformation) => void;
 }

@@ -1,6 +1,6 @@
-import { OptionalInformation } from './optional-information.interface';
+import { OptionalInformation } from "./optional-information.interface";
 
-export interface CompleteProfileProps{
-    industries: OptionalInformation[],
-    specialities: OptionalInformation[]
+export interface CompleteProfileProps {
+  industries: OptionalInformation[];
+  specialities: OptionalInformation[];
 }

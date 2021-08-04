@@ -1,6 +1,6 @@
-import { OptionalInformation } from './optional-information.interface';
+import { OptionalInformation } from "./optional-information.interface";
 
-export interface EditUserSpecialitiesSaga{
-    type:string,
-    payload: OptionalInformation[];
+export interface EditUserSpecialitiesSaga {
+  type: string;
+  payload: OptionalInformation[];
 }

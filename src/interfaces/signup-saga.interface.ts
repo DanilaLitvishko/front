@@ -1,6 +1,6 @@
-import { UserPayload } from './user-payload.interface';
+import { UserPayload } from "./user-payload.interface";
 
-export interface SignUpSaga{
-    type: string,
-    payload: UserPayload,
+export interface SignUpSaga {
+  type: string;
+  payload: UserPayload;
 }

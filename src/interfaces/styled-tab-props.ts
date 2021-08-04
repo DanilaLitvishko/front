@@ -1,3 +1,3 @@
 export interface StyledTabProps {
-    label: string;
+  label: string;
 }
