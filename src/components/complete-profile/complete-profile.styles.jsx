@@ -158,7 +158,7 @@ export const useStyles = makeStyles({
 		boxSizing: 'border-box',
 		borderRadius: '8px',
 		display: 'flex',
-		objectFit: 'contain'
+		objectFit: 'cover'
 	},
 	form:{
 		padding:'20px',

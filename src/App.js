@@ -14,6 +14,7 @@ import Profile from './components/profile/profile.component';
 import CompleteProfileContainer from './components/complete-profile/complete-profile.container';
 import { selectCurrentUser } from './redux/user/user.selectors';
 import PrivateRoute from './components/private-route/private-route.component';
+import Products from './components/products/products.component';
 
 const queryClient = new QueryClient();
 
@@ -30,6 +31,7 @@ const App = () => {
 							<PrivateRoute authed={!!currentUser} path='/completeProfile' component={CompleteProfileContainer}/>
 							<Route path='/activateEmail/:confirmationCode' component={ActivateEmail}/>
 							<PrivateRoute authed={!!currentUser} path='/profile' component={Profile}/>
+							<PrivateRoute authed={!!currentUser} path='/products' component={Products}/>
 						</Switch>
 					</Layout>
 				</QueryClientProvider>

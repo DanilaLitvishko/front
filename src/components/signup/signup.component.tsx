@@ -123,7 +123,7 @@ const SignUp = () => {
 				}
 				{
 					error?<DialogError open={open} close={handleClose} message={error.response?.data.message}/>
-						:null
+					:null
 				}
 			</Grid>
 		</form>

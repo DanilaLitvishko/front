@@ -8,6 +8,7 @@ const INITIAL_STATE:InitialState = {
 	loading: false,
 	userInfo: null,
 	image: null,
+	isAdmin: false,
 };
 
 const userReducer = (state = INITIAL_STATE, action: Action) => {
@@ -37,7 +38,8 @@ const userReducer = (state = INITIAL_STATE, action: Action) => {
 			...state,
 			currentUser: action.payload.name,
 			image: action.payload.image,
-			loading: false
+			loading: false,
+			isAdmin: action.payload.isAdmin,
 		};
 	case UserActionTypes.EDIT_USER_SPECIALITIES_SUCCESS:
 	case UserActionTypes.FETCH_USER_INFO_SUCCESS:

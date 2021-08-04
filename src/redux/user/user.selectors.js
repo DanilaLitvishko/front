@@ -26,3 +26,8 @@ export const selectImage = createSelector(
 	selectUser,
 	(user) => user.image
 );
+
+export const selectRole = createSelector(
+	selectUser,
+	(user) => user.isAdmin
+);

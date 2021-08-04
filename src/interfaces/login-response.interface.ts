@@ -3,5 +3,6 @@ export interface LoginResponse{
         accessToken: string;
         name:string;
         image:string;
+        isAdmin: boolean;
     }
 }

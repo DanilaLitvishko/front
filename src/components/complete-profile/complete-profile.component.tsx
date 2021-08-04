@@ -214,6 +214,7 @@ const CompleteProfile = ({industries, specialities} : CompleteProfileProps) => {
 				<SaveButton type="submit" disabled={isSubmitting}>Save</SaveButton>
 			</form>
 			<Link to='/profile'>Profile</Link>
+			<Link to='/products'>Products</Link>
 		</Window>
 	);
 };

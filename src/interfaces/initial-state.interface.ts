@@ -7,4 +7,5 @@ export interface InitialState{
     loading: boolean,
     userInfo: UserInfo | null,
     image: string | null,
+    isAdmin: boolean,
 }

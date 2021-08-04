@@ -7,6 +7,7 @@ const DialogError = ({ open, close, message }: DialogErrorProps) => {
 	return (
 		<Dialog  aria-labelledby="alert-dialog-title" open={open} onClose={close}>
 			<DialogTitle id="simple-dialog-title">{message}</DialogTitle>
+			
 		</Dialog>
 	);
 };
