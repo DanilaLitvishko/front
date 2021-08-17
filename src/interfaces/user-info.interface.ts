@@ -1,11 +1,14 @@
-import { OptionInfo } from './option-info.interface'
+import { OptionInfo } from "./option-info.interface";
 
-export interface UserInfo{
-    data:{
-        name:string,
-        companyName:string,
-        phoneNumber:string,
-        industries?: OptionInfo[],
-        specialities?: OptionInfo[], 
-    }
+export interface UserInfo {
+  data: {
+    id?: string;
+    name: string;
+    companyName: string;
+    phoneNumber: string;
+    industries?: OptionInfo[];
+    specialities?: OptionInfo[];
+    email?: string;
+    image?: string;
+  };
 }

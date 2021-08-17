@@ -1,5 +1,5 @@
-export interface CompleteProfileValues{
-    name:string,
-    companyName:string,
-    phoneNumber:string,
+export interface CompleteProfileValues {
+  name: string;
+  companyName: string;
+  phoneNumber: string;
 }

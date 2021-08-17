@@ -1,4 +1,5 @@
-export interface DialogErrorProps{
-    open: boolean,
-    close: () => void,
+export interface DialogErrorProps {
+  open: boolean;
+  close: () => void;
+  message: string;
 }

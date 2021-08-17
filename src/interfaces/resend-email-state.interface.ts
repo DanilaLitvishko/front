@@ -1,5 +1,5 @@
-export interface ResendEmailState{
-    state:{
-        email:string;
-    }
+export interface ResendEmailState {
+  state: {
+    email: string;
+  };
 }
